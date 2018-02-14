@@ -7,14 +7,14 @@ import {Component} from '@angular/core';
 export class DemoModals {
 
   opened: boolean = false;
-  size: string;
+  size: string = '';
 
   noHeader: boolean = false;
+  hasTagline: boolean = false;
   noFooter: boolean = false;
   directional: boolean = false;
 
-  open(size?: string) {
-    this.size = size;
+  open() {
     this.opened = !this.opened;
   }
 

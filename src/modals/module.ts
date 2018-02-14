@@ -3,13 +3,13 @@ import {CommonModule} from '@angular/common';
 import {NglIconsModule} from '../icons/module';
 
 import {NglModal} from './modal';
-import {NglModalFooter} from './footer';
-import {NglModalHeaderTemplate} from './header';
+import {NglModalHeaderTemplate, NglModalTaglineTemplate, NglModalFooterTemplate} from './templates';
 
 const NGL_MODAL_DIRECTIVES = [
   NglModal,
-  NglModalFooter,
+  NglModalFooterTemplate,
   NglModalHeaderTemplate,
+  NglModalTaglineTemplate,
 ];
 
 @NgModule({

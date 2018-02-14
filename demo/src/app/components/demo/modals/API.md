@@ -2,23 +2,23 @@
 
 ### Content
 
-  * `[body]`: Body content.
-  * `[tagline]`: If you need to provide additional context inside the header.
-  * `template[ngl-modal-footer]`: Contains buttons displayed on modal's footer.
+  * `ng-template[nglModalTagline]`: Content underneath the title in the modal header.
+  * `ng-template[nglModalFooter]`: Contains buttons displayed on modal's footer.
 
 ### Input
 
   * `header?: string`: Heading text.
   * `open?: boolean`: Whether modal is visible or not.
-  * `size?: 'large'`:  Whether modal has large or default size.
-  * `directional: boolean = false`:  Whether buttons inside footer spread to both left and right.
+  * `size?: 'string'`: Modal size. Possible values are empty, `medium` and `large`.
+  * `directional?: boolean = false`: Whether buttons inside footer spread to both left and right.
+  * `closeButtonAssistiveText? = 'Close'`: Text read aloud by screen readers when the user focuses on the Close Button.
 
 ### Output
 
   * `openChange: EventEmitter<boolean>`: emitted when modal's visibility is going to change to `false`
 
-# `template[nglModalHeader]`
+# `ng-template[nglModalHeader]`
 
 ### Variables
 
-  * `id: string`: Auto generated unique ID used for accessibility.
+  * `id: string`: Auto generated unique ID to be used for accessibility.

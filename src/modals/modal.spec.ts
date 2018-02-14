@@ -44,10 +44,11 @@ describe('`NglModal`', () => {
     expect(header.id).toEqual(modal.getAttribute('aria-labelledby'));
 
     const content = modal.querySelector('.slds-modal__content');
-    expect(content).toHaveText('Body content.');
+    expect(content.firstElementChild).toHaveCssClass('slds-p-around_medium');
+    expect(content.textContent.trim()).toBe('Body content.');
 
     const backdrop = getBackdrop(fixture.nativeElement);
-    expect(backdrop).toHaveCssClass('slds-backdrop--open');
+    expect(backdrop).toHaveCssClass('slds-backdrop_open');
   });
 
   it('should render correctly if closed', () => {
@@ -60,18 +61,18 @@ describe('`NglModal`', () => {
     expect(modal.getAttribute('aria-hidden')).toBe('true');
 
     const backdrop = getBackdrop(fixture.nativeElement);
-    expect(backdrop).not.toHaveCssClass('slds-backdrop--open');
+    expect(backdrop).not.toHaveCssClass('slds-backdrop_open');
   });
 
   it('should render correctly without header', () => {
     const fixture = createTestComponent();
     const headerEl = fixture.nativeElement.querySelector('.slds-modal__header');
-    expect(headerEl).not.toHaveCssClass('slds-modal__header--empty');
+    expect(headerEl).not.toHaveCssClass('slds-modal__header_empty');
     expect(getHeader(fixture.nativeElement)).toBeTruthy();
 
     fixture.componentInstance.header = null;
     fixture.detectChanges();
-    expect(headerEl).toHaveCssClass('slds-modal__header--empty');
+    expect(headerEl).toHaveCssClass('slds-modal__header_empty');
     expect(getHeader(fixture.nativeElement)).toBeFalsy();
   });
 
@@ -79,12 +80,24 @@ describe('`NglModal`', () => {
     const fixture = createTestComponent(`
       <ngl-modal>
         <ng-template nglModalHeader let-id="id"><span [id]="id" class="my-custom">Hello</span></ng-template>
-        <div body>Body content.</div>
+        Body content.
       </ngl-modal>`);
     const headerEl = fixture.nativeElement.querySelector('.slds-modal__header > .my-custom');
     expect(headerEl).toHaveText('Hello');
     expect(headerEl.id).toEqual(getModal(fixture.nativeElement).getAttribute('aria-labelledby'));
     expect(getHeader(fixture.nativeElement)).toBeFalsy();
+  });
+
+  it('should support tagline in header', () => {
+    const fixture = createTestComponent(`
+      <ngl-modal header="Custom header">
+        <ng-template nglModalTagline><span>Custom tagline</span></ng-template>
+      </ngl-modal>`);
+    const headerEl = fixture.nativeElement.querySelector('.slds-modal__header');
+    const taglineEl = headerEl.lastElementChild;
+    expect(taglineEl.tagName).toBe('P');
+    expect(taglineEl).toHaveCssClass('slds-m-top_x-small');
+    expect(taglineEl.textContent).toBe('Custom tagline');
   });
 
   it('should close when close button is clicked', () => {
@@ -104,14 +117,21 @@ describe('`NglModal`', () => {
     expect(fixture.componentInstance.openChange).toHaveBeenCalledWith(false);
   });
 
+  it('should support custom assistive text for close button', () => {
+    const fixture = createTestComponent(`
+      <ngl-modal closeButtonAssistiveText="Custom close text"></ngl-modal>`);
+    const button = getCloseButton(fixture.nativeElement).querySelector('.slds-assistive-text');
+    expect(button.textContent).toBe('Custom close text');
+  });
+
   it('should support footer', () => {
     const fixture = createTestComponent(`
       <ngl-modal open="true">
-        <ng-template ngl-modal-footer>{{header}} in footer</ng-template>
+        <ng-template nglModalFooter>{{header}} in footer</ng-template>
       </ngl-modal>`);
     const footer = fixture.nativeElement.querySelector('.slds-modal__footer');
     expect(footer).toHaveText('Modal Header in footer');
-    expect(footer).not.toHaveCssClass('slds-modal__footer--directional');
+    expect(footer).not.toHaveCssClass('slds-modal__footer_directional');
 
     fixture.componentInstance.header = 'Changed header';
     fixture.detectChanges();
@@ -121,24 +141,24 @@ describe('`NglModal`', () => {
   it('should support directional footer', () => {
     const fixture = createTestComponent(`
       <ngl-modal open="true" [directional]="directional">
-        <ng-template ngl-modal-footer></ng-template>
+        <ng-template nglModalFooter></ng-template>
       </ngl-modal>`, false);
     fixture.componentInstance.directional = true;
     fixture.detectChanges();
 
     const footer = getFooter(fixture.nativeElement);
-    expect(footer).toHaveCssClass('slds-modal__footer--directional');
+    expect(footer).toHaveCssClass('slds-modal__footer_directional');
 
     fixture.componentInstance.directional = false;
     fixture.detectChanges();
-    expect(footer).not.toHaveCssClass('slds-modal__footer--directional');
+    expect(footer).not.toHaveCssClass('slds-modal__footer_directional');
   });
 });
 
 @Component({
   template: `
     <ngl-modal [header]="header" [open]="open" (openChange)="openChange($event)" [size]="size">
-      <div body>Body content.</div>
+      <div class="slds-p-around_medium">Body content.</div>
     </ngl-modal>`,
 })
 export class TestComponent {
