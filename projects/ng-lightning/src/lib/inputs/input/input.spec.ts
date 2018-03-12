@@ -1,7 +1,8 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent } from '../../../../test/util';
+import { createGenericTestComponent, dispatchEvent } from '../../../../test/util';
 import { NglInputsModule } from '../module';
+import { getTooltipElement } from '../../tooltips/tooltip.spec';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -64,6 +65,32 @@ describe('`NglInput`', () => {
     expect(element).toHaveCssClass('slds-has-error');
     expect(errorEl.id).toEqual(inputEl.getAttribute('aria-describedby'));
     expect(errorEl).toHaveText('This is an error!');
+  });
+
+  it('should support tooltip', () => {
+    const fixture = createTestComponent(`
+      <ngl-input [label]="label" [fieldLevelHelpTooltip]="'Field Help'">
+        <input ngl type="text">
+      </ngl-input>`);
+
+    const helpEl = fixture.nativeElement.querySelector('.slds-form-element__icon');
+    expect(helpEl).toBeDefined();
+
+    const buttonEl = helpEl.querySelector('button');
+
+    // Check that it is connected with a tooltip
+    expect(buttonEl.getAttribute('aria-describedby')).toBeTruthy();
+    dispatchEvent(buttonEl, 'focus');
+    fixture.detectChanges();
+    const tooltipEl = getTooltipElement();
+    expect(tooltipEl.querySelector('.slds-popover__body')).toHaveText('Field Help');
+
+    // Close tooltip
+    dispatchEvent(buttonEl, 'blur');
+    fixture.detectChanges();
+    expect(getTooltipElement()).toBeFalsy();
+
+    expect(helpEl.querySelector('.slds-assistive-text')).toHaveText('Help');
   });
 
   it('should throw error if structure is wrong', () => {

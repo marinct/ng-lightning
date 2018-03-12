@@ -23,6 +23,8 @@ export class NglInput implements OnChanges, AfterContentInit, OnDestroy {
 
   @Input() @InputBoolean() stacked: boolean;
 
+  @Input() fieldLevelHelpTooltip: string | TemplateRef<any>;
+
   @HostBinding('class.slds-has-error')
   get hasError(): boolean {
     return toBoolean(this.error);

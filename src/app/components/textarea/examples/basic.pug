@@ -14,5 +14,5 @@
 
 .slds-grid.slds-grid_pull-padded.slds-grid_vertical-align-center.slds-m-top_large
   .slds-col_padded
-    ngl-textarea(label="Textarea Label", [error]="hasError ? error : null")
+    ngl-textarea(label="Textarea Label", fieldLevelHelpTooltip="Some helpful information", [error]="hasError ? error : null")
       textarea(ngl, [required]="required", [disabled]="disabled", placeholder="Placeholder Text")

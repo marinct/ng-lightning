@@ -19,6 +19,8 @@ export class NglTextarea implements OnChanges, AfterContentInit, OnDestroy {
   @isRequired
   @Input() label: string | TemplateRef<any>;
 
+  @Input() fieldLevelHelpTooltip: string | TemplateRef<any>;
+
   @Input() error: string;
 
   @HostBinding('class.slds-has-error')
