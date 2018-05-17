@@ -13,24 +13,13 @@ import {NglConfig, NglConfigurable} from '../config/config';
 export class NglIconSvg {
 
   @Input('nglIconName') set iconName(iconName: string) {
-    const parts = iconName.split(':').reverse();
-    if (parts.length === 2) {
-      this._category = parts[1];
-    } else {
-      this._category = 'utility';
-    }
-    this._icon = parts[0];
+    const [icon, type] = iconName.split(':').reverse();
+    this.iconPath = `${this.config.get('svgPath')}/${type || 'utility'}-sprite/svg/symbols.svg#${icon}`;
   }
 
   @Input() xPos: string = '0';
 
-  private _icon: string;
-  private _category = 'utility';
+  iconPath: string;
 
-  constructor(private config: NglConfig, private cd: ChangeDetectorRef) {
-  }
-
-  iconPath() {
-    return `${this.config.get('svgPath')}/${this._category}-sprite/svg/symbols.svg#${this._icon}`;
-  }
+  constructor(private config: NglConfig, private cd: ChangeDetectorRef) {}
 }
