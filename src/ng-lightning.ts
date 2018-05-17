@@ -18,6 +18,7 @@ import {NglPickModule} from './pick/module';
 import {NglPicklistModule} from './picklist/module';
 import {NglPillsModule} from './pills/module';
 import {NglPopoversModule} from './popovers/module';
+import {NglProgressBarModule} from './progressbar/module';
 import {NglRatingsModule} from './ratings/module';
 import {NglSectionsModule} from './sections/module';
 import {NglSpinnersModule} from './spinners/module';
@@ -47,6 +48,7 @@ const MODULES = [
   NglPicklistModule,
   NglPillsModule,
   NglPopoversModule,
+  NglProgressBarModule,
   NglRatingsModule,
   NglSectionsModule,
   NglSpinnersModule,
