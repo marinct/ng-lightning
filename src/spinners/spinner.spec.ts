@@ -30,6 +30,7 @@ describe('Spinner Component', () => {
   it('should render a large spinner based on input', () => {
     const fixture = createTestComponent(`<ngl-spinner [size]="size" ></ngl-spinner>`);
     const spinner = getSpinnerElement(fixture.nativeElement);
+    expect(spinner).not.toHaveCssClass('slds-spinner_medium');
     expect(spinner).toHaveCssClass('slds-spinner_large');
 
     fixture.componentInstance.size = null;
