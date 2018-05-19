@@ -7,6 +7,10 @@ import {By} from '@angular/platform-browser';
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
 
+function getTabsContainer(element: Element): HTMLElement {
+  return <HTMLElement>element.firstElementChild;
+}
+
 function getTabsElement(element: Element): HTMLUListElement {
   return <HTMLUListElement>element.querySelector('ul');
 }
@@ -16,7 +20,7 @@ function getTabHeaders(element: HTMLElement): HTMLElement[] {
 }
 
 function getTabContent(element: HTMLElement): string {
-  return element.querySelector('.slds-tabs--default__content').textContent;
+  return element.querySelector('.slds-tabs_default__content').textContent;
 }
 
 function expectHeaders(element: HTMLElement, expected: string[]) {
@@ -30,11 +34,12 @@ describe('Tabs Component', () => {
 
   it('should render the tabs container', () => {
     const fixture = createTestComponent();
+    const host = getTabsContainer(fixture.nativeElement);
+    const tabs = getTabsElement(host);
 
-    const tabs = getTabsElement(fixture.nativeElement);
-    expect(tabs).toBeDefined();
+    expect(host).toHaveCssClass('slds-tabs_default');
     expect(tabs.tagName).toBe('UL');
-    expect(tabs).toHaveCssClass('slds-tabs--default__nav');
+    expect(tabs).toHaveCssClass('slds-tabs_default__nav');
   });
 
   it('should render the tab headers', () => {
@@ -42,37 +47,18 @@ describe('Tabs Component', () => {
     expectHeaders(fixture.nativeElement, ['First', 'Second',  'Third tab', 'Fourth tab']);
   });
 
-  it('should render titles with caps', () => {
-    const fixture = createTestComponent();
-    const lis = selectElements(fixture.nativeElement, 'li');
-    lis.forEach((li) => expect(li).toHaveCssClass('slds-text-title--caps'));
-  });
-
-  it('should render titles with caps based on input', () => {
-    const fixture = createTestComponent(`
-      <ngl-tabs [(selected)]="selectedTab" [titleCaps]="titleCaps">
-        <ng-template ngl-tab></ng-template><ng-template ngl-tab></ng-template>
-      </ngl-tabs>`);
-    const lis = selectElements(fixture.nativeElement, 'li');
-    lis.forEach((li) => expect(li).not.toHaveCssClass('slds-text-title--caps'));
-
-    fixture.componentInstance.titleCaps = 'true';
-    fixture.detectChanges();
-    lis.forEach((li) => expect(li).toHaveCssClass('slds-text-title--caps'));
-  });
-
   it('should render tab headers based on template', () => {
-    const fixture = createTestComponent(`<ngl-tabs [(selected)]="selectedTab">
+    const fixture = createTestComponent(`<ngl-tabset [(selected)]="selectedTab">
           <ng-template #h><b>My header</b></ng-template>
-          <ng-template ngl-tab [heading]="h"></ng-template>
-          <ngl-tab heading="Simple">
+          <ng-template ngl-tab [label]="h"></ng-template>
+          <ngl-tab label="Simple">
             <ng-template ngl-tab-content></ng-template>
           </ngl-tab>
           <ngl-tab>
-            <ng-template ngl-tab-heading><i>Another</i> header</ng-template>
+            <ng-template ngl-tab-label><i>Another</i> header</ng-template>
             <ng-template ngl-tab-content></ng-template>
           </ngl-tab>
-        </ngl-tabs>`);
+        </ngl-tabset>`);
     expectHeaders(fixture.nativeElement, ['<b>My header</b>', 'Simple', '<i>Another</i> header']);
   });
 
@@ -132,10 +118,10 @@ describe('Tabs Component', () => {
 
   it('should allow activating tab from outside', () => {
     const fixture = createTestComponent(`
-      <ngl-tabs [selected]="selectedTab" (selectedChange)="change($event)">
+      <ngl-tabset [selected]="selectedTab" (selectedChange)="change($event)">
         <ng-template ngl-tab></ng-template>
-        <ng-template ngl-tab nglTabId="another" #anotherTab="nglTab">Another tab</ng-template>
-      </ngl-tabs>
+        <ng-template ngl-tab id="another" #anotherTab="nglTab">Another tab</ng-template>
+      </ngl-tabset>
       <button (click)="selectedTab = anotherTab"></button>
     `);
     const button = fixture.nativeElement.querySelector('button');
@@ -146,20 +132,35 @@ describe('Tabs Component', () => {
     expect(getTabContent(fixture.nativeElement)).toBe('Another tab');
   });
 
+  it('should render scoped tabs correctly', () => {
+    const fixture = createTestComponent(`
+      <ngl-tabset variant="scoped">
+        <ng-template ngl-tab></ng-template>
+      </ngl-tabset>
+    `);
+
+    const host = getTabsContainer(fixture.nativeElement);
+    const tabs = getTabsElement(host);
+
+    expect(host).toHaveCssClass('slds-tabs_scoped');
+    expect(host).not.toHaveCssClass('slds-tabs_default');
+    expect(tabs).toHaveCssClass('slds-tabs_scoped__nav');
+  });
+
 });
 
 @Component({
   template: `
-    <ngl-tabs [selected]="selectedTab" (selectedChange)="change($event)">
-      <ng-template ngl-tab heading="First">Tab 1</ng-template>
-      <ng-template ngl-tab nglTabId="two" heading="Second">Tab 2</ng-template>
-      <ng-template ngl-tab nglTabId="three" heading="Third tab" (onActivate)="activate(true)"
-            (onDeactivate)="activate(false)">Tab 3</ng-template>
-      <ngl-tab (onActivate)="activate(4, true)" (onDeactivate)="activate(4, false)">
-        <ng-template ngl-tab-heading>Fourth tab</ng-template>
+    <ngl-tabset [selected]="selectedTab" (selectedChange)="change($event)">
+      <ng-template ngl-tab label="First">Tab 1</ng-template>
+      <ng-template ngl-tab id="two" label="Second">Tab 2</ng-template>
+      <ng-template ngl-tab id="three" label="Third tab" (activate)="activate(true)"
+            (deactivate)="activate(false)">Tab 3</ng-template>
+      <ngl-tab (activate)="activate(4, true)" (deactivate)="activate(4, false)">
+        <ng-template ngl-tab-label>Fourth tab</ng-template>
         <ng-template ngl-tab-content>Tab 4</ng-template>
       </ngl-tab>
-    </ngl-tabs>
+    </ngl-tabset>
   `,
 })
 export class TestComponent {

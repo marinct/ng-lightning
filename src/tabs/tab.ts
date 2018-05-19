@@ -1,7 +1,7 @@
 import {Directive, Input, TemplateRef, Output, EventEmitter, Optional} from '@angular/core';
 
 /*
- * <ng-template ngl-tab heading="...">
+ * <ng-template ngl-tab label="...">
  *    Content goes here...
  * </ng-template>
  */
@@ -10,10 +10,10 @@ import {Directive, Input, TemplateRef, Output, EventEmitter, Optional} from '@an
   exportAs: 'nglTab',
 })
 export class NglTab {
-  @Input('nglTabId') id: string;
-  @Input() heading: string | TemplateRef<any>;
-  @Output() onActivate = new EventEmitter<NglTab>();
-  @Output() onDeactivate = new EventEmitter<NglTab>();
+  @Input() id: string;
+  @Input() label: string | TemplateRef<any>;
+  @Output() activate = new EventEmitter<NglTab>();
+  @Output() deactivate = new EventEmitter<NglTab>();
 
   private _active: boolean = false;
 
@@ -23,9 +23,9 @@ export class NglTab {
     if (active ===  this._active) return;
     this._active = active;
     if (active) {
-      this.onActivate.emit(this);
+      this.activate.emit(this);
     } else {
-      this.onDeactivate.emit(this);
+      this.deactivate.emit(this);
     }
   }
 

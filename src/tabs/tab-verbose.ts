@@ -2,15 +2,15 @@ import {Directive, Input, TemplateRef, Output, EventEmitter, ContentChild} from 
 import {NglTab} from './tab';
 
 /*
- * <ngl-tab [heading="..."]>
- *    <ng-template ngl-tab-heading>...</ng-template>
+ * <ngl-tab [label="..."]>
+ *    <ng-template ngl-tab-label>...</ng-template>
  *    <ng-template ngl-tab-content>
  *       Content goes here...
  *    </ng-template>
  * </ngl-tab>
  */
-@Directive({selector: '[ngl-tab-heading]'})
-export class NglTabHeading {
+@Directive({selector: '[ngl-tab-label]'})
+export class NglTabLabel {
   constructor(public templateRef: TemplateRef<any>) {}
 }
 
@@ -24,17 +24,17 @@ export class NglTabContent {
   providers: [ {provide: NglTab, useExisting: NglTabVerbose} ],
 })
 export class NglTabVerbose extends NglTab {
-  @Input('nglTabId') id: string;
-  @Input() heading: string | TemplateRef<any>;
-  @Output() onActivate = new EventEmitter<NglTab>();
-  @Output() onDeactivate = new EventEmitter<NglTab>();
+  @Input() id: string;
+  @Input() label: string | TemplateRef<any>;
+  @Output() activate = new EventEmitter<NglTab>();
+  @Output() deactivate = new EventEmitter<NglTab>();
 
   @ContentChild(NglTabContent) contentTemplate: NglTabContent;
-  @ContentChild(NglTabHeading) headingTemplate: NglTabHeading;
+  @ContentChild(NglTabLabel) labelTemplate: NglTabLabel;
 
   ngAfterContentInit() {
-    if (this.headingTemplate) {
-      this.heading = this.headingTemplate.templateRef;
+    if (this.labelTemplate) {
+      this.label = this.labelTemplate.templateRef;
     }
     this.templateRef = this.contentTemplate.templateRef;
   }

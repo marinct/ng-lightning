@@ -6,13 +6,13 @@ import {Component} from '@angular/core';
 })
 export class DemoTabs {
 
-  type: string = 'scoped';
+  variant: string = 'scoped';
   id: number = 0;
   selectedTab: any = 'sum';
   details: number[] = [];
 
   change() {
-    this.type = this.type === 'scoped' ? 'default' : 'scoped';
+    this.variant = this.variant === 'scoped' ? null : 'scoped';
   }
 
   addDetail() {

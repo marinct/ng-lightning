@@ -1,13 +1,22 @@
-import {Component, Input, QueryList, ContentChildren, Output, EventEmitter} from '@angular/core';
-import {isInt, toBoolean} from '../util/util';
-import {NglTab} from './tab';
+import { Component, Input, QueryList, ContentChildren, Output, EventEmitter, ElementRef, Renderer2} from '@angular/core';
+import { isInt } from '../util/util';
+import { NglTab } from './tab';
 
 @Component({
-  selector: 'ngl-tabs',
+  selector: 'ngl-tabset',
   templateUrl: './tabs.pug',
 })
 export class NglTabs {
-  @Input() type: 'default' | 'scoped' = 'default';
+
+  @Input() set variant(variant: 'default' | 'scoped') {
+    const el = this.element.nativeElement;
+    this.renderer.removeClass(el, `slds-tabs_${this.variant}`);
+    this._variant = variant;
+    this.renderer.addClass(el, `slds-tabs_${this.variant}`);
+  }
+  get variant() {
+    return this._variant || 'default';
+  }
 
   @ContentChildren(NglTab) tabs: QueryList<NglTab>;
 
@@ -25,14 +34,11 @@ export class NglTabs {
 
   @Output() selectedChange = new EventEmitter<NglTab>();
 
-  @Input() set titleCaps(titleCaps: any) {
-    this._titleCaps = toBoolean(titleCaps);
-  }
-  get titleCaps() {
-    return this._titleCaps;
-  }
+  private _variant: 'default' | 'scoped';
 
-  private _titleCaps = true;
+  constructor(private element: ElementRef, private renderer: Renderer2) {
+    this.renderer.addClass(this.element.nativeElement, `slds-tabs_${this.variant}`);
+  }
 
   ngAfterContentInit() {
     // Initial selection after all tabs are created

@@ -3,13 +3,13 @@ import {CommonModule} from '@angular/common';
 
 import {NglTabs} from './tabs';
 import {NglTab} from './tab';
-import {NglTabVerbose, NglTabContent, NglTabHeading} from './tab-verbose';
+import {NglTabVerbose, NglTabContent, NglTabLabel} from './tab-verbose';
 import {NglInternalOutletModule} from '../util/outlet.module';
 
 const NGL_TAB_DIRECTIVES = [
   NglTabs,
   NglTab,
-  NglTabVerbose, NglTabContent, NglTabHeading,
+  NglTabVerbose, NglTabContent, NglTabLabel,
 ];
 
 @NgModule({
