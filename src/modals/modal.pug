@@ -1,5 +1,5 @@
 section.slds-modal([class.slds-fade-in-open]="open", [ngClass]="[size ? 'slds-modal_' + size : '']",
-                              [attr.aria-hidden]="!open", [attr.aria-labelledby]="headingId",
+                              [attr.aria-hidden]="!open", [attr.aria-labelledby]="headingId", [attr.aria-describedby]="contentId"
                               aria-modal="true", role="dialog", tabindex="-1")
   .slds-modal__container
     //- Header
@@ -18,7 +18,7 @@ section.slds-modal([class.slds-fade-in-open]="open", [ngClass]="[size ? 'slds-mo
       p.slds-m-top_x-small(*ngIf="hasHeader && taglineTpl"): ng-template([ngTemplateOutlet]="taglineTpl.templateRef")
     
     //- Body
-    .slds-modal__content
+    .slds-modal__content([id]="contentId")
       ng-content
 
     //- Footer

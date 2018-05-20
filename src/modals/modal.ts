@@ -24,7 +24,9 @@ export class NglModal {
 
   @ViewChild('closeButton') closeButton: ElementRef;
 
-  headingId = uniqueId('modal_header');
+  headingId = uniqueId('modal-heading');
+
+  contentId = uniqueId('modal-content');
 
   @Input() set open(_open: any) {
     _open = toBoolean(_open);

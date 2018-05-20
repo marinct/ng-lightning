@@ -46,6 +46,7 @@ describe('`NglModal`', () => {
     const content = modal.querySelector('.slds-modal__content');
     expect(content.firstElementChild).toHaveCssClass('slds-p-around_medium');
     expect(content.textContent.trim()).toBe('Body content.');
+    expect(content.id).toEqual(modal.getAttribute('aria-describedby'));
 
     const backdrop = getBackdrop(fixture.nativeElement);
     expect(backdrop).toHaveCssClass('slds-backdrop_open');
