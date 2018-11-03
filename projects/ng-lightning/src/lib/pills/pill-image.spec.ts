@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 import {getPill} from './pill.spec';
 import {createGenericTestComponent} from '../../../test/util/helpers';
 import {NglPillsModule} from './module';
-import {NglImagesModule} from '../images/module';
+import {NglFilesModule} from '../files/module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -15,7 +15,7 @@ function getIcon(element: HTMLElement): any {
 
 describe('NglPill', () => {
 
-  beforeEach(() => TestBed.configureTestingModule({declarations: [TestComponent], imports: [NglPillsModule, NglImagesModule]}));
+  beforeEach(() => TestBed.configureTestingModule({ declarations: [TestComponent], imports: [NglPillsModule, NglFilesModule]}));
 
   it('should render correctly', () => {
     const fixture = createTestComponent();

@@ -8,9 +8,9 @@ import {NglButtonsModule} from './buttons/module';
 import {NglDatatablesModule} from './datatables/module';
 import {NglDatepickersModule} from './datepickers/module';
 import {NglDynamicIconsModule} from './dynamicicons/module';
+import {NglFilesModule} from './files/module';
 import {NglFormsModule} from './forms/module';
 import {NglIconsModule} from './icons/module';
-import {NglImagesModule} from './images/module';
 import {NglLookupsModule} from './lookups/module';
 import {NglMenusModule} from './menus/module';
 import {NglModalsModule} from './modals/module';
@@ -37,9 +37,9 @@ const MODULES = [
   NglDatatablesModule,
   NglDatepickersModule,
   NglDynamicIconsModule,
+  NglFilesModule,
   NglFormsModule,
   NglIconsModule,
-  NglImagesModule,
   NglLookupsModule,
   NglMenusModule,
   NglModalsModule,

@@ -1,0 +1,11 @@
+.slds-text-title_caps.slds-m-bottom_small Base
+|
+|
+.slds-m-vertical_medium(style="width: 20rem;")
+  ngl-file([text]="showFilename ? 'file ' + ratio : null", [iconName]="icon")
+    a(href="javascript:void(0)", [nglFileCrop]="ratio")
+      img(src="https://www.lightningdesignsystem.com/assets/images/placeholder-img@16x9.jpg")
+|
+|
+button(type="button", nglButton="neutral", (click)="changeRatio()") Change Ratio
+button(type="button", nglButton="neutral", (click)="toggleFilename() ") Toggle filename

@@ -12,7 +12,10 @@
     "prebuild": "npm run prestart",
     "build": "ng build ng-lightning",
     "pretest": "npm run pug",
-    "test": "ng test ng-lightning --watch=false",
+    "test": "ng test ng-lightning --watch=false --code-coverage",
+    "lib:tdd": "ng test ng-lightning --source-map=false --watch=true",
+    "pretdd": "npm run pug",
+    "tdd": "run-p -r pug:watch lib:tdd",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

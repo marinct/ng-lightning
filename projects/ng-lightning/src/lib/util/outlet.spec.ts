@@ -40,6 +40,10 @@ describe('`NglInternalOutlet`', () => {
     fixture.componentInstance.count = 15;
     fixture.detectChanges();
     expect(getElement(fixture)).toHaveText('Template content. Count is 15');
+
+    fixture.componentInstance.count = 20;
+    fixture.detectChanges();
+    expect(getElement(fixture)).toHaveText('Template content. Count is 20');
   });
 });
 

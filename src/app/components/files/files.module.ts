@@ -4,13 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { NglModule } from 'ng-lightning';
 import { NglDemoExampleModule } from 'src/app/example/example.module';
 
-import { DemoImagesComponent } from './images.component';
+import { DemoFilesComponent } from './files.component';
 
 // Examples
-import { DemoImagesBasic } from './examples/basic';
+import { DemoFilesBasic } from './examples/basic';
 
 const routes: Routes = [
-  { path: '', component: DemoImagesComponent },
+  { path: '', component: DemoFilesComponent },
 ];
 
 @NgModule({
@@ -21,8 +21,8 @@ const routes: Routes = [
     NglDemoExampleModule,
   ],
   declarations: [
-    DemoImagesComponent,
-    DemoImagesBasic,
+    DemoFilesComponent,
+    DemoFilesBasic,
   ],
 })
-export class NglDemoImagesModule {}
+export class NglDemoFilesModule {}
