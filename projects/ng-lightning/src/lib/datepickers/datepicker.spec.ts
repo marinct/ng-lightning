@@ -110,6 +110,14 @@ describe('`Datepicker` Component', () => {
     });
   }));
 
+  it('render accessibility label for year select', async(() => {
+    const fixture = createTestComponent();
+
+    const yearEl = (<HTMLSelectElement>fixture.nativeElement.querySelector('select.slds-select'));
+    const labelEl = yearEl.parentElement.previousElementSibling;
+    expect(yearEl.id).toEqual(labelEl.getAttribute('for'));
+  }));
+
   it('should change view when input date is changing', async(() => {
     const fixture = createTestComponent();
 
