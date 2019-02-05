@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ElementRef, Renderer2, OnInit} from '@angular/core';
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ElementRef, Renderer2, OnInit, HostBinding} from '@angular/core';
 import {replaceClass} from '../util/util';
 
 @Component({
@@ -8,6 +8,8 @@ import {replaceClass} from '../util/util';
 })
 export class NglAvatar implements OnInit {
   @Input() src = '';
+
+  @HostBinding('attr.title')
   @Input() alternativeText = '';
 
   @Input() set size(value: string) {

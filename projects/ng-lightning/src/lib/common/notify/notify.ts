@@ -54,7 +54,7 @@ export class NglCommonNotify implements OnDestroy {
     this.renderer.addClass(this.element.nativeElement, 'slds-notify');
     this.renderer.addClass(this.element.nativeElement, `slds-notify_${type}`);
     this.toggleThemeClass(true, this.variant);
-    this.renderer.setAttribute(this.element.nativeElement, 'role', 'alert');
+    this.renderer.setAttribute(this.element.nativeElement, 'role', type === 'toast' ? 'status' : 'alert');
   }
 
   close(reason?: string, $event?: Event) {

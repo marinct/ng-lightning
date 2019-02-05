@@ -62,11 +62,12 @@ describe('Avatar Component', () => {
     expect(avatar).not.toHaveCssClass('slds-avatar_small');
   });
 
-  it('should render the avatar element with assistive text', () => {
+  it('should render the avatar element with assistive text and title', () => {
     const fixture = createTestComponent(`<ngl-avatar alternativeText="assistive text" src="image1.jpg"></ngl-avatar>`);
     const avatar = getAvatarElement(fixture.nativeElement);
     const image = getImageElement(avatar);
     expect(image.getAttribute('alt')).toEqual('assistive text');
+    expect(avatar.getAttribute('title')).toEqual('assistive text');
   });
 
   it('should render the initials if no image', () => {

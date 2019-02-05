@@ -5,9 +5,6 @@ import {Component, Input, HostBinding, ChangeDetectionStrategy} from '@angular/c
   selector: 'td[nglDay]',
   templateUrl: './day.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    'role': 'gridcell',
-  },
 })
 export class NglDay {
 

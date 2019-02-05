@@ -15,6 +15,7 @@ describe('`ngl-alert`', () => {
     const hostElement = fixture.nativeElement.querySelector('.slds-notify');
 
     expect(hostElement).toHaveCssClass('slds-notify_alert');
+    expect(hostElement.getAttribute('role')).toBe('alert');
   });
 });
 

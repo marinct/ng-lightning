@@ -2,6 +2,11 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
+    "paths": {
+      "ng-lightning": [
+        "./projects/ng-lightning/src/public_api"
+      ]
+    },
     "types": []
   },
   "exclude": [

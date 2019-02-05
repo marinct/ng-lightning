@@ -19,7 +19,7 @@ describe('`ngl-toast`', () => {
     const hostElement = fixture.nativeElement.querySelector('.slds-notify');
 
     expect(hostElement).toHaveCssClass('slds-notify_toast');
-    expect(hostElement.getAttribute('role')).toBe('alert');
+    expect(hostElement.getAttribute('role')).toBe('status');
     expect(hostElement).toHaveCssClass('slds-theme_info');
 
     const closeButton = getCloseButton(fixture);

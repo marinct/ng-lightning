@@ -336,17 +336,15 @@ describe('`Datepicker` Component', () => {
     `);
     fixture.componentInstance.showToday = true;
     fixture.detectChanges();
-    const rows = getTableRows(fixture.nativeElement);
-    expect(rows.length).toBe(6);
 
-    const todayEl = <HTMLAnchorElement>rows[5].querySelector('a');
+    const todayEl = <HTMLAnchorElement>fixture.nativeElement.querySelector('button.slds-text-link');
     expect(fixture.componentInstance.dateChange).not.toHaveBeenCalled();
     todayEl.click();
     expect(fixture.componentInstance.dateChange).toHaveBeenCalledWith(currentDate);
 
     fixture.componentInstance.showToday = false;
     fixture.detectChanges();
-    expect(getTableRows(fixture.nativeElement).length).toBe(5);
+    expect(fixture.nativeElement.querySelector('button.slds-text-link')).toBe(null);
   });
 
   it('should support custom month and day names', async(() => {

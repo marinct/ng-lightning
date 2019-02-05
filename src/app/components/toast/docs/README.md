@@ -1,4 +1,4 @@
-Toast serves as a feedback & confirmation mechanism after the user takes an action. Alert banners communicate a state that affects the entire system, not just a feature or page. It persists over a session and appears without the user initiating the action.
+Toast serves as a feedback & confirmation mechanism after the user takes an action.
 
 By default, toasts are shown relative to where they have been specified
 in markup. For *fixed-to-the-top* just place them inside a `<div>` decorated with the
