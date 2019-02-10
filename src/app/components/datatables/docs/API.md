@@ -1,41 +1,41 @@
-# `table[ngl-datatable]`
+# <table ngl-datatable>
 
-### Input
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| `[data]` | array of data to be displayed as rows in the table | any[] | |
+| `[sort]` | sorting state object as `{ key: '<column key>', order: '<asc|desc>'}` | INglDatatableSort | |
+| `[trackByKey]` | unique object property of `data`, useful for internal tracking. | string | |
+| `[loading]` | whether loading overlay should be displayed | boolean | false |
+| `(sortChange)` | requested sort event as `{ key: '<column key>', order: '<asc|desc>'}` | INglDatatableSort | |
+| `(rowClick)` | invoked when a row is clicked passing original `Event` and row's data, as `{event: Event, data: any}` | INglDatatableRowClick | |
 
-  * `data: any[]`: Data to be displayed as rows in the table.
-  * `sort: INglDatatableSort`: Sorting state object as `{ key: '<column key>', order: '<asc|desc>'}`
-  * `trackByKey?: string`: Unique object property of data, useful for internal tracking.
-  * `loading?: boolean`: Whether loading overlay should be displayed.
-  * `bordered: boolean = true`: Adds borders to the table.
-  * `striped: boolean = true`: Adds stripes to alternating rows.
+# <ngl-datatable-column>
 
-### Output
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| `[heading]` | header text of column. It will also be used as `title` and as header on small screens even if a custom header template is used | string | |
+| `ng-template[nglDatatableHeading]` | provide a custom header template | TemplateRef | |
+| `[key]` | property of `data` to display. If not specified you should provide a custom template | string | |
+| `[truncate]` | adds truncate to every cell of this column | boolean | false |
+| `[sortable]` | whether it is sortable. `key` should be always defined for sortable columns | boolean | |
+| `[headClass]` | style class(es) for header cell of this column. Use as `ngClass` | string / Array / Object | |
+| `[cellClass]` | style class(es) for each cell of of this column. Use as `ngClass` | string / Array / Object | |
 
-  * `sortChange: EventEmitter<INglDatatableSort>`: Requested sort as `{ key: '<column key>', order: '<asc|desc>'}`
-  * `rowClick: EventEmitter<INglDatatableRowClick>`: Invoked when a row is clicked passing original `Event` and row's data, as `{event: Event, data: any}`
 
-# `ngl-datatable-column`
+# <ng-template nglDatatableCell>
 
-### Input
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| `$implicit` | Cell value, if `key` has been defined for this column. | any | |
+| `row` | object data for this row | any | |
+| `index` | row index number, starting from `0` | number | |
 
-  * `heading: string`: Header text of column. It will also be used as `title` and as header on small screens even if a custom header template is used.
-  * `key?: string`: Object property of data. If not specified you should provide a custom template.
-  * `sortable?: boolean`: Whether it is sortable or not. `key` should be always defined for sortable columns
-  * `headClass?: string | Array | Object`: Style class(es) for header cell of this column. Use as `ngClass`
-  * `cellClass?: string | Array | Object`: Style class(es) for each cell of this column. Use as `ngClass`
+# <ng-template nglLoadingOverlay>
 
-# `template[nglDatatableCell]`
+  * Display a custom overlay template while `[loading]` is `true`. 
 
-### Variables
+# <ng-template nglNoRowsOverlay>
 
-  * `$implicit`: Cell value, if `key` has been defined for this column.
-  * `row: any`: Object data.
-  * `index: number`: Row index.
+  * Display a custom template while `[data]` is empty. 
 
-# `template[nglLoadingOverlay]`
 
-# `template[nglNoRowsOverlay]`
-
-# `template[nglDatatableHeading]`
-
- * Used inside a `<ngl-datatable-column>` to provide a custom header template.

@@ -2,13 +2,12 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, HostBi
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'th[ngl-internal-datatatable-head]',
+  selector: 'th[nglDatatableHead]',
   templateUrl: './head.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    'scope': 'col',
-    '[class.slds-is-sorted--asc]': `sortOrder === 'asc'`,
-    '[class.slds-is-sorted--desc]': `sortOrder === 'desc'`,
+    '[class.slds-is-sorted_asc]': `sortOrder === 'asc'`,
+    '[class.slds-is-sorted_desc]': `sortOrder === 'desc'`,
     '[class.slds-is-sorted]': `!!sortOrder`,
   },
 })
@@ -29,7 +28,7 @@ export class NglInternalDatatableHeadCell {
 
   @HostBinding('attr.aria-sort')
   get ariaSort() {
-    return this.sortOrder ? `${this.sortOrder}ending` : null;
+    return this.sortOrder ? `${this.sortOrder}ending` : 'none';
   }
 
   @Output()sort = new EventEmitter();

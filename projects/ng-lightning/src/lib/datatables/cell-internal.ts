@@ -3,7 +3,7 @@ import { NglDatatableColumn } from './column';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'td[ngl-internal-datatatable-cell]',
+  selector: 'td[nglDatatatableCell_]',
   templateUrl: './cell-internal.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -19,7 +19,7 @@ export class NglInternalDatatableCell implements OnChanges {
 
   context: any;
 
-  ngOnChanges(changes?: any) {
+  ngOnChanges() {
     this.context =  {
       $implicit: this.value,
       row: this.row,

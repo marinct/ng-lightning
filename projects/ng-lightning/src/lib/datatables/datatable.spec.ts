@@ -46,17 +46,17 @@ function expectSortedHeadings(element: HTMLElement, expected: string[]) {
     const expectation = expected[index];
     if (expectation.startsWith('+')) {
       expect(e).toHaveCssClass('slds-is-sorted');
-      expect(e).toHaveCssClass('slds-is-sorted--asc');
+      expect(e).toHaveCssClass('slds-is-sorted_asc');
       expect(e.getAttribute('aria-sort')).toEqual('ascending');
       expect(expectation).toEqual(`+${text}`);
     } else if (expectation.startsWith('-')) {
       expect(e).toHaveCssClass('slds-is-sorted');
-      expect(e).toHaveCssClass('slds-is-sorted--desc');
+      expect(e).toHaveCssClass('slds-is-sorted_desc');
       expect(e.getAttribute('aria-sort')).toEqual('descending');
       expect(expectation).toEqual(`-${text}`);
     } else {
       expect(e).not.toHaveCssClass('slds-is-sorted');
-      expect(e.getAttribute('aria-sort')).toBeNull();
+      expect(e.getAttribute('aria-sort')).toEqual('none');
       expect(expectation).toEqual(text);
     }
   });
@@ -71,8 +71,6 @@ describe('`NglDatatable`', () => {
 
     const tableEl = fixture.nativeElement.firstElementChild;
     expect(tableEl).toHaveCssClass('slds-table');
-    expect(tableEl).toHaveCssClass('slds-table--bordered');
-    expect(tableEl).toHaveCssClass('slds-table--striped');
 
     expect(getHeadingsText(fixture.nativeElement)).toEqual(['ID', 'Name', 'Number']);
     expect(getHeadingsTitle(fixture.nativeElement)).toEqual(['ID', 'Name', 'Number']);
@@ -82,42 +80,6 @@ describe('`NglDatatable`', () => {
       [ '3', 'KB', '13' ],
       [ '4', 'EB', '14' ],
     ]);
-  });
-
-  it('should appy bordered and striped based on input', () => {
-    const fixture = createTestComponent(`<table ngl-datatable [striped]="striped" [bordered]="bordered"></table>`);
-    const tableEl = fixture.nativeElement.firstElementChild;
-    expect(tableEl).toHaveCssClass('slds-table');
-    expect(tableEl).not.toHaveCssClass('slds-table--bordered');
-    expect(tableEl).not.toHaveCssClass('slds-table--striped');
-
-    fixture.componentInstance.striped = true;
-    fixture.detectChanges();
-    expect(tableEl).toHaveCssClass('slds-table--striped');
-    expect(tableEl).not.toHaveCssClass('slds-table--bordered');
-
-    fixture.componentInstance.bordered = true;
-    fixture.detectChanges();
-    expect(tableEl).toHaveCssClass('slds-table--striped');
-    expect(tableEl).toHaveCssClass('slds-table--bordered');
-  });
-
-  it('should appy bordered and striped based on input', () => {
-    const fixture = createTestComponent(`<table ngl-datatable [striped]="striped" [bordered]="bordered"></table>`);
-    const tableEl = fixture.nativeElement.firstElementChild;
-    expect(tableEl).toHaveCssClass('slds-table');
-    expect(tableEl).not.toHaveCssClass('slds-table--bordered');
-    expect(tableEl).not.toHaveCssClass('slds-table--striped');
-
-    fixture.componentInstance.striped = true;
-    fixture.detectChanges();
-    expect(tableEl).toHaveCssClass('slds-table--striped');
-    expect(tableEl).not.toHaveCssClass('slds-table--bordered');
-
-    fixture.componentInstance.bordered = true;
-    fixture.detectChanges();
-    expect(tableEl).toHaveCssClass('slds-table--striped');
-    expect(tableEl).toHaveCssClass('slds-table--bordered');
   });
 
   it('should show/hide column correctly', () => {
@@ -201,6 +163,21 @@ describe('`NglDatatable`', () => {
       expect(first).not.toHaveCssClass('custom-class1');
       expect(second).toHaveCssClass('apply-me');
       expect(second).toHaveCssClass('apply-this');
+    });
+  });
+
+  it('should support truncate input', () => {
+    const fixture = createTestComponent(`
+      <table ngl-datatable [data]="data">
+        <ngl-datatable-column key="name" truncate="true"></ngl-datatable-column>
+      </table>`);
+    fixture.detectChanges();
+
+    const rows = getRows(fixture.nativeElement).map(row => selectElements(row, 'td'));
+    rows.forEach(([td], index) => {
+      const el = td.firstElementChild;
+      expect(el).toHaveCssClass('slds-truncate');
+      expect(el.getAttribute('title')).toBe(fixture.componentInstance.data[index].name);
     });
   });
 
@@ -375,8 +352,6 @@ describe('`NglDatatable`', () => {
 })
 export class TestComponent {
   exists = true;
-  striped: boolean;
-  bordered: boolean;
   sortable: boolean;
   loading: boolean;
 

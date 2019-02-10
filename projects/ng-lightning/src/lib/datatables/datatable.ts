@@ -1,5 +1,5 @@
 import {
-  Component, Input, ChangeDetectorRef, ContentChild, ContentChildren, QueryList, ElementRef, Renderer2,
+  Component, Input, ChangeDetectorRef, ContentChild, ContentChildren, QueryList,
   HostBinding, Output, EventEmitter, AfterContentInit, OnDestroy
 } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -20,6 +20,9 @@ export interface INglDatatableRowClick {
   // tslint:disable-next-line:component-selector
   selector: 'table[ngl-datatable]',
   templateUrl: './datatable.html',
+  host: {
+    '[class.slds-table]': 'true',
+  },
   styles: [`
     .ngl-datatable-loading {
       position: absolute;
@@ -33,12 +36,6 @@ export class NglDatatable implements AfterContentInit, OnDestroy {
 
   @Input() data: any[] = [];
   @Input() trackByKey: string;
-
-  @HostBinding('class.slds-table--bordered')
-  @Input() bordered = true;
-
-  @HostBinding('class.slds-table--striped')
-  @Input() striped = true;
 
   @Input() sort: INglDatatableSort;
   @Output() sortChange = new EventEmitter<INglDatatableSort>();
@@ -60,9 +57,7 @@ export class NglDatatable implements AfterContentInit, OnDestroy {
 
   private _columnsSubscription: Subscription;
 
-  constructor(private detector: ChangeDetectorRef, element: ElementRef, renderer: Renderer2) {
-    renderer.addClass(element.nativeElement, 'slds-table');
-  }
+  constructor(private detector: ChangeDetectorRef) {}
 
   columnTrackBy(index: number, column: NglDatatableColumn) {
     return column.key || index;
