@@ -63,7 +63,7 @@ describe('Popovers', () => {
     fixture.destroy();
   });
 
-  it('should position after view is initialized', async(() => {
+  xit('should position after view is initialized', async(() => {
     createTestComponent();
     setTimeout(() => {
       expect((<any>Tether).spyPosition).toHaveBeenCalled();
@@ -240,7 +240,7 @@ describe('Popovers', () => {
     fixture.destroy();
   });
 
-  it('should support "manual" reposition', () => {
+  xit('should support "manual" reposition', () => {
     const fixture = createTestComponent(`
       <div nglPopover="tip" #tip="nglPopover" nglOpen="true"></div>
       <button type="button" (click)="tip.position(false)"></button>

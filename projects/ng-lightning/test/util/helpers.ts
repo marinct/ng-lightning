@@ -36,7 +36,7 @@ export function dispatchEvent(el: HTMLElement, type: string, canBubble = true) {
 }
 
 // Shortcut function for less boilerplate
-export function createGenericTestComponent<T>(type: {new (...args: any[]): T}, html?: string, detectChanges = true): ComponentFixture<T> {
+export function createGenericTestComponent<T>(type: new (...args: any[]) => T, html?: string, detectChanges = true): ComponentFixture<T> {
   if (html) {
     TestBed.overrideComponent(type, {set: {template: html}});
   }

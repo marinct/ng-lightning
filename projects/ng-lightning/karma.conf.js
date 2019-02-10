@@ -26,6 +26,19 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false
+    singleRun: false,
+
+    files: [
+      // fixtures
+      { pattern: 'test/fixtures/**', watched: false, included: false, served: true },
+    ],
+    proxies: {
+      // Avoid 404 warnings for images during testing
+      '/assets/icons/utility-sprite/svg/symbols.svg': '/base/test/fixtures/fake',
+      '/mypath/utility-sprite/svg/symbols.svg': '/base/test/fixtures/fake',
+      '/mypath/standard-sprite/svg/symbols.svg': '/base/test/fixtures/fake',
+      '/mypath/custom-sprite/svg/symbols.svg': '/base/test/fixtures/fake',
+      '/image1.jpg': '/base/test/fixtures/fake',
+    },
   });
 };

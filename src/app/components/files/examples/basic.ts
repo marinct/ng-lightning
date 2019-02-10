@@ -19,7 +19,7 @@ export class DemoFilesBasic {
   }
 
   toggleFilename() {
-    this.showFilename = !this.showFilename
+    this.showFilename = !this.showFilename;
   }
 
 }

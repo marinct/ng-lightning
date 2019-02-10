@@ -155,7 +155,7 @@ describe('Lookup Component', () => {
     fixture.detectChanges();
 
     expectInputToExist(false);
-    expect(getPill(fixture.nativeElement).textContent.trim()).toBe('my selection');
+    expect(getPill(fixture.nativeElement).querySelector('.slds-pill__label').textContent.trim()).toBe('my selection');
 
     fixture.componentInstance.selection = null;
     fixture.detectChanges();
