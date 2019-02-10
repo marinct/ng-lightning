@@ -1,17 +1,19 @@
-import {Directive, ElementRef, Renderer2, Optional} from '@angular/core';
-import {NglPill} from './pill';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { NglPill } from './pill';
 
-@Directive({
-  // tslint:disable-next-line:directive-selector
-  selector: 'a',
+@Component({
+  //  tslint:disable-next-line:component-selector
+  selector: 'a[nglPillAction]',
+  templateUrl: './pill-link.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[class.slds-pill__action]': 'true',
+  }
 })
 export class NglPillLink {
 
-  constructor(@Optional() pill: NglPill, element: ElementRef, renderer: Renderer2) {
-    if (!pill) { return; }
-
-    renderer.addClass(element.nativeElement, 'slds-pill__label');
-    pill.unlinked = false;
+  constructor(pill: NglPill) {
+    pill.linked = true;
   }
 
 }
