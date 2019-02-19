@@ -51,6 +51,8 @@ export class NglModal {
 
   @ContentChild(NglModalFooterTemplate) footer: NglModalFooterTemplate;
 
+  @Input() @InputBoolean() dismissOnClickOutside = true;
+
   private _open = true;
 
   @HostListener('keydown.esc', ['$event'])
@@ -59,5 +61,17 @@ export class NglModal {
       evt.stopPropagation();
     }
     this.openChange.emit(false);
+  }
+
+  @HostListener('click', ['$event'])
+  clickOutside(evt) {
+    if (!this.dismissOnClickOutside) {
+      return;
+    }
+
+    const { classList } = evt.target;
+    if (classList.contains('slds-modal') || classList.contains('slds-modal__container')) {
+      this.close();
+    }
   }
 }
