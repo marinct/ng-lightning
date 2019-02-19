@@ -6,5 +6,6 @@ If you want to display a totally custom header, just use a `<ng-template nglModa
 
 **Accessibility and Keyboard interactions**:
 
-  * Focus is trapped, meaning that `Tab` key at bottom of modal cycles focus back to first focusable element at top of modal
   * `Esc` key closes the modal
+  * `Tab` key at bottom of modal cycles focus back to first focusable element at top of modal
+  * `Shift+Tab` keys at top of modal cycle focus back to last focusable element at bottom of modal

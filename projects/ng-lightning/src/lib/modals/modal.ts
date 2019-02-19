@@ -30,7 +30,7 @@ export class NglModal {
 
     this._open = _open;
     if (this.open) {
-      setTimeout(() => this.focusFirst());
+      setTimeout(() => this.closeButton.nativeElement.focus());
     }
   }
   get open() {
@@ -59,9 +59,5 @@ export class NglModal {
       evt.stopPropagation();
     }
     this.openChange.emit(false);
-  }
-
-  focusFirst() {
-    this.closeButton.nativeElement.focus();
   }
 }
