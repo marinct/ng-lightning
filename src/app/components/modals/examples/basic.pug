@@ -18,14 +18,14 @@ ngl-modal([header]="noHeader ? '' : 'Modal Header'", [(open)]="opened", [size]="
     button.slds-button.slds-button_neutral((click)="cancel()") Cancel
     |
     button.slds-button.slds-button_brand Save
-ngl-form-checkbox.slds-m-top_small(label="No header")
-  input(nglFormControl, type="checkbox", [(ngModel)]="noHeader")
-ngl-form-checkbox.slds-m-top_small(label="Tagline")
-  input(nglFormControl, type="checkbox", [(ngModel)]="hasTagline", [disabled]="noHeader")
-ngl-form-checkbox.slds-m-top_small(label="No footer")
-  input(nglFormControl, type="checkbox", [(ngModel)]="noFooter")
-ngl-form-checkbox.slds-m-top_small(label="Directional footer")
-  input(nglFormControl, type="checkbox", [(ngModel)]="directional", [disabled]="noFooter")
+ngl-checkbox.slds-m-top_small(label="No header")
+  input(ngl, type="checkbox", [(ngModel)]="noHeader")
+ngl-checkbox.slds-m-top_small(label="Tagline")
+  input(ngl, type="checkbox", [(ngModel)]="hasTagline", [disabled]="noHeader")
+ngl-checkbox.slds-m-top_small(label="No footer")
+  input(ngl, type="checkbox", [(ngModel)]="noFooter")
+ngl-checkbox.slds-m-top_small(label="Directional footer")
+  input(ngl, type="checkbox", [(ngModel)]="directional", [disabled]="noFooter")
 .slds-text-title_caps.slds-m-top_medium.slds-m-bottom_small Size
 .slds-button-group([(nglPick)]="size", nglPickActiveClass="slds-button_brand", role="group")
   button(type="button", nglPickOption, nglButton="neutral") Default
