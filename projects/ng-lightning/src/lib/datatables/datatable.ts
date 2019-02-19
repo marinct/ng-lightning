@@ -88,6 +88,9 @@ export class NglDatatable implements AfterContentInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this._columnsSubscription.unsubscribe();
+    if (this._columnsSubscription) {
+      this._columnsSubscription.unsubscribe();
+      this._columnsSubscription = null;
+    }
   }
 }
