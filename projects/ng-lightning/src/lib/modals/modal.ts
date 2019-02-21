@@ -1,4 +1,4 @@
-import { Component, Input, Output, ElementRef, EventEmitter, HostListener, ViewChild, ContentChild,
+import { Component, Input, Output, ElementRef, EventEmitter, HostListener, ContentChild,
          ChangeDetectionStrategy, Inject, OnChanges, SimpleChanges, AfterContentInit, OnDestroy } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { FocusTrap, FocusTrapFactory } from '@angular/cdk/a11y';
@@ -18,8 +18,6 @@ export class NglModal implements OnChanges, AfterContentInit, OnDestroy {
   @Input() size: string;
 
   @Input() @InputBoolean() directional = false;
-
-  @ViewChild('closeButton') closeButton: ElementRef;
 
   headingId = uniqueId('modal-heading');
 
