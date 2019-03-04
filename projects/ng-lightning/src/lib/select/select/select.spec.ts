@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent } from '../../../../test/util/helpers';
+import { createGenericTestComponent } from '../../../../test/util';
 import { NglSelectModule } from '../module';
 import { getLabelElement, getRequiredElement, getErrorElement } from '../input/input.spec';
 

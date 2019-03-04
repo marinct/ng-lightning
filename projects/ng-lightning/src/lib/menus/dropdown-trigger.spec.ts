@@ -1,7 +1,7 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { NglDropdownTrigger } from './dropdown-trigger';
-import { createGenericTestComponent, dispatchKeyEvent } from '../../../test/util/helpers';
+import { createGenericTestComponent, dispatchFixtureKeyEvent } from '../../../test/util';
 import { By } from '@angular/platform-browser';
 import { NglMenusModule } from './module';
 
@@ -40,7 +40,7 @@ describe('`nglDropdownTrigger`', () => {
 
   it('should open the dropdown when the down arrow key is pressed while it is focused', () => {
     const fixture = createTestComponent();
-    dispatchKeyEvent(fixture, By.directive(NglDropdownTrigger), 'keydown.arrowdown');
+    dispatchFixtureKeyEvent(fixture, By.directive(NglDropdownTrigger), 'keydown.arrowdown');
     expect(fixture.componentInstance.setOpen).toHaveBeenCalledWith(true);
     fixture.destroy();
   });

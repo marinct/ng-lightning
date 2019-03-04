@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, dispatchKeyEvent } from '../../../test/util/helpers';
+import { createGenericTestComponent, dispatchFixtureKeyEvent } from '../../../test/util';
 import { By } from '@angular/platform-browser';
 import { NglModal } from './modal';
 import { NglModalsModule } from './module';
@@ -113,7 +113,7 @@ describe('`NglModal`', () => {
     const fixture = createTestComponent();
     expect(fixture.componentInstance.openChange).not.toHaveBeenCalled();
 
-    dispatchKeyEvent(fixture, By.directive(NglModal), 'keydown.esc');
+    dispatchFixtureKeyEvent(fixture, By.directive(NglModal), 'keydown.esc');
     expect(fixture.componentInstance.openChange).toHaveBeenCalledWith(false);
   });
 

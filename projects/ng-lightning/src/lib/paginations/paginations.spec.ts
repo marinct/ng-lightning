@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent } from '../../../test/util/helpers';
+import { createGenericTestComponent } from '../../../test/util';
 import { NglPaginationsModule } from './module';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>

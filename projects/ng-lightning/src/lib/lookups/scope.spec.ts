@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, selectElements } from '../../../test/util/helpers';
+import { createGenericTestComponent, selectElements } from '../../../test/util';
 import { NglLookupsModule } from './module';
 import { expectMenuExpanded, getPill } from './lookup.spec';
 

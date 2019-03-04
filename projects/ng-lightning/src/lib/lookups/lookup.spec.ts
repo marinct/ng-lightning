@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, selectElements, dispatchKeyEvent } from '../../../test/util/helpers';
+import { createGenericTestComponent, selectElements, dispatchFixtureKeyEvent } from '../../../test/util';
 import { By } from '@angular/platform-browser';
 import { NglLookupsModule } from './module';
 
@@ -253,7 +253,7 @@ describe('Lookup Component', () => {
     fixture.detectChanges();
     expectMenuExpanded(nativeElement, true);
 
-    dispatchKeyEvent(fixture, By.css('input'), 'keydown.Esc');
+    dispatchFixtureKeyEvent(fixture, By.css('input'), 'keydown.Esc');
     fixture.detectChanges();
     expectMenuExpanded(nativeElement, false);
   });
@@ -302,7 +302,7 @@ describe('Lookup Component', () => {
     const { input } = getElements(nativeElement);
 
     function expectActiveOption(keyEvent: string, option: HTMLElement = null) {
-      dispatchKeyEvent(fixture, By.css('input'), `keydown.${keyEvent}`);
+      dispatchFixtureKeyEvent(fixture, By.css('input'), `keydown.${keyEvent}`);
       fixture.detectChanges();
 
       return fixture.whenStable().then(() => {
@@ -334,11 +334,11 @@ describe('Lookup Component', () => {
     }).then(() => {
       return expectActiveOption('ArrowUp', null);
     }).then(() => {
-      dispatchKeyEvent(fixture, By.css('input'), `keydown.Enter`);
+      dispatchFixtureKeyEvent(fixture, By.css('input'), `keydown.Enter`);
       expect(componentInstance.onSelect).not.toHaveBeenCalled();
       return expectActiveOption('ArrowDown', options[0]);
     }).then(() => {
-      dispatchKeyEvent(fixture, By.css('input'), `keydown.Enter`);
+      dispatchFixtureKeyEvent(fixture, By.css('input'), `keydown.Enter`);
       expect(componentInstance.onSelect).toHaveBeenCalledWith('ABCDE');
     });
   }));

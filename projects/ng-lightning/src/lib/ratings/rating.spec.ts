@@ -2,7 +2,7 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { NglRating } from './rating';
 import { NglRatingsModule } from './module';
-import { createGenericTestComponent, dispatchKeyEvent, dispatchEvent, selectElements } from '../../../test/util/helpers';
+import { createGenericTestComponent, dispatchFixtureKeyEvent, selectElements, dispatchEvent } from '../../../test/util';
 import { By } from '@angular/platform-browser';
 import { NglConfig } from '../config/config';
 
@@ -20,7 +20,7 @@ function getICons(element: HTMLElement): HTMLElement[] {
 }
 
 function dispatchKey(fixture: ComponentFixture<any>, key: string) {
-  dispatchKeyEvent(fixture, By.directive(NglRating), `keydown.${key}`);
+  dispatchFixtureKeyEvent(fixture, By.directive(NglRating), `keydown.${key}`);
 }
 
 function rgb2hex(value: string) {

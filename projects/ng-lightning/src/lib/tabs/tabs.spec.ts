@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, selectElements, dispatchKeyEvent } from '../../../test/util/helpers';
+import { createGenericTestComponent, selectElements, dispatchFixtureKeyEvent } from '../../../test/util';
 import { NglTabsModule } from './module';
 import { By } from '@angular/platform-browser';
 
@@ -84,15 +84,15 @@ describe('Tabs Component', () => {
     const fixture = createTestComponent();
     const predicate = By.css('ul[role=tablist]');
 
-    dispatchKeyEvent(fixture, predicate, `keydown.ArrowLeft`);
+    dispatchFixtureKeyEvent(fixture, predicate, `keydown.ArrowLeft`);
     fixture.detectChanges();
     expect(getTabContent(fixture.nativeElement)).toBe('Tab 1');
 
-    dispatchKeyEvent(fixture, predicate, `keydown.ArrowRight`);
+    dispatchFixtureKeyEvent(fixture, predicate, `keydown.ArrowRight`);
     fixture.detectChanges();
     expect(getTabContent(fixture.nativeElement)).toBe('Tab 2');
 
-    dispatchKeyEvent(fixture, predicate, `keydown.ArrowRight`);
+    dispatchFixtureKeyEvent(fixture, predicate, `keydown.ArrowRight`);
     fixture.detectChanges();
     expect(getTabContent(fixture.nativeElement)).toBe('Tab 3');
   });

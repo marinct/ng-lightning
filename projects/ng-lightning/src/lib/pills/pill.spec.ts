@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent } from '../../../test/util/helpers';
+import { createGenericTestComponent } from '../../../test/util';
 import { NglPillsModule } from './module';
 import { NglAvatarModule } from '../avatar/module';
 

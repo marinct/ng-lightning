@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, selectElements, dispatchEvent, dispatchKeyEvent } from '../../../test/util/helpers';
+import { createGenericTestComponent, selectElements, dispatchFixtureKeyEvent, dispatchEvent } from '../../../test/util';
 import { By } from '@angular/platform-browser';
 import { NglDatepickersModule } from './module';
 import { NglDatepicker } from './datepicker';
@@ -37,7 +37,7 @@ function chooseYear(element: HTMLElement, year: number) {
   const select = <HTMLSelectElement>element.querySelector('select');
   select.value = '' + year;
 
-  dispatchEvent(select, 'change', false);
+  dispatchEvent(select, 'change');
 }
 
 function clickButton(element: HTMLElement, isNext = false) {
@@ -46,7 +46,7 @@ function clickButton(element: HTMLElement, isNext = false) {
 }
 
 function dispatchKey(fixture: ComponentFixture<any>, key: string) {
-  dispatchKeyEvent(fixture, By.directive(NglDatepicker), `keydown.${key}`);
+  dispatchFixtureKeyEvent(fixture, By.directive(NglDatepicker), `keydown.${key}`);
   fixture.detectChanges();
 }
 

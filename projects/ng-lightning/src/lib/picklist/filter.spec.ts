@@ -1,7 +1,7 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement } from '@angular/core';
-import { createGenericTestComponent, dispatchEvent, dispatchKeyEvent } from '../../../test/util/helpers';
+import { createGenericTestComponent, dispatchFixtureKeyEvent, dispatchEvent } from '../../../test/util';
 import { NglPicklistModule } from './module';
 import { getOptionElements } from './picklist.spec';
 
@@ -117,13 +117,13 @@ describe('Picklist filter', () => {
     const options = getOptionElements(fixture.nativeElement);
     expect(options[0]).toHaveCssClass('slds-is-active');
 
-    dispatchKeyEvent(fixture, By.css('input'), 'keydown.arrowdown');
+    dispatchFixtureKeyEvent(fixture, By.css('input'), 'keydown.arrowdown');
     fixture.detectChanges();
     expect(options[0]).not.toHaveCssClass('slds-is-active');
     expect(options[1]).toHaveCssClass('slds-is-active');
 
     expect(fixture.componentInstance.pick).toEqual([]);
-    dispatchKeyEvent(fixture, By.css('input'), 'keydown.enter');
+    dispatchFixtureKeyEvent(fixture, By.css('input'), 'keydown.enter');
     fixture.detectChanges();
     expect(fixture.componentInstance.pick).toBe(fixture.componentInstance.items[1]);
   });
@@ -155,7 +155,7 @@ describe('Picklist filter', () => {
     dispatchEvent(dropdownFilter, 'input');
     fixture.detectChanges();
 
-    dispatchKeyEvent(fixture, By.css('input'), 'keydown.enter');
+    dispatchFixtureKeyEvent(fixture, By.css('input'), 'keydown.enter');
     fixture.detectChanges();
     expect(fixture.componentInstance.pick).toEqual([]);
   });

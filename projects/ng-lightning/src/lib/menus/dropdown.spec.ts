@@ -1,7 +1,7 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { NglDropdown } from './dropdown';
-import { createGenericTestComponent, dispatchKeyEvent } from '../../../test/util/helpers';
+import { createGenericTestComponent, dispatchFixtureKeyEvent } from '../../../test/util';
 import { By } from '@angular/platform-browser';
 import { NglMenusModule } from './module';
 
@@ -118,7 +118,7 @@ describe('`nglDropdown`', () => {
     expect(fixture.componentInstance.setOpen).not.toHaveBeenCalled();
     expect(<Element>dropdownTrigger).not.toEqual(document.activeElement);
 
-    dispatchKeyEvent(fixture, By.directive(NglDropdown), 'keydown.esc');
+    dispatchFixtureKeyEvent(fixture, By.directive(NglDropdown), 'keydown.esc');
     expect(fixture.componentInstance.setOpen).toHaveBeenCalledWith(false);
     expect(<Element>dropdownTrigger).toEqual(document.activeElement);
     fixture.destroy();
@@ -132,7 +132,7 @@ describe('`nglDropdown`', () => {
     dropdownTrigger.click();
     expect(fixture.componentInstance.setOpen).toHaveBeenCalledWith(true);
 
-    dispatchKeyEvent(fixture, By.directive(NglDropdown), 'keydown.arrowdown');
+    dispatchFixtureKeyEvent(fixture, By.directive(NglDropdown), 'keydown.arrowdown');
     expect(<Element>dropdownItem).toEqual(document.activeElement);
     fixture.destroy();
   });

@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, selectElements, dispatchKeyEvent } from '../../../test/util/helpers';
+import { createGenericTestComponent, selectElements, dispatchFixtureKeyEvent } from '../../../test/util';
 import { By } from '@angular/platform-browser';
 import { NglPickModule } from './module';
 
@@ -80,7 +80,7 @@ describe('`Pick`', () => {
     const fixture = createTestComponent();
 
     function dispatchKey(key: string, index: number) {
-      dispatchKeyEvent(fixture, By.css('button'), `keydown.${key}`, index);
+      dispatchFixtureKeyEvent(fixture, By.css('button'), `keydown.${key}`, index);
     }
 
     dispatchKey('Enter', 1);

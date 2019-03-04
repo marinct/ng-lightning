@@ -1,6 +1,6 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { createGenericTestComponent, dispatchEvent } from '../../../test/util/helpers';
+import { createGenericTestComponent, dispatchEvent } from '../../../test/util';
 import { NglPopoversModule } from './module';
 import { getPopoverElement } from './popover.spec';
 
