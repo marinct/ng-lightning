@@ -1,23 +1,23 @@
-# `<ngl-pagination>`
+# <ngl-pagination>
 
-### Input
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| `[page]` | current page number | number | |
+| `[total]` | total number of **items** in all pages | number | |
+| `[limit]` | limit number of visible pages. A value less than 1 indicates that there is no limitation | number |  0 |
+| `[boundaryLinks]` | whether to display First and Last buttons | boolean | `false` |
+| `[boundaryNumbers]` | define how many of the first and last page numbers to always show | boolean | 0 |
+| `[perPage]` | maximum number of items per page | boolean | 10 |
+| `[firstText]` | displayed string for First button | string | `'First'` |
+| `[previousText]` | displayed string for Previous button | string | `'Previous'` |
+| `[previousText]` | displayed string for Previous button | string | `'Previous'` |
+| `[nextText]` | displayed string for Next button | string | `'Next'` |
+| `[lastText]` | displayed string for Last button | string | `'Last'` |
+| `(pageChange)` | the page clicked in order to select | `EventEmitter<number>` | |
 
-  * `page: number`: Current page number.
-  * `total: number`: Total number of items in all pages.
-  * `limit?: number = 0`:  Limit number of visible pages. A value less than one indicates that there is no limitation.
-  * `boundaryLinks?: boolean = false`: Whether to display First / Last buttons.
-  * `boundaryNumbers?: number = 0`: Define how many of the first and last page numbers to always show.
-  * `perPage?: number = 10`: Maximum number of items per page.
-  * `firstText?: string = 'First'`: Displayed string for First button.
-  * `previousText?: string = 'Previous'`: Displayed string for Previous button.
-  * `nextText?: string = 'Next'`: Displayed string for Next button.
-  * `lastText?: string = 'Last'`: Displayed string for Last button.
+# Export API
 
-### Output
-
-  * `pageChange: EventEmitter<number>`: the page clicked in order to select
-
-### Export
-
-  * `start: number`: Starting row index of current page
-  * `end: number`: Last row index of current page
+| Name | Description | Type |
+| -------- | ----------- | ---- |
+| `start` | starting row index of current page | number |
+| `end` | last row index of current page | number |

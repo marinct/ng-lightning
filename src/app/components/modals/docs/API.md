@@ -1,25 +1,27 @@
 # `<ngl-modal>`
 
-### Content
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| `[header]` | heading text | string | |
+| `[open]` | whether modal is visible or not | boolean | `true` |
+| `[size]` | specifies the modal's width | 'medium' \| 'large' | |
+| `[directional]` | whether buttons inside footer spread to both left and right | boolean | |
+| `[dismissOnClickOutside]` | whether modal can be dismissed by clicking outside of it | boolean | `true` |
+| `[closeButtonAssistiveText]` | text read aloud by screen readers when the user focuses on the Close Button | string | `'Close'` |
+| `(openChange)` | emitted when modal's visibility is going to change to `false` | `EventEmitter<boolean>` | |
 
-  * `ng-template[nglModalTagline]`: Content underneath the title in the modal header.
-  * `ng-template[nglModalFooter]`: Contains buttons displayed on modal's footer.
+# <ng-template nglModalTagline>
+  
+Content underneath the title in the modal header.
 
-### Input
+# <ng-template nglModalFooter>
 
-  * `header?: string`: Heading text.
-  * `open?: boolean`: Whether modal is visible or not.
-  * `size?: 'string'`: Modal size. Possible values are empty, `medium` and `large`.
-  * `directional?: boolean = false`: Whether buttons inside footer spread to both left and right.
-  * `closeButtonAssistiveText? = 'Close'`: Text read aloud by screen readers when the user focuses on the Close Button.
-  * `dismissOnClickOutside?: boolean = true`: Modal can be dismissed by clicking outside of it.
+Contains buttons displayed on modal's footer.
 
-### Output
+# <ng-template nglModalHeader>
 
-  * `openChange: EventEmitter<boolean>`: emitted when modal's visibility is going to change to `false`
+Custom header content template
 
-# `ng-template[nglModalHeader]`
-
-### Variables
-
-  * `id: string`: Auto generated unique ID to be used for accessibility.
+| Variable | Description | Type |
+| -------- | ----------- | ---- |
+| `id` | Auto generated unique ID to be used for accessibility. | string |

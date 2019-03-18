@@ -5,7 +5,7 @@
 | `[label]` | input label | string - TemplateRef | |
 | `[error]` | error message | string | |
 
-Highlights label as a required (does not perform any validation) based onto `<input>`'s `required` property.
+Highlights label as a required (does not perform any validation) based onto `<input>`'s `required` property.  
 
 
 # <ngl-checkbox-toggle>
@@ -23,7 +23,7 @@ Same API as `<ngl-checkbox>` plus the below:
 Same API as `<ngl-checkbox>` but SLDS doesn't support `[error]`.
 
 
-# `<fieldset ngl-checkbox-group>`
+# <fieldset ngl-checkbox-group>
 
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |

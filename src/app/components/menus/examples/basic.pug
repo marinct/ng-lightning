@@ -1,10 +1,10 @@
 span(nglDropdown, [(open)]="open")
-  button.slds-button.slds-button--neutral(nglDropdownTrigger)
+  button.slds-button.slds-button_neutral(nglDropdownTrigger)
     span.slds-truncate Select an item
     |
     ngl-icon(iconName="down", variant="default", size="x-small")
   |
-  .slds-dropdown.slds-dropdown--left
+  .slds-dropdown.slds-dropdown_left
     ul.dropdown__list(role="menu")
       li.slds-dropdown__item(*ngFor="let item of items;")
         a(role="menuitem", nglDropdownItem, (click)="selected = item.value; open = false;")
@@ -13,7 +13,9 @@ span(nglDropdown, [(open)]="open")
           ngl-icon([iconName]="item.icon", variant="default", size="x-small")
 button(type="button", nglButton="neutral", (click)="onToggle($event)") Open
 button(type="button", nglButton="neutral", style="margin-left: 0px;", (click)="open = !open") Toggle
-.slds-m-top--large(*ngIf="selected")
+|
+|
+.slds-m-top_large(*ngIf="selected")
   | You selected:
   b {{selected}}
 

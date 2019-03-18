@@ -1,14 +1,14 @@
-.slds-container_large.slds-container_center
+.slds-container_x-large.slds-container_center
   .slds-p-around_large
 
     .slds-grid.slds-wrap.slds-grow
 
-      aside.slds-grow.slds-size--1-of-1.slds-medium-size--4-of-12.slds-large-size--3-of-12.slds-col-rule--right.slds-order--2.slds-small-order--2.slds-medium-order--1.slds-large-order--1
+      aside.slds-grow.slds-size_1-of-1.slds-medium-size_4-of-12.slds-large-size_3-of-12.slds-col-rule_right.slds-order_2.slds-small-order_2.slds-medium-order_1.slds-large-order_1
 
-        ul.slds-navigation-list--vertical.slds-has-block-links--space()
-          li.slds-list__item(*ngFor="let link of links", routerLinkActive="slds-is-active")
-            a.slds-navigation-list--vertical__action.slds-text-link--reset.slds-truncate([routerLink]="'/components/' + link.path")
+        ul.slds-nav-vertical__section
+          li.slds-nav-vertical__item(*ngFor="let link of links", routerLinkActive="slds-is-active")
+            a.slds-nav-vertical__action.slds-truncate([routerLink]="'/components/' + link.path")
               | {{ getLabel(link) }}
 
-      .slds-grow.slds-size--1-of-1.slds-medium-size--8-of-12.slds-large-size--9-of-12.slds-col-rule--right.slds-order--1.slds-small-order--1.slds-medium-order--2.slds-large-order--2.slds-p-left--large.slds-p-right--large.slds-p-bottom--large
+      .slds-grow.slds-size_1-of-1.slds-medium-size_8-of-12.slds-large-size_9-of-12.slds-col-rule_right.slds-order_1.slds-small-order_1.slds-medium-order_2.slds-large-order_2.slds-p-left_large.slds-p-right_large.slds-p-bottom_large
         router-outlet

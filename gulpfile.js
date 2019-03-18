@@ -27,7 +27,7 @@ gulp.task('pug:compile', function libBuildHtml() {
   const fs = require('fs');
   const _pug = require('pug');
   const glob = require('glob');
-  const md = require('markdown-it')();
+  const md = require('markdown-it')({ breaks: true });
   const mdHtml = require('markdown-it')({
     html: true,    // Enable HTML tags in source
     breaks: true,  // Convert '\n' in paragraphs into <br>
@@ -47,7 +47,7 @@ gulp.task('pug:compile', function libBuildHtml() {
     const ts = highlightTS(fs.readFileSync(`${filepath}.ts`, 'UTF-8'));
 
     // HTML
-    const pugSrc = _pug.renderFile(`${filepath}.pug`, { pretty: true });
+    const pugSrc = _pug.renderFile(`${filepath}.pug`, { pretty: true, doctype: 'html' });
     const html = Prism.highlight(`${pugSrc}`.trim(), Prism.languages.markup);
 
     return { ts: ts, html };

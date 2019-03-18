@@ -1,24 +1,21 @@
-# `<ngl-rating>`
+# <ngl-rating>
 
-### Input
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| `[rate]` | current rate value | number | 0 |
+| `[max]` | maximum rate number | number | 5 |
+| `[isReadonly]` | prevent user's interaction | boolean | `false` |
+| `[icon]` | LDS icon used to display the available rates | string | `'favorite'` |
+| `[size]` | icon sizes | string | |
+| `[colorOn]` | color when active | string | `'#FFB75D'` |
+| `[colorOff]` | color when not active | string | `'#54698D'` |
+| `(rateChange)` | the clicked rate | `EventEmitter<number>` | |
+| `(hover)` | the currently hovered rate | `EventEmitter<number>` | |
 
-  * `rate: number`: Current rate.
-  * `max?: number = 5`: Maximum rate number.
-  * `isReadonly?: boolean = false`: Prevent user's interaction.
-  * `icon?: string = 'favorite'`: Icon used to display the available rates.
-  * `size?: 'x-small' | 'small' | 'large'`: Icon sizes.
-  * `colorOn: 'string' = '#FFB75D'`: Color when active.
-  * `colorOff: 'string' = '#54698D'`: Color when not active.
+# <ng-template nglRatingIcon>
 
-### Output
-
-  * `rateChange: EventEmitter<number>`: the clicked rate
-  * `hover: EventEmitter<number>`: the currently hovered rate
-
-# `template[nglRatingIcon]`
-
-### Variables
-
-  * `$implicit: boolean`: Whether icon should be active.
-  * `index: number`: Icon index.
-  * `fill: number`: Fill percentage. An integer value between 0 and 100.
+| Variable | Description | Type |
+| -------- | ----------- | ---- |
+| `$implicit` | Whether icon should be active or not | boolean |
+| `index` | icon index | number |
+| `fill` | Fill percentage. An integer value between 0 and 100. | number |

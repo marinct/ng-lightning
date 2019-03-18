@@ -59,13 +59,17 @@ main {
   h1 {
     font-size: 22px;
     margin-bottom: 15px;
+
+    &:not(:first-child) {
+      margin-top: 2em;
+    }
   }
 
   table {
     font-size: 14px;
     line-height: 1.5;
     border-width: 0;
-    margin: 2em 0;
+    margin: 1em 0;
 
     th {
       background-color: #e8e8e8;

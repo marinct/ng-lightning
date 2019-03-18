@@ -1,7 +1,7 @@
-# `<ngl-progress-bar>`
+# <ngl-progress-bar>
 
-### Input
-
-  * `value: number`: The percentage value [0, 100]
-  * `size?: string = 'medium'`: Size
-  * `variant?: 'circular'`:  Variant
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| `[value]` | the percentage value | number | |
+| `[size]` | size of the progress bar | 'x-small' \| 'small' \| 'medium' \| 'large' | 'medium' |
+| `[variant]` | variant appearance of the progress bar | 'circular' | 'medium' |

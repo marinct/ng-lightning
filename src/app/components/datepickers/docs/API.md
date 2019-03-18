@@ -1,14 +1,11 @@
 # `<ngl-datepicker>`
 
-### Input
-
-  * `date: Date`: Currently selected date.
-  * `showToday: boolean = true`: Whether to show `Today` option.
-  * `monthNames = ['January', 'February', ...]`: Month names.
-  * `dayNamesShort = ['Sun', 'Mon', ...]`: Short form of weekdays.
-  * `dayNamesLong = ['Sunday', 'Monday', ...]`: Long form of weekdays.
-  * `firstDayOfWeek: number = 0`: First day of the week. Sunday = 0, Monday = 1, ...
-
-### Output
-
-  * `dateChange: EventEmitter<Date>`: Selected date.
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| `[date]` | currently selected date. | Date | |
+| `[showToday]` | whether to show `Today` option | boolean | `true` |
+| `[monthNames]` | month names | string[] | `['January', 'February', ...]` |
+| `[dayNamesShort]` | short form of weekdays | string[] | `['Sun', 'Mon', ...]` |
+| `[dayNamesLong]` | long form of weekdays | string[] | `['Sunday', 'Monday', ...]` |
+| `[firstDayOfWeek]` | first day of the week. Sunday = 0, Monday = 1, ... | number | `0` |
+| `(dateChange)` | emits date upon selection | EventEmitter<Date> | |

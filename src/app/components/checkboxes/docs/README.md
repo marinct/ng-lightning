@@ -1,5 +1,5 @@
 Checkboxes let you select one or more options. `<ngl-checkbox>` is useful for creating single checkboxes. heckbox buttons let you select one or more options with an alternative visual design.
-A alternative visual design as toggle can be used swithcing to `<ngl-checkbox-toggle>`. Use the `enabledText` and `disabledText` inputs to specify labels displayed under the toggle for each state. To display no labels, set these attributes to empty strings.
+An alternative visual design as toggle can be used swithcing to `<ngl-checkbox-toggle>`. Use the `enabledText` and `disabledText` inputs to specify labels displayed under the toggle for each state. To display no labels, set these attributes to empty strings.
 
 For a styled checkable input that communicates if an option is being added to a group, use `<ngl-checkbox-button>`. 
 

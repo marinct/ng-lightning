@@ -1,11 +1,8 @@
-# `<ngl-section>`
+# <ngl-section>
 
-### Input
-
-  * `title: string`: Section's title.
-  * `open: boolean = false`: Whether section's body is collapsed or not.
-  * `collapsable: boolean = true`: Whether section's body is able to collapse or not.
-
-### Output
-
-  * `openChange: EventEmitter<boolean>`
+| Property | Description | Type | Default |
+| -------- | ----------- | ---- | ------- |
+| `[title]` | section's title | string | |
+| `[open]` | whether section's body is collapsed or not | boolean | `false` |
+| `[collapsable]` | whether section's body is able to collapse or not | boolean | `true` |
+| `(openChange)` | emits event when the body is going collapse or open | `EventEmitter<boolean>` | |
