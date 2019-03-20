@@ -147,6 +147,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/ng-lightning/src/test.ts",
+            "polyfills": "projects/ng-lightning/test/polyfills.ts",
             "tsConfig": "projects/ng-lightning/tsconfig.spec.json",
             "karmaConfig": "projects/ng-lightning/karma.conf.js"
           }

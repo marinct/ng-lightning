@@ -2,15 +2,29 @@
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
 const isTravis = process.env.TRAVIS;
+const isSaucelabs = process.argv.indexOf('--saucelabs') !== -1 || (isTravis && process.env.TRAVIS_PULL_REQUEST === 'false');
+
+if (isSaucelabs && !process.env.SAUCE_USERNAME) {
+  try {
+    const credentials = require('./saucelabs.json');
+    process.env.SAUCE_USERNAME = credentials.username;
+    process.env.SAUCE_ACCESS_KEY = credentials.accessKey;
+  } catch (err) {
+    console.log('Please, create a valid "saucelabs.json" with your credentials.');
+    process.exit(1);
+  }
+}
 
 module.exports = function (config) {
-  config.set({
+  const cfg = {
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-firefox-launcher'),
+      require('karma-sauce-launcher'),
+      // require('karma-ie-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
@@ -43,5 +57,23 @@ module.exports = function (config) {
       '/mypath/custom-sprite/svg/symbols.svg': '/base/test/fixtures/fake',
       '/image1.jpg': '/base/test/fixtures/fake',
     },
-  });
+  };
+
+  if (isSaucelabs) {
+    cfg.customLaunchers = require('./test/browser-providers');
+    cfg.browsers = Object.keys(cfg.customLaunchers);
+    cfg.reporters.push('saucelabs');
+    cfg.sauceLabs = {
+      tunnelIdentifier: isTravis ? process.env.TRAVIS_JOB_NUMBER : 'ng-lightning',
+    };
+    cfg.captureTimeout = 180000;
+    cfg.browserDisconnectTimeout = 180000;
+    cfg.browserDisconnectTolerance = 3;
+    cfg.browserNoActivityTimeout = 180000;
+    cfg.angularCli = {
+      environment: 'dev'
+    };
+  }
+
+  config.set(cfg);
 };
