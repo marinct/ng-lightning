@@ -19,7 +19,10 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild([
+      { path: '', redirectTo: 'alert', pathMatch: 'full' },
+      ...routes,
+    ]),
     NglModule,
   ],
   declarations: [
