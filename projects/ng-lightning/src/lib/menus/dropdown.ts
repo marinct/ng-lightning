@@ -1,6 +1,6 @@
 import { Directive, Input, Output, EventEmitter, HostListener, ElementRef, OnInit, OnDestroy, ContentChildren, QueryList, Renderer2 } from '@angular/core';
+import { toBoolean, InputBoolean } from '../util/convert';
 import { NglDropdownItem } from './dropdown-item';
-import { toBoolean } from '../util/convert';
 
 const openEventEmitter = new EventEmitter<any>();
 
@@ -8,7 +8,7 @@ const openEventEmitter = new EventEmitter<any>();
   selector: '[nglDropdown]',
   host: {
     '[class.slds-dropdown-trigger]': 'true',
-    '[class.slds-dropdown-trigger--click]': 'true',
+    '[class.slds-dropdown-trigger_click]': 'true',
   },
 })
 export class NglDropdown implements OnInit, OnDestroy {
@@ -35,7 +35,7 @@ export class NglDropdown implements OnInit, OnDestroy {
     return this._isOpen;
   }
 
-  @Input() handlePageEvents = true;
+  @Input() @InputBoolean() handlePageEvents = true;
   @ContentChildren(NglDropdownItem, {descendants: true}) items: QueryList<NglDropdownItem>;
   @Output('openChange') isOpenChange = new EventEmitter<boolean>();
 
