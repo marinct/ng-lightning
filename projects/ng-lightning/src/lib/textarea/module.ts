@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NglInternalOutletModule } from '../util/outlet.module';
+import { NglFormsModule } from '../forms/module';
 
 import { NglTextarea } from './textarea/textarea';
 import { NglTextareaInput } from './input/input';
@@ -13,6 +13,6 @@ const DIRECTIVES = [
 @NgModule({
   declarations: DIRECTIVES,
   exports: DIRECTIVES,
-  imports: [CommonModule, NglInternalOutletModule],
+  imports: [CommonModule, NglFormsModule],
 })
 export class NglTextareaModule {}
