@@ -12,7 +12,7 @@ import { NglIconsModule } from '../icons/module';
 import { NglInternalDatatableHeadCell } from './head';
 import { NglInternalDatatableCell } from './cell-internal';
 
-export {INglDatatableSort, INglDatatableRowClick} from './datatable';
+export { INglDatatableSort, INglDatatableRowClick } from './datatable';
 
 const NGL_DATATABLE_DIRECTIVES = [
   NglDatatable,
