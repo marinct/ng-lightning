@@ -1,4 +1,4 @@
-import { ElementRef, Renderer2, SimpleChange } from '@angular/core';
+import { ElementRef, Renderer2 } from '@angular/core';
 
 // Check if given value is integer. Cast strings as potential integers as well.
 // See: http://stackoverflow.com/questions/14636536/how-to-check-if-a-variable-is-an-integer-in-javascript

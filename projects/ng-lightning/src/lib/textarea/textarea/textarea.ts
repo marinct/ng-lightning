@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, ContentChild, TemplateRef, HostBinding,
          AfterContentInit, ChangeDetectorRef, OnChanges, OnDestroy } from '@angular/core';
 import { NglTextareaInput } from '../input/input';
-import { toBoolean, InputBoolean } from '../../util/convert';
+import { toBoolean } from '../../util/convert';
 import { isRequired } from '../../util/isRequired';
 import { Subscription } from 'rxjs';
 
