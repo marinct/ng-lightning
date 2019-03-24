@@ -23,6 +23,7 @@ gulp.task('pug:compile', function libBuildHtml() {
 
   const Prism = require('prismjs');
   require('prismjs/components/')(['typescript']);
+  require('prismjs/components/')(['json']);
 
   const path = require('path');
   const fs = require('fs');
@@ -65,6 +66,7 @@ gulp.task('pug:compile', function libBuildHtml() {
         [
           { file: 'install', lang: 'clike' },
           { file: 'usage', lang: 'typescript' },
+          { file: 'styles', lang: 'json' },
           { file: 'config', lang: 'typescript' },
         ].forEach(({file, lang}) => {
           const src = fs.readFileSync(`${directory}/${file}.md`, 'UTF-8');

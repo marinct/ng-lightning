@@ -98,13 +98,21 @@ app-root {
   margin: 2rem 0 1rem;
 }
 
+.code {
+  margin: 0 1px;
+  background: #f2f4f5;
+  padding: .1em .2em;
+  border-radius: 3px;
+  border: 1px solid #eee;
+}
+
 .readme, .api {
   font-size: 1rem;
 
   code {
     margin: 0 1px;
     background: #f2f4f5;
-    padding: .2em .4em;
+    padding: .2em .2em;
     border-radius: 3px;
     font-size: 1rem;
     border: 1px solid #eee;
