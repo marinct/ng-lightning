@@ -21,7 +21,7 @@
     "tdd": "run-p -r pug:watch lib:tdd",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prerelease": "yarn lib:build && yarn test",
+    "prerelease": "yarn test && yarn lib:build",
     "release": "node scripts/release",
     "demo:release": "yarn demo:build && node scripts/gh-pages"
   },
