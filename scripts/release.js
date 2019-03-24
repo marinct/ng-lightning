@@ -98,7 +98,7 @@ function changelog( version ) {
   const shell = require('shelljs');
 
   var deferred = q.defer();
-  shell.exec(`${root}/node_modules/.bin/conventional-changelog -p angular -i ${changelogFile} -s`, (code) => {
+  shell.exec(`${root}/node_modules/.bin/conventional-changelog --pkg ${packageFile}  -p angular -i ${changelogFile} -s`, (code) => {
     deferred.resolve(version);
   });
   return deferred.promise;
