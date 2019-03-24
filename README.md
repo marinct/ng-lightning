@@ -48,11 +48,14 @@ http://ng-lightning.github.io/ng-lightning/
 
 We are always looking for high quality contributions! Please check the [CONTRIBUTING.md](CONTRIBUTING.md) doc for guidelines.
 
+## Need help?
 
-## Sponsors
+For questions on how to use ng-lightning or how to contribute, please post questions to [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](https://stackoverflow.com/questions/tagged/ng-lightning) using the `ng-lightning` tag. If you find a bug in the source code or a mistake in the documentation, you can help us by submitting an issue to our GitHub Repository.
 
-Development is supported by [ZuluTrade](http://zulutrade.com/).
+## Companies using ng-lightning
 
+- [Viabill](https://viabill.dk/)
+- [ZuluTrade](http://zulutrade.com/)
 
 ## Browsers
 
