@@ -4,7 +4,6 @@
 [![Sauce Test Status](https://saucelabs.com/buildstatus/ng-lightning)](https://saucelabs.com/u/ng-lightning)
 [![npm version](https://badge.fury.io/js/ng-lightning.svg)](https://www.npmjs.com/package/ng-lightning)
 [![npm](https://img.shields.io/npm/dm/ng-lightning.svg?maxAge=2592000)](https://www.npmjs.com/package/ng-lightning)
-[![Join the chat at https://gitter.im/ng-lightning/ng-lightning](https://badges.gitter.im/ng-lightning/ng-lightning.svg)](https://gitter.im/ng-lightning/ng-lightning?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/ng-lightning.svg)](https://saucelabs.com/u/ng-lightning)
 
@@ -18,15 +17,6 @@ Install through `npm`:
 
 ```bash
 npm install --save ng-lightning
-```
-
-If you use **SystemJS** to load your files, you should adjust your configuration to point our UMD bundle through [unpkg](https://unpkg.com/)
-
-```javascript
-map: {
-  ...
-  'ng-lightning/ng-lightning': 'https://unpkg.com/ng-lightning@x.x.x/bundles/ng-lightning.umd.js'
-}
 ```
 
 #### Dependencies

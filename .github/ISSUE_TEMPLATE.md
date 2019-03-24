@@ -1,5 +1,5 @@
 <!--
-Thanks for raising an issue! (For *questions*, we recommend instead using https://stackoverflow.com and adding the 'ng-lightning' tag or ask in https://gitter.im/ng-lightning/ng-lightning)
+Thanks for raising an issue! (For *questions*, we recommend instead using https://stackoverflow.com and adding the 'ng-lightning' tag)
 
 To help us help you, if you've found a bug please consider the following:
 
