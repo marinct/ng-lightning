@@ -1,3 +1,424 @@
+# [4.0.0](https://github.com/ng-lightning/ng-lightning/compare/v2.0.1...v4.0.0) (2019-03-24)
+
+
+### Bug Fixes
+
+* **alert/toast:** don't add `default` variant color on icon ([37815fc](https://github.com/ng-lightning/ng-lightning/commit/37815fc))
+* **datatables:** safe unsubscription for column updates ([6e2a67b](https://github.com/ng-lightning/ng-lightning/commit/6e2a67b))
+* **datepicker:** add missing label on year to improve accessibility ([f703bff](https://github.com/ng-lightning/ng-lightning/commit/f703bff)), closes [#388](https://github.com/ng-lightning/ng-lightning/issues/388)
+* **icons:** `slds-icon_container` shouldn't apply for `utility` icons and set `default` as default `variant` ([8cc0764](https://github.com/ng-lightning/ng-lightning/commit/8cc0764))
+* **lookups:** prevent form submission on polymprhic selection ([78181d7](https://github.com/ng-lightning/ng-lightning/commit/78181d7)), closes [#350](https://github.com/ng-lightning/ng-lightning/issues/350)
+* **lookups:** turn autocomplete off for input ([7ce34b2](https://github.com/ng-lightning/ng-lightning/commit/7ce34b2)), closes [#348](https://github.com/ng-lightning/ng-lightning/issues/348)
+* **modal:** use `cdkTrapFocus` to prevent user from tabbing away ([1c24ba8](https://github.com/ng-lightning/ng-lightning/commit/1c24ba8))
+* **modals:** add ARIA `describedby` for content ([392177d](https://github.com/ng-lightning/ng-lightning/commit/392177d))
+* **pills:** remove unnecessary host classes ([649813f](https://github.com/ng-lightning/ng-lightning/commit/649813f))
+* **spinner:** do not add default size class when initialized with different one ([a81c75a](https://github.com/ng-lightning/ng-lightning/commit/a81c75a))
+
+
+### Features
+
+* **app:** add Combobox component ([9f424fd](https://github.com/ng-lightning/ng-lightning/commit/9f424fd))
+* **app:** add dynamic icons module ([1c4987c](https://github.com/ng-lightning/ng-lightning/commit/1c4987c))
+* **app:** add progress bar component ([5e40587](https://github.com/ng-lightning/ng-lightning/commit/5e40587))
+* **app:** migrate button icons to LDS v2.8 ([1d191e1](https://github.com/ng-lightning/ng-lightning/commit/1d191e1))
+* **app:** migrate buttons to LDS v2.8 ([3da487b](https://github.com/ng-lightning/ng-lightning/commit/3da487b))
+* **app:** migrate checkboxes to LDS v2.8 ([4a9a368](https://github.com/ng-lightning/ng-lightning/commit/4a9a368))
+* **app:** migrate input to LDS v2.8 ([fc4613e](https://github.com/ng-lightning/ng-lightning/commit/fc4613e))
+* **app:** migrate menus to LDS v2.8 ([2a4f3c0](https://github.com/ng-lightning/ng-lightning/commit/2a4f3c0))
+* **app:** migrate popovers to LDS v2.8 ([d5f12f9](https://github.com/ng-lightning/ng-lightning/commit/d5f12f9))
+* **app:** migrate radio groups to LDS v2.8 ([6439dc9](https://github.com/ng-lightning/ng-lightning/commit/6439dc9))
+* **app:** migrate select to LDS v2.8 ([09c2aa0](https://github.com/ng-lightning/ng-lightning/commit/09c2aa0))
+* **app:** migrate stateful buttons to LDS v2.8 ([fec0947](https://github.com/ng-lightning/ng-lightning/commit/fec0947))
+* **app:** migrate textarea to LDS v2.8 ([d701792](https://github.com/ng-lightning/ng-lightning/commit/d701792))
+* **app:** provide injection configuration tokens per component ([45fb789](https://github.com/ng-lightning/ng-lightning/commit/45fb789))
+* **app:** support `isRequired` decorator ([8276160](https://github.com/ng-lightning/ng-lightning/commit/8276160))
+* **app:** support Angular v5 ([3008ded](https://github.com/ng-lightning/ng-lightning/commit/3008ded))
+* **app:** support LDS v2.5 ([4399e1d](https://github.com/ng-lightning/ng-lightning/commit/4399e1d))
+* **avatar:** migrate to LDS v2.5 ([bd400e2](https://github.com/ng-lightning/ng-lightning/commit/bd400e2))
+* **avatar:** support initials & fallback to initials if image fails to load ([c131c82](https://github.com/ng-lightning/ng-lightning/commit/c131c82))
+* **badges:** migrate to LDS v2.5 ([5d74394](https://github.com/ng-lightning/ng-lightning/commit/5d74394)), closes [#366](https://github.com/ng-lightning/ng-lightning/issues/366)
+* **breadcrumbs:** migrate to LDS v2.5 ([0a1aa20](https://github.com/ng-lightning/ng-lightning/commit/0a1aa20))
+* **build:** switch to Angular CLI library format ([d39d324](https://github.com/ng-lightning/ng-lightning/commit/d39d324))
+* **datatables:** migrate to LDS v2.8 ([d3b1d48](https://github.com/ng-lightning/ng-lightning/commit/d3b1d48))
+* **files:** upgrade files ([220f870](https://github.com/ng-lightning/ng-lightning/commit/220f870))
+* **forms:** add `fieldLevelHelpTooltip` input ([351ee63](https://github.com/ng-lightning/ng-lightning/commit/351ee63)), closes [#374](https://github.com/ng-lightning/ng-lightning/issues/374)
+* **icons:** migrate to slds v2.5.0 ([42ce810](https://github.com/ng-lightning/ng-lightning/commit/42ce810))
+* **icons:** migrate waffle to NglDynamicIcon ([902d429](https://github.com/ng-lightning/ng-lightning/commit/902d429))
+* **modal:** focus the previously focused element on close ([4777ee6](https://github.com/ng-lightning/ng-lightning/commit/4777ee6))
+* **modal:** hide close button if `openChange` output is not binded ([ed76e79](https://github.com/ng-lightning/ng-lightning/commit/ed76e79))
+* **modals:** migrate to LDS v2.5 & add `closeButtonAssistiveText` ([d68f9a7](https://github.com/ng-lightning/ng-lightning/commit/d68f9a7))
+* **modals:** prevent body scrolling while open ([2a7e965](https://github.com/ng-lightning/ng-lightning/commit/2a7e965))
+* **modals:** support close when clicking outside ([49cbc06](https://github.com/ng-lightning/ng-lightning/commit/49cbc06))
+* **notifications:** migrate to LDS v2.5 & add `iconName` and `dismissible` ([7bc6bc6](https://github.com/ng-lightning/ng-lightning/commit/7bc6bc6))
+* **paginations:** migrate to LDS v2.5 ([3aa9d55](https://github.com/ng-lightning/ng-lightning/commit/3aa9d55))
+* **pills:** migrate to LDS v2.8 ([4603d22](https://github.com/ng-lightning/ng-lightning/commit/4603d22))
+* **ratings:** migrate to LDS v2.5 ([be681e0](https://github.com/ng-lightning/ng-lightning/commit/be681e0))
+* **sections:** migrate to LDS v2.5 & add `collapsable` attribute ([9e66ab3](https://github.com/ng-lightning/ng-lightning/commit/9e66ab3)), closes [#368](https://github.com/ng-lightning/ng-lightning/issues/368)
+* **spinners:** migrate to LDS v2.5 & add `alternativeText` attribute ([d3de48f](https://github.com/ng-lightning/ng-lightning/commit/d3de48f))
+* **tabs:** migrate to LDS v2.5 ([a96e707](https://github.com/ng-lightning/ng-lightning/commit/a96e707))
+
+
+### BREAKING CHANGES
+
+* **app:**  
+ * `NglModule.forRoot` is now removed. You should now use the new `NGL_ICON_CONFIG` and `NGL_RATING_CONFIG` to customize  the default behavior.
+ * `NglConfig` and `INglConfig` are now removed.
+ * Run-time configuration is not provided as an API of the library. You should use the injection tokens on per module/component basis.
+* **app:** ng-lightning requires a minimal version of Angular 5
+* **app:**   Tooltips and Popovers are now completely separate modules.
+  Visit http://ng-lightning.github.io/ng-lightning/#/components/popovers & http://ng-lightning.github.io/ng-lightning/#/tooltips for more.
+* **app:**   Before:
+
+  ```html
+  <button type="button" nglButton="neutral" [(nglButtonState)]="selected">
+    <ngl-icon icon="add" state="not-selected">Follow</ngl-icon>
+    <ngl-icon icon="check" state="selected">Following</ngl-icon>
+    <ngl-icon icon="close" state="selected-focus">Unfollow</ngl-icon>
+  </button>
+  ```
+
+  After:
+
+  ```html
+  <button type="button" nglButtonStateful  [(state)]="selected>
+    <ngl-state-off iconName="add">Follow</ngl-state-off>
+    <ngl-state-on iconName="check">Following</ngl-state-on>
+    <ngl-state-hover iconName="close">Unfollow</ngl-state-hover>
+  </button>
+  ```
+* **app:**   Before:
+
+  ```html
+  <button type="button" [nglButton]="brand">
+    <ngl-icon icon="warning"></ngl-icon>
+    Text
+  </button>
+  ```
+
+  After:
+
+  ```html
+  <button type="button" nglButton variant="brand" iconName="utility:warning">Text</button>
+  ```
+* **app:**   
+  Before:
+
+  ```html
+  <button type="button" [nglButtonIcon]="brand">
+    <ngl-icon icon="warning"></ngl-icon>
+  </button>
+  ```
+
+  After:
+
+  ```html
+  <button type="button" nglButtonIcon variant="brand" iconName="utility:warning"></button>
+  ```
+* **app:**   
+  * `<ngl-form-element>` has been renamed to `<ngl-input>`
+  * `<ng-template nglFormLabel>` has been removed since `[label]` now supports TemplateRef
+  * `nglFormControl` has been renamed to `ngl`
+
+  Before:
+
+  ```html
+  <ngl-form-element>
+    <ng-template nglFormLabel>...</ng-template>
+    <input nglFormControl type="text" />
+  </ngl-form-element>
+  ```
+
+  After:
+
+  ```html
+  <ng-template #tpl>...</ng-template>
+  <ngl-input [label]="tpt">
+    <input ngl type="text" />
+  </ngl-input >
+  ```
+* **app:**   
+  * `<ngl-form-element>` has been renamed to `<ngl-textarea>`
+  * `<ng-template nglFormLabel>` has been removed since `[label]` now supports TemplateRef
+  * `nglFormControl` has been renamed to `ngl`
+
+  Before:
+
+  ```html
+  <ngl-form-element>
+    <ng-template nglFormLabel>...</ng-template>
+    <textarea nglFormControl></textarea>
+  </ngl-form-element>
+  ```
+
+  After:
+
+  ```html
+  <ng-template #tpl>...</ng-template>
+  <ngl-textarea [label]="tpt">
+    <textarea ngl></textarea>
+  </ngl-form-element>
+  ```
+* **app:**   
+  * `<ngl-form-element>` has been renamed to `<ngl-select>`
+  * `<ng-template nglFormLabel>` has been removed since `[label]` now supports TemplateRef
+  * `nglFormControl` has been renamed to `ngl`
+
+  Before:
+
+  ```html
+  <ngl-form-element>
+    <ng-template nglFormLabel>...</ng-template>
+    <select nglFormControl></select>
+  </ngl-form-element>
+  ```
+
+  After:
+
+  ```html
+  <ng-template #tpl>...</ng-template>
+  <ngl-select [label]="tpt">
+    <select ngl></select>
+  </ngl-form-element>
+  ```
+* **app:**   
+  * `ngl-form-group` has been renamed to `ngl-radio-group`
+  * `<ng-template nglFormLabel>` has been removed since `[label]` now supports TemplateRef
+  * `<ngl-form-group-element>` has been renamed to `<ngl-radio-option>`
+  * `nglFormControl` has been renamed to `ngl`
+  * `ngl-form-group-alt` is now `type="button"`
+
+  Before:
+
+  ```html
+  <fieldset ngl-form-group>
+    <ng-template nglFormLabel>...</ng-template>
+    <ngl-form-group-element label="..."><input nglFormControl type="radio" /></ngl-form-group-element>
+  </fieldset>
+  ```
+
+  After:
+
+  ```html
+  <ng-template #tpl>...</ng-template>
+  <fieldset ngl-radio-group [label]="tpt">
+    <ngl-radio-option label="..."><input ngl type="radio" /></ngl-radio-option>
+  </ngl-form-element>
+  ```
+* **app:**   
+  * `<ngl-form-checkbox>` has been renamed to `<ngl-checkbox>`
+  * `<ngl-form-checkbox-toggle>` has been renamed to `<ngl-checkbox-toggle>`
+  * `<ngl-form-checkbox-add>` has been renamed to `<ngl-checkbox-button>`
+  * `<ng-template nglFormLabel>` has been removed since `[label]` now supports TemplateRef
+  * `nglFormControl` has been renamed to `ngl`
+  * `ngl-form-group` has been renamed to `ngl-checkbox-group`
+  * `<ngl-form-group-element>` has been renamed to `<ngl-checkbox-option>`
+  * `ngl-form-group-alt` is now `ngl-checkbox-group type="button"`
+
+  Before:
+
+  ```html
+  <ngl-form-checkbox>
+    <ng-template nglFormLabel>...</ng-template>
+    <input nglFormControl type="checkbox" />
+  </ngl-form-checkbox>
+  ```
+
+  After:
+
+  ```html
+  <ng-template #tpl>...</ng-template>
+  <ngl-checkbox [label]="tpt">
+    <input ngl type="checkbox" />
+  </ngl-checkbox>
+  ```
+
+  Before:
+
+  ```html
+  <fieldset ngl-form-group>
+    <ng-template nglFormLabel>...</ng-template>
+    <ngl-form-group-element label="..."><input nglFormControl type="checkbox" /></ngl-form-group-element>
+  </fieldset>
+  ```
+
+  After:
+
+  ```html
+  <ng-template #tpl>...</ng-template>
+  <fieldset ngl-checkbox-group [label]="tpt">
+    <ngl-checkbox-option label="..."><input ngl type="checkbox" /></ngl-radio-option>
+  </ngl-form-element>
+  ```
+* **app:**  '0' in boolean inputs is now coerced to true
+* **datatables:**   
+  * `[bordered]` has been removed in favor of `slds-table_bordered` class on host element
+  * `[striped]` has been removed in favor of `slds-table_striped` class on host element
+
+  Before:
+
+  ```html
+  <table ngl-datatable bordered="true" striped="true">
+  ```
+
+  After:
+
+  ```html
+  <table ngl-datatable class="slds-table_bordered slds-table_striped">
+  ```
+* **app:**  `<ngl-picklist>` and `<ngl-lookup>` components are removed, and you should use `<ngl-combobox>` instead.
+* **modals:**   * `[body]` selector is not needed anymore
+  * `[tagline]` selector has been renamed to `nglModalFooter`
+  * `ngl-modal-footer` has been renamed to `nglModalFooter`
+
+  Before:
+
+  ```html
+  <ngl-modal>
+    <div body>...</div>
+    <div tagline>...</div>
+    <ngl-template ngl-modal-footer>...</ngl-template>
+  </ngl-modal>
+  ```
+
+  After:
+
+  ```html
+  <ngl-modal>
+    <div class="slds-p-around_medium">...</div>
+    <ngl-template nglModalTagline>...</ngl-template>
+    <ngl-template nglModalFooter>...</ngl-template>
+  </ngl-modal>
+  ```
+* **notifications:**   
+  * `ngl-notifications` has been split to `ngl-toast`/`ngl-alert` and `type` has been removed
+  * `severity` has been renamed to `variant`
+  * `timeout` has been renamed to `duration`
+  * `closeAssistiveText` has been renamed to `closeButtonAssistiveText`
+  * `(nglNotificationClose)` has been renamed to `(close)`
+* **tabs:**   * `ngl-tabs` has been renamed to `ngl-tabset`
+  * tabset's `type` has been renamed to `variant`
+  * `titleCaps` has been removed. Use CSS to adjust it.
+  * tab's `heading` has been renamed to `label`
+  * `ngl-tab-heading` has been renamed to `ngl-tab-label`
+  * `nglTabId` has been removed, use `id` instead.
+  * `(onActivate)` has been renamed to `(activate)`
+  * `(onDeactivate)` has been renamed to `(deactivate)`
+* **app:** NglIconWaffle became NglDynamicIcon of type waffle
+
+To migrate the code follow the example below:
+
+Before:
+
+```html
+<span ngl-icon-waffle></span>
+<ngl-icon-waffle></ngl-icon-waffle>
+```
+
+After:
+
+```html
+<ngl-dynamic-icon type="waffle"></ngl-dynamic-icon>
+```
+* **icons:** in NglIcon category and icon inputs have been merged into one iconName field, type input was renamed to variant and alt is now named alternativeText. The custom icons will not be prefixed with `custom` any longer
+
+To migrate the code follow the example below:
+
+Before:
+
+```html
+<ngl-icon category="custom" icon="1" type="default" alt="Alternative Text"></ngl-icon>
+```
+
+After:
+
+<ngl-icon iconName="custom:custom1" variant="default" alternativeText="Alternative Text"></ngl-icon>
+* **icons:** in NglSvg nglIconCategory and nglIcon inputs have been merged into one nglIconName field. The custom icons will not be prefixed with `custom` any longer
+
+To migrate the code follow the example below:
+
+Before:
+
+```html
+<svg nglIconCategory="custom" nglIcon="1"></svg>
+```
+
+After:
+
+```html
+<svg nglIconName="custom:custom1"></svg>
+```
+
+* **spinners:** `type` has been renamed to `variant` & `container` has been removed
+* **avatar:** `alt` has been renamed to `alternativeText` & `type` has been renamed to `variant`
+
+  Before:
+
+  ```html
+  <ngl-avatar type="..." alt="...">...</ngl-avatar>
+  ```
+
+  After:
+
+  ```html
+  <ngl-avatar variant="..." alternativeText="...">...</ngl-avatar>
+  ```
+* **sections:** `ngl-section` has been renamed to `ngl-expandable-section`
+
+  Before:
+
+  ```html
+  <ngl-section>...</ngl-section>
+  ```
+
+  After:
+
+  ```html
+  <ngl-expandable-section>...</ngl-expandable-section>
+  ```
+* **badges:** input `type` has been renamed to `theme`
+
+  Before:
+
+  ```html
+  <ngl-badge [type]="...">...</ngl-badge>
+  ```
+
+  After:
+
+  ```html
+  <ngl-badge [theme]="...">...</ngl-badge>
+  ```
+* **app:** ng-lightning requires a minimal version of LDS  2.5.0, and is not backward-compatible with previous versions
+* **pills:**   * `[NglPillImage]` selector is not needed anymore
+  * `(nglPillRemove)` output has been renamed to `remove`
+  * `[nglPillRemovable]` input has been renamed to `removable`
+  * `<a>` must have `nglPillAction` attribute
+
+  Before:
+
+  ```html
+  <ngl-pill (nglPillRemove)="remove()" NglPillRemovable="false">
+    <ngl-icon iconName="standard:feedback" nglPillImage></ngl-icon>
+    <a>...</a>
+  </ngl-pill>
+  ```
+
+  After:
+
+  ```html
+  <ngl-pill icon="standard:feedback" (remove)="remove()" removable="false">
+    <a nglPillAction>...</a>
+  </ngl-pill>
+  ```
+
+ADDED
+  * `[icon]`: NglIcon component or iconName to show on the left of the pill
+  * `[avatar]`: NglAvatar component or src to show on the left of the pill
+  * `[hasError]`: Applies the error style to the component
+  * `[removeTitle]`: Remove button title (and assistive text)
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/ng-lightning/ng-lightning/compare/v2.0.1...v3.0.0) (2018-11-28)
 
