@@ -9,4 +9,5 @@
 | `[nglPopoverPlacement]` | Position relative to host element. | 'top' \| 'top-left' \| 'top-right' \| 'right' \| 'right-top' \| 'right-bottom' \| 'bottom' \| 'bottom-left' \| 'bottom-right' \| 'left' \| 'left-top' \| 'left-bottom' | 'top' |
 | `[nglPopoverVariant]` | Determines the variant of the popover. |  'walkthrough' \| 'feature' \| 'warning' \| 'error' \| 'panel' | |
 | `[nglPopoverSize]` | Determines the size of the popover. | 'small' \| 'medium' \| 'large' \| 'full-width' | |
+| `[nglPopoverClass]` | Extra class(es) you want to apply to SVG element. | ngClass | |
 | `(nglPopoverOpenChange)` | Emit an event when the popover should show or hide. | boolean \| 'x' \| 'backdrop' \| 'escape' |

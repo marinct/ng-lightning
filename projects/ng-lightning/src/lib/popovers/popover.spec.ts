@@ -332,6 +332,29 @@ describe('Popovers', () => {
     expect(closeButtonEl.title).toBe('New title');
     expect(getAssistiveTextEl(closeButtonEl).innerText).toBe('New title');
   });
+
+  it('should support custom classes', () => {
+    fixture = createTestComponent(`<button
+      [nglPopover]="tip"
+      [nglPopoverClass]="popClass"
+      [nglPopoverOpen]="true"></button>`);
+
+    const popoverEl = getPopoverElement();
+    fixture.componentInstance.popClass = ['cl1', 'cl2'];
+    fixture.detectChanges();
+    expect(popoverEl).toHaveCssClass('slds-popover');
+    expect(popoverEl).toHaveCssClass('slds-nubbin_bottom');
+    expect(popoverEl).toHaveCssClass('cl1');
+    expect(popoverEl).toHaveCssClass('cl2');
+
+    fixture.componentInstance.popClass = { cl1: true, cl3: true, cl4: false };
+    fixture.detectChanges();
+    expect(popoverEl).toHaveCssClass('slds-nubbin_bottom');
+    expect(popoverEl).toHaveCssClass('cl1');
+    expect(popoverEl).not.toHaveCssClass('cl2');
+    expect(popoverEl).toHaveCssClass('cl3');
+    expect(popoverEl).not.toHaveCssClass('cl4');
+  });
 });
 
 @Component({

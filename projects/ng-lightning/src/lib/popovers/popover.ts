@@ -1,6 +1,6 @@
 import { Component, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef,
   TemplateRef, ElementRef, Renderer2, HostBinding, OnInit, OnDestroy } from '@angular/core';
-import { uniqueId } from '../util/util';
+import { uniqueId, ngClassCombine } from '../util/util';
 import { Placement, POSITION_MAP } from '../util/overlay-position';
 import { FocusTrap, FocusTrapFactory } from '@angular/cdk/a11y';
 import { Variant, Size } from './trigger';
@@ -27,6 +27,14 @@ export class NglPopover implements OnInit, OnDestroy {
   footer: string | TemplateRef<void>;
 
   closeTitle: string;
+
+  set popoverClass(popoverClass: any) {
+    this._popoverClass = popoverClass;
+    this.setHostClass();
+  }
+  get popoverClass() {
+    return this._popoverClass;
+  }
 
   set size(size: Size) {
     this._size = size;
@@ -64,6 +72,7 @@ export class NglPopover implements OnInit, OnDestroy {
   private _nubbin: Placement;
   private _size: Size;
   private _variant: Variant;
+  private _popoverClass: any;
 
   /** The class that traps and manages focus within the dialog. */
   private focusTrap: FocusTrap;
@@ -96,12 +105,12 @@ export class NglPopover implements OnInit, OnDestroy {
   }
 
   private setHostClass() {
-    this.hostService.updateClass(this.element, {
+    this.hostService.updateClass(this.element, ngClassCombine(this.popoverClass, {
       [`slds-nubbin_${this._nubbin}`]: true,
       [`slds-popover_${this._size}`]: !!this._size,
       [`slds-popover_walkthrough`]: this._variant === 'feature',
       [`slds-popover_${this._variant}`]: !!this._variant,
-    });
+    }));
 
     const [direction, align] = this._nubbin.split('-');
     this.hostService.updateStyle(this.element, {
