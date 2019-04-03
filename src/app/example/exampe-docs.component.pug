@@ -1,9 +1,13 @@
-button.slds-button.slds-button_neutral.slds-is-absolute(type="button", (click)="tryItOut()", title="Edit on Stackblitz",
-                                                            style="right: 10px;")
-  img(src="assets/images/stackblitz.svg", style="height:15px;")
-  | Stackblitz
+.slds-is-absolute(style="right: 0;")
+  button.slds-button.slds-button_neutral(type="button", (click)="showCode = !showCode", title="Toggle Code")
+    img(src="assets/images/code.svg", style="height:15px;")
+    |  Code
 
-ngl-tabset([(selected)]="selectedTab")
+  button.slds-button.slds-button_neutral(type="button", (click)="tryItOut()", title="Edit on Stackblitz")
+    img(src="assets/images/stackblitz.svg", style="height:15px;")
+    |  Stackblitz
+
+ngl-tabset(*ngIf="showCode", [(selected)]="selectedTab")
 
   ng-template(ngl-tab="ngl-tab", label="Markup")
     ng-container(*ngTemplateOutlet="markup")

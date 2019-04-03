@@ -8,6 +8,8 @@ import { openOnStackBlitz } from './stackblitz';
 })
 export class ExampleDocsComponent {
 
+  showCode = false;
+
   selectedTab = 0;
 
   @Input() dir: string;
