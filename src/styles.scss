@@ -56,7 +56,17 @@ app-root {
     font-weight: 300;
     font-size: 1.5rem;
     line-height: 1.25;
+    text-transform: capitalize;
   }
+}
+
+.example__header {
+  position: absolute;
+  top: -11px;
+  left: 20px;
+  background: #fff;
+  display: inline-block;
+  padding: 0 10px;
 }
 
 .header {

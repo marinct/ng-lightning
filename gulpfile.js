@@ -81,6 +81,7 @@ gulp.task('pug:compile', function libBuildHtml() {
       const examplesDirectory = path.dirname(file.path) + '/examples';
       if (fs.existsSync(examplesDirectory)) {
         const dir = path.basename(path.dirname(file.path));
+        const metadata = require(path.dirname(file.path) + '/metadata.json');
 
         // Docs
         const docsDir = path.dirname(file.path) + '/docs';
@@ -92,7 +93,7 @@ gulp.task('pug:compile', function libBuildHtml() {
           return { id, ...highlightExample(examplesDirectory + '/' + id) };
         });
 
-        return { dir, examples, readme: safe(readme), api: safe(api) };
+        return { dir, examples, metadata, readme: safe(readme), api: safe(api) };
       }
     }))
     .pipe(pug({

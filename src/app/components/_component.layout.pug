@@ -1,7 +1,9 @@
 header.component__header.slds-border_bottom.slds-grid.slds-wrap.slds-m-bottom_medium
   .slds-has-flexi-truncate.slds-align-middle
-    h1
+    h1(style="text-transform: capitalize")
       block title
+        - var title = self.metadata.title || self.dir;
+        |  #{title}
 
 .slds-m-vertical_medium.readme
   block readme
@@ -11,7 +13,11 @@ header.component__header.slds-border_bottom.slds-grid.slds-wrap.slds-m-bottom_me
   h2.callout Examples
   block examples
     each example in self.examples
-      .slds-box.slds-theme_default.slds-m-bottom_large
+      .slds-box.slds-is-relative.slds-theme_default.slds-m-bottom_large(style="padding-top: 1.5rem;")
+        - var exampleHeader = self.metadata.examples[example.id]
+        if exampleHeader
+          .example__header.slds-text-heading_small #{exampleHeader}
+
         #{'app-demo-'+ self.dir + '-' + example.id}
 
         ng-template(ngPreserveWhitespaces)&attributes({ ['#markup' + example.id]: '' })
