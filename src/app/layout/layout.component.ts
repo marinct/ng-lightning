@@ -10,6 +10,9 @@ export class LayoutComponent {
   links = routes;
 
   getLabel(route) {
+    if (route.label) {
+      return route.label;
+    }
     const path = route.path;
     return path.charAt(0).toUpperCase() + path.slice(1);
   }
