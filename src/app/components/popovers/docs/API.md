@@ -10,4 +10,5 @@
 | `[nglPopoverVariant]` | Determines the variant of the popover. |  'walkthrough' \| 'feature' \| 'warning' \| 'error' \| 'panel' | |
 | `[nglPopoverSize]` | Determines the size of the popover. | 'small' \| 'medium' \| 'large' \| 'full-width' | |
 | `[nglPopoverClass]` | Extra class(es) you want to apply to SVG element. | ngClass | |
+| `[nglPopoverCloseTitle]` | Close button title (and assistive text). | string | 'Close dialog' | |
 | `(nglPopoverOpenChange)` | Emit an event when the popover should show or hide. | boolean \| 'x' \| 'backdrop' \| 'escape' |
