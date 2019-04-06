@@ -23,5 +23,8 @@
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0",
     "@angular/forms": "^7.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }

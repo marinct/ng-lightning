@@ -90,6 +90,9 @@
     "tslint": "^5.14.0",
     "typescript": "~3.2.4"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "engines": {
     "yarn": "^1.3.0"
   }

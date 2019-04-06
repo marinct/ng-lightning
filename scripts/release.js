@@ -7,6 +7,7 @@ const git = require('simple-git')( root );
 const child_process = require('child_process');
 
 const packageFile = `${root}/projects/ng-lightning/package.json`;
+const packageFileDist = `${root}/dist/ng-lightning/package.json`;
 const changelogFile = `${root}/CHANGELOG.md`;
 
 function requestReleaseType(current) {
@@ -28,7 +29,7 @@ function bump( version ) {
   replace({
     regex: /"version": "[^"]+"/m,
     replacement: `"version": "${version}"`,
-    paths: [ packageFile ],
+    paths: [ packageFile, packageFileDist ],
     recursive: false,
   });
 
