@@ -1,3 +1,27 @@
+# [4.1.0](https://github.com/ng-lightning/ng-lightning/compare/v4.0.0...v4.1.0) (2019-04-06)
+
+
+### Bug Fixes
+
+* **tabs:** add `aria-controls` &`aria-labelledby` for accesibility ([d8d3d8a](https://github.com/ng-lightning/ng-lightning/commit/d8d3d8a))
+
+
+### Features
+
+* **carousel:** add carousel component ([4d49ee6](https://github.com/ng-lightning/ng-lightning/commit/4d49ee6))
+* **colorpicker:** add `<ngl-colorpicker>` component ([a5bdf27](https://github.com/ng-lightning/ng-lightning/commit/a5bdf27))
+* **popovers:** add custom classes on host element with `nglPopoverClass` ([712e4a1](https://github.com/ng-lightning/ng-lightning/commit/712e4a1))
+* **popovers:** control close button visibility from input ([7746137](https://github.com/ng-lightning/ng-lightning/commit/7746137))
+* **popovers/tooltips:** support more complex placements ([678a955](https://github.com/ng-lightning/ng-lightning/commit/678a955))
+* **tabs:** support non-lazy mode for every tab's contents ([93df6ca](https://github.com/ng-lightning/ng-lightning/commit/93df6ca)), closes [#356](https://github.com/ng-lightning/ng-lightning/issues/356)
+
+
+### Performance Improvements
+
+* **popovers, tooltips:** improve performance on scroll ([372fb33](https://github.com/ng-lightning/ng-lightning/commit/372fb33))
+
+
+
 # [4.0.0](https://github.com/ng-lightning/ng-lightning/compare/v2.0.1...v4.0.0) (2019-03-24)
 
 
