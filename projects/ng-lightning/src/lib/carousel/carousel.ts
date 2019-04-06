@@ -48,7 +48,7 @@ export class NglCarousel implements OnChanges {
     stopAutoPlay: 'Stop auto-play',
   };
 
-  private playing = true;
+  playing = true;
 
   private nextTimer = null;
 

@@ -7,10 +7,10 @@
     img(src="assets/images/stackblitz.svg", style="height:15px;")
     |  Stackblitz
 
-ngl-tabset(*ngIf="showCode", [(selected)]="selectedTab")
+ngl-tabset(*ngIf="showCode", [selected]="selectedTab", (selectedChange)="selectedTab = $event.id")
 
-  ng-template(ngl-tab="ngl-tab", label="Markup")
+  ng-template(ngl-tab="ngl-tab", id="markup", label="Markup")
     ng-container(*ngTemplateOutlet="markup")
 
-  ng-template(ngl-tab="ngl-tab", label="Typescript")
+  ng-template(ngl-tab="ngl-tab", id="ts", label="Typescript")
     ng-container(*ngTemplateOutlet="ts")

@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-demo-tooltips-placement',
-  templateUrl: './placement.html',
+  selector: 'app-demo-tooltips-delay',
+  templateUrl: './delay.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DemoTooltipsPlacement {
-  open: any = {};
+export class DemoTooltipsDelay {
+  open = false;
 }

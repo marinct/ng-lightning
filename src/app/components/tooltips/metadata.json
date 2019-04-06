@@ -1,6 +1,8 @@
 {
   "examples": {
     "basic": "Basic Usage",
+    "delay": "Open and close with delay",
+    "interactive": "Interaction with content",
     "placement": "Placement"
   }
 }

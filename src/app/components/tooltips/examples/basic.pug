@@ -12,18 +12,7 @@ div
   a([nglTooltip]="tip", [nglTooltipPlacement]="placement", [(nglTooltipOpen)]="open")  hover
   |   vehicula sapien, vitae tristique nisl viverra vitae. Aliquam erat volutpat. Ut accumsan metus vel hendrerit sagittis.
 .slds-button-group.slds-m-top_xx-large(role="group")
-  button(type="button", (click)="change()", nglButton="neutral") Change placement
-  button(type="button", (click)="open = !open", nglButton="neutral") Toggle
+  button(type="button", (click)="change()", nglButton) Change placement
+  button(type="button", (click)="open = !open", nglButton) Toggle
 .slds-m-top_x-large
   span(nglTooltip="...which always keep showing!", nglTooltipOpen="true", nglTooltipPlacement="right") You can also make tooltips
-.slds-text-title_caps.slds-m-bottom_small.slds-m-top_x-large Open and close with delay
-button(type="button", nglButton="neutral", nglTooltip="I open and close with 1 second delay...", nglTooltipDelay="1000", [(nglTooltipOpen)]="open1", #x="nglTooltip") Hover or Focus
-.slds-m-top_medium
-  button(type="button", nglButton="neutral", (click)="x.open(0)") Open immediately
-  button(type="button", nglButton="neutral", (click)="x.close(0)") Close immediately
-.slds-text-title_caps.slds-m-bottom_small.slds-m-top_x-large Interaction
-a([nglTooltip]="interactive", nglTooltipInteractive="true", nglTooltipDelay="500", [(nglTooltipOpen)]="open2") Hover...
-ng-template(#interactive)
-  | Try clicking
-  |
-  a(href="https://github.com/ng-lightning/ng-lightning", target="_blank") this link

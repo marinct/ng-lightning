@@ -12,8 +12,6 @@ export class DemoTooltipsBasic {
   placement = this.placements[0];
 
   open = true;
-  open1 = false;
-  open2 = true;
 
   change() {
     const i = this.placements.indexOf(this.placement);

@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './basic.html',
 })
 export class DemoCarouselBasic {
-  active: boolean;
+  active: number;
 }

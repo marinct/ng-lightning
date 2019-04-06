@@ -14,7 +14,7 @@ ngl-toast(variant="warning", iconName="utility:warning", (close)="onClose('click
   h2.slds-text-heading_small
     | Can’t share file “report-q3.pdf” with the <a href="javascript:void(0);">selected users</a>.
 |
-button.slds-m-top_medium(type="button", [disabled]="showTopToast", nglButton="neutral", (click)="showTopToast = true")
+button.slds-m-top_medium(type="button", [disabled]="showTopToast", nglButton, (click)="showTopToast = true")
   | Show toast in container
 |
 |

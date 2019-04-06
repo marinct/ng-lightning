@@ -10,7 +10,7 @@ export class ExampleDocsComponent {
 
   showCode = false;
 
-  selectedTab = 0;
+  selectedTab: 'markup' | 'ts' = 'markup';
 
   @Input() dir: string;
 

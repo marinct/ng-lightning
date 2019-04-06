@@ -1,7 +1,7 @@
 .slds-m-bottom_large
-  button(type="button", nglButton="neutral", (click)="hideName = !hideName") Toggle "Name" column
-  button(type="button", nglButton="neutral", (click)="loading = !loading") Toggle Loading
-  button(type="button", nglButton="neutral", (click)="toggleData()") Clear/Set data
+  button(type="button", nglButton, (click)="hideName = !hideName") Toggle "Name" column
+  button(type="button", nglButton, (click)="loading = !loading") Toggle Loading
+  button(type="button", nglButton, (click)="toggleData()") Clear/Set data
 |
 |
 table.slds-table_bordered.slds-max-medium-table_stacked-horizontal.slds-table_fixed-layout(ngl-datatable, [data]="data", trackByKey="rank", [loading]="loading", [(sort)]="sort", (sortChange)="onSort($event)",

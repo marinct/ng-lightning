@@ -11,8 +11,8 @@ span(nglDropdown, [(open)]="open")
           p.slds-truncate {{item.value}}
           |
           ngl-icon([iconName]="item.icon", variant="default", size="x-small")
-button(type="button", nglButton="neutral", (click)="onToggle($event)") Open
-button(type="button", nglButton="neutral", style="margin-left: 0px;", (click)="open = !open") Toggle
+button(type="button", nglButton, (click)="onToggle($event)") Open
+button(type="button", nglButton, style="margin-left: 0px;", (click)="open = !open") Toggle
 |
 |
 .slds-m-top_large(*ngIf="selected")

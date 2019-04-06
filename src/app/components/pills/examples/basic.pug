@@ -19,7 +19,7 @@ ngl-pill((remove)="log()") Unlinked
 ngl-pill No remove
 
 .slds-text-title_caps.slds-m-bottom_small.slds-m-top_x-large Removable pills
-button(type="button", nglButton="brand", (click)="add()") Add
+button(type="button", nglButton, variant="brand", (click)="add()") Add
 .slds-clearfix.slds-p-vertical_xx-small
 ngl-pill((remove)="remove(pill)", *ngFor="let pill of pills")
   ngl-icon(iconName="standard:account")

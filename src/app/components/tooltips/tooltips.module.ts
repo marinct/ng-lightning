@@ -8,6 +8,8 @@ import { DemoTooltipsComponent } from './tooltips.component';
 
 // Examples
 import { DemoTooltipsBasic } from './examples/basic';
+import { DemoTooltipsDelay } from './examples/delay';
+import { DemoTooltipsInteractive } from './examples/interactive';
 import { DemoTooltipsPlacement } from './examples/placement';
 
 const routes: Routes = [
@@ -24,6 +26,8 @@ const routes: Routes = [
   declarations: [
     DemoTooltipsComponent,
     DemoTooltipsBasic,
+    DemoTooltipsDelay,
+    DemoTooltipsInteractive,
     DemoTooltipsPlacement,
   ],
 })
