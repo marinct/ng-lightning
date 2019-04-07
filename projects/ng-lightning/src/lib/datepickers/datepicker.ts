@@ -18,7 +18,7 @@ export interface NglInternalDate { year: number; month: number; day: number; dis
 export class NglDatepicker {
   @Input() monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   @Input() dayNamesShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  @Input() dayNamesLong = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursda', 'Friday', 'Saturday'];
+  @Input() dayNamesLong = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   date: NglInternalDate;
   current: NglInternalDate;
