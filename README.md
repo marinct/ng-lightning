@@ -27,7 +27,7 @@ This library depends on Salesforce's LDS markup and CSS (tested with 2.8). We do
 ```
 
 #### SVG Icons
-Because of various cross-domain issues, if you want to use SLDS icons, you must provide a copy of the various sprite files (ie `@salesforce-ux/design-system/assets/icons/action-sprite/svg/symbols.svg`), served locally through your server. Check our [webpack configuration](demo/webpack.config.js), to see how we achieve this for our demo page.
+Because of various cross-domain issues, if you want to use SLDS icons, you must provide a copy of the various sprite files (ie `@salesforce-ux/design-system/assets/icons/action-sprite/svg/symbols.svg`), served locally through your server.
 
 #### IE11 support
 Unfortunately, IE11 does not support two important features.

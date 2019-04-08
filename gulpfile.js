@@ -40,8 +40,8 @@ gulp.task('pug:compile', function libBuildHtml() {
     return string.replace(/{|}/g, function (match) { return replaceChars[match]; });
   }
 
-  function highlightTS(src) {
-    return safe(Prism.highlight(`${src}`, Prism.languages.typescript));
+  function highlightTS(src, language = 'typescript') {
+    return safe(Prism.highlight(`${src}`, Prism.languages[language]));
   }
 
   function highlightExample(filepath) {
@@ -66,13 +66,14 @@ gulp.task('pug:compile', function libBuildHtml() {
         const docs = {};
         [
           { file: 'install', lang: 'clike' },
-          { file: 'usage', lang: 'typescript' },
+          { file: 'usage', lang: 'typescript', safe: true },
           { file: 'styles', lang: 'json' },
-          { file: 'config', lang: 'typescript' },
-        ].forEach(({file, lang}) => {
+          { file: 'icons', lang: 'json', safe: true },
+          { file: 'config', lang: 'typescript', safe: true },
+        ].forEach(({file, lang, safe}) => {
           const src = fs.readFileSync(`${directory}/${file}.md`, 'UTF-8');
           const md = src;
-          docs[file] = lang === 'typescript' ? highlightTS(md) : Prism.highlight(`${md}`, Prism.languages[lang]);
+          docs[file] = safe ? highlightTS(md, lang) : Prism.highlight(`${md}`, Prism.languages[lang]);
         });
         return { ...docs };
       }

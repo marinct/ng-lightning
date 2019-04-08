@@ -29,6 +29,17 @@ div
 
   p If you are not using the CLI, you'll need to add the files listed above to your build tooling or you could also include them via <span class="code">#{'<link>'}</span> elements in your <span class="code">index.html</span>.
 
+
+  .slds-text-heading_small.slds-m-top_xx-large.slds-m-bottom_small Step 4 (optional): Setup SLDS icons
+  p
+    | If you want to use SLDS icons, you must provide a copy of the various sprite files (ie <span class="code">@salesforce-ux/design-system/assets/icons/*-sprite/svg/symbols.svg</span>), served through your server.
+    |
+    | If you are using the Angular CLI, here is an example configuration for your <span class="code">assets</span> property:
+  pre.language-json
+    code !{self.icons}
+  p Based on your needs you can change what will be copied from SLDS <span class="code">assets</span> folder, and also change the <span class="code">output</span> folder, but remember to configure the <span class="code">svgPath</span> as described below.
+
+
 //- Documentation
 div
   h2.callout Reading the documentation
