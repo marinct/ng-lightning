@@ -6,6 +6,7 @@ import { FocusTrap, FocusTrapFactory } from '@angular/cdk/a11y';
 import { Variant, Size } from './trigger';
 import { HostService } from '../common/host/host.service';
 import { isTemplateRef } from '../util/check';
+import { OnChange } from '../util/property-watch-decorator';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -30,29 +31,27 @@ export class NglPopover implements OnInit, OnDestroy {
 
   closeVisible: boolean;
 
-  set popoverClass(popoverClass: any) {
-    this._popoverClass = popoverClass;
+  @OnChange(function (this: NglPopover) {
     this.setHostClass();
-  }
-  get popoverClass() {
-    return this._popoverClass;
-  }
+  })
+  popoverClass: any;
 
-  set size(size: Size) {
-    this._size = size;
+  @OnChange(function (this: NglPopover) {
     this.setHostClass();
-  }
+  })
+  size: Size;
 
-  set variant(variant: Variant) {
-    this._variant = variant;
-    this.inverseCloseButton = ['walkthrough', 'feature', 'error'].indexOf(this._variant) > -1;
+  @OnChange<Variant>(function (this: NglPopover, variant) {
+    this.inverseCloseButton = ['walkthrough', 'feature', 'error'].indexOf(variant) > -1;
     this.setHostClass();
-  }
+  })
+  variant: Variant;
 
-  set placement(placement: Placement) {
-    this._nubbin = POSITION_MAP[placement].nubbin;
+  @OnChange<Placement>(function (this: NglPopover, placement) {
+    this.nubbin = POSITION_MAP[placement].nubbin;
     this.setHostClass();
-  }
+  })
+  placement: Placement;
 
   @HostBinding('attr.aria-labelledby')
   get labelledby() {
@@ -71,10 +70,7 @@ export class NglPopover implements OnInit, OnDestroy {
   uid = uniqueId('popover');
   inverseCloseButton: boolean;
 
-  private _nubbin: Placement;
-  private _size: Size;
-  private _variant: Variant;
-  private _popoverClass: any;
+  private nubbin: Placement;
 
   /** The class that traps and manages focus within the dialog. */
   private focusTrap: FocusTrap;
@@ -108,13 +104,13 @@ export class NglPopover implements OnInit, OnDestroy {
 
   private setHostClass() {
     this.hostService.updateClass(this.element, ngClassCombine(this.popoverClass, {
-      [`slds-nubbin_${this._nubbin}`]: true,
-      [`slds-popover_${this._size}`]: !!this._size,
-      [`slds-popover_walkthrough`]: this._variant === 'feature',
-      [`slds-popover_${this._variant}`]: !!this._variant,
+      [`slds-nubbin_${this.nubbin}`]: true,
+      [`slds-popover_${this.size}`]: !!this.size,
+      [`slds-popover_walkthrough`]: this.variant === 'feature',
+      [`slds-popover_${this.variant}`]: !!this.variant,
     }));
 
-    this.hostService.updateStyle(this.element, getPlacementStyles(this._nubbin));
+    this.hostService.updateStyle(this.element, getPlacementStyles(this.nubbin));
   }
 
 }

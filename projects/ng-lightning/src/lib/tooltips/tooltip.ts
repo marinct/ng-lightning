@@ -18,7 +18,8 @@ export class NglTooltip {
   template: string | TemplateRef<void>;
 
   @OnChange<Placement>(function (this: NglTooltip, placement) {
-    this.setHostClass(POSITION_MAP[placement].nubbin);
+    this.nubbin = POSITION_MAP[placement].nubbin;
+    this.setHostClass();
   })
   placement: Placement;
 
@@ -26,6 +27,8 @@ export class NglTooltip {
     this.renderer.setAttribute(this.element.nativeElement, 'id', value);
   })
   uid: string;
+
+  private nubbin: Placement;
 
   constructor(private element: ElementRef,
               private renderer: Renderer2,
@@ -36,11 +39,11 @@ export class NglTooltip {
     this.renderer.setAttribute(this.element.nativeElement, 'role', 'tooltip');
   }
 
-  private setHostClass(nubbin: Placement) {
+  private setHostClass() {
     this.hostService.updateClass(this.element, {
-      [`slds-nubbin_${nubbin}`]: true,
+      [`slds-nubbin_${this.nubbin}`]: true,
     });
 
-    this.hostService.updateStyle(this.element, getPlacementStyles(nubbin));
+    this.hostService.updateStyle(this.element, getPlacementStyles(this.nubbin));
   }
 }

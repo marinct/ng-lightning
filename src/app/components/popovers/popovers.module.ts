@@ -8,6 +8,7 @@ import { DemoPopoversComponent } from './popovers.component';
 
 // Examples
 import { DemoPopoversBasic } from './examples/basic';
+import { DemoPopoversHeader } from './examples/header';
 import { DemoPopoversPlacement } from './examples/placement';
 import { DemoPopoversSize } from './examples/size';
 import { DemoPopoversVariant } from './examples/variant';
@@ -26,6 +27,7 @@ const routes: Routes = [
   declarations: [
     DemoPopoversComponent,
     DemoPopoversBasic,
+    DemoPopoversHeader,
     DemoPopoversPlacement,
     DemoPopoversSize,
     DemoPopoversVariant,
