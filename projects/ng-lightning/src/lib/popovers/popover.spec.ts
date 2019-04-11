@@ -202,10 +202,17 @@ describe('Popovers', () => {
   });
 
   it('should render popover with string content', () => {
-    fixture = createTestComponent();
+    fixture = createTestComponent(`<button [nglPopover]="text" nglPopoverOpen="true"></button>`, false);
+    fixture.componentInstance.text = 'I am a string';
+    fixture.detectChanges();
+
     const popoverEl = getPopoverElement();
     const bodyEl = getBodyEl(popoverEl);
     expect(bodyEl.textContent.trim()).toBe('I am a string');
+
+    fixture.componentInstance.text = 'A new string';
+    fixture.detectChanges();
+    expect(bodyEl.textContent.trim()).toBe('A new string');
   });
 
   it('should render popover with template content', () => {
