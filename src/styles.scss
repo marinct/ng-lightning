@@ -162,12 +162,16 @@ app-root {
     td {
       padding: .5rem;
       border-width: 1px 0;
-      border-color: #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
     }
 
     td:nth-child(3) {
       font-size: 13px;
       color: #c41d7f;
+    }
+
+    tr:hover>td {
+      background-color: #f3f2f2;
     }
   }
 }
