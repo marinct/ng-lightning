@@ -1,3 +1,25 @@
+# [4.2.0](https://github.com/ng-lightning/ng-lightning/compare/v4.1.0...v4.2.0) (2019-04-14)
+
+
+### Bug Fixes
+
+* **datepickers:** correctly spell Thursday in `dayNamesLong` ([0171be4](https://github.com/ng-lightning/ng-lightning/commit/0171be4))
+
+
+### Features
+
+* **accordion:** add accordion component ([214f9a4](https://github.com/ng-lightning/ng-lightning/commit/214f9a4))
+* **modals:** support `prompt` variation ([ad652e8](https://github.com/ng-lightning/ng-lightning/commit/ad652e8))
+* **popovers, tooltips:** support corner placements ([3b309fb](https://github.com/ng-lightning/ng-lightning/commit/3b309fb))
+* **slider:** add `<ngl-slider>` component ([6419506](https://github.com/ng-lightning/ng-lightning/commit/6419506))
+
+
+### Performance Improvements
+
+* **tooltip:** mark for change detection only when it is really needed ([d55890e](https://github.com/ng-lightning/ng-lightning/commit/d55890e))
+
+
+
 # [4.1.0](https://github.com/ng-lightning/ng-lightning/compare/v4.0.0...v4.1.0) (2019-04-06)
 
 
