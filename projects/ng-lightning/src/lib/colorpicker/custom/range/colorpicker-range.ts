@@ -1,9 +1,10 @@
-import { Component, ElementRef, ChangeDetectionStrategy, Input, ViewChild, Output, EventEmitter, AfterViewInit, OnDestroy } from '@angular/core';
-import { getHexFromHsv, IHSV } from '../../util';
+import { Component, ElementRef, ChangeDetectionStrategy, Input, ViewChild, Output, EventEmitter, AfterViewInit, OnDestroy, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { LEFT_ARROW, DOWN_ARROW, UP_ARROW, RIGHT_ARROW } from '@angular/cdk/keycodes';
-import { trapEvent, uniqueId } from '../../../util/util';
-import { merge, fromEvent, Subscription } from 'rxjs';
 import { flatMap, map, takeUntil, startWith } from 'rxjs/operators';
+import { merge, fromEvent, Subscription } from 'rxjs';
+import { getHexFromHsv, IHSV } from '../../util';
+import { trapEvent, uniqueId } from '../../../util/util';
 
 @Component({
   selector: 'ngl-colorpicker-range',
@@ -35,6 +36,8 @@ export class NglColorpickerRange implements AfterViewInit, OnDestroy {
   private _hsv: IHSV = { hue: 0, saturation: 0, value: 0 };
 
   private dragSubscription: Subscription;
+
+  constructor(@Inject(DOCUMENT) private document: any) { }
 
   ngAfterViewInit() {
     this.dragSubscription = this.setupDrag().subscribe((mm: any) => this.emitChange(mm));
@@ -96,13 +99,13 @@ export class NglColorpickerRange implements AfterViewInit, OnDestroy {
     const dragTarget = this.rangeIndicatorContainer.nativeElement;
 
     const pressEnd = merge(
-      fromEvent(window, 'mouseup'),
-      fromEvent(window, 'touchend')
+      fromEvent(this.document, 'mouseup'),
+      fromEvent(this.document, 'touchend')
     );
 
     const pressMove = merge(
-      fromEvent(document, 'mousemove'),
-      fromEvent(document, 'touchmove')
+      fromEvent(this.document, 'mousemove'),
+      fromEvent(this.document, 'touchmove')
     );
 
     const pressStart = merge(
