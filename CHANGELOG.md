@@ -1,3 +1,14 @@
+# [4.3.0](https://github.com/ng-lightning/ng-lightning/compare/v4.2.0...v4.3.0) (2019-04-16)
+
+
+### Features
+
+* **buttonicons:** support extra classes for SVG element ([6fdaa1e](https://github.com/ng-lightning/ng-lightning/commit/6fdaa1e))
+* **tooltips:** initial configuration support ([febe6df](https://github.com/ng-lightning/ng-lightning/commit/febe6df))
+* **tooltips:** open/close without two-way binding to input ([01883ff](https://github.com/ng-lightning/ng-lightning/commit/01883ff))
+
+
+
 # [4.2.0](https://github.com/ng-lightning/ng-lightning/compare/v4.1.0...v4.2.0) (2019-04-14)
 
 
