@@ -1,3 +1,13 @@
+## [4.3.1](https://github.com/ng-lightning/ng-lightning/compare/v4.3.0...v4.3.1) (2019-04-22)
+
+
+### Bug Fixes
+
+* **datepickers:** move focus on keyboard navigation & mark only once as today ([c4dc7a6](https://github.com/ng-lightning/ng-lightning/commit/c4dc7a6))
+* **modals:** render as CDK overlay to prevent stacking porblems ([7ab80b1](https://github.com/ng-lightning/ng-lightning/commit/7ab80b1))
+
+
+
 # [4.3.0](https://github.com/ng-lightning/ng-lightning/compare/v4.2.0...v4.3.0) (2019-04-16)
 
 
