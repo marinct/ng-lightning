@@ -5,6 +5,7 @@ import { createGenericTestComponent, selectElements, dispatchEvent } from '../..
 import { NglColorpickerModule } from './module';
 import { getRgbFromHex } from './util';
 import { getPopoverElement } from '../popovers/popover.spec';
+import { NGL_COLORPICKER_CONFIG, NglColorpickerConfig } from './config';
 
 const createTestComponent = (html?: string, detectChanges?: boolean) =>
   createGenericTestComponent(TestComponent, html, detectChanges) as ComponentFixture<TestComponent>;
@@ -36,6 +37,15 @@ function getTabs(element: HTMLElement): HTMLElement[] {
 function getRGBStyle(hex) {
   const { red, green, blue } = getRgbFromHex(hex);
   return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function openPopover(fixture) {
+  return fixture.whenStable().then(() => {
+    const button = getSummaryButton(fixture.nativeElement);
+    button.click();
+    fixture.detectChanges();
+    return getPopoverElement();
+  });
 }
 
 describe('`NglColorpicker`', () => {
@@ -162,15 +172,6 @@ describe('`NglColorpicker`', () => {
 
   describe('popover', () => {
 
-    function openPopover(fixture) {
-      return fixture.whenStable().then(() => {
-        const button = getSummaryButton(fixture.nativeElement);
-        button.click();
-        fixture.detectChanges();
-        return getPopoverElement();
-      });
-    }
-
     function pressDone(popover: HTMLElement) {
       const button = popover.querySelector('.slds-color-picker__selector-footer > button.slds-button_brand') as HTMLButtonElement;
       button.click();
@@ -260,7 +261,33 @@ describe('`NglColorpicker`', () => {
         });
       });
     }));
+  });
 
+  describe('custom configuration', () => {
+    const swatchColors = ['#000', '#FF0', '#FFF'];
+    const variant = 'swatches';
+
+    beforeEach(() => TestBed.configureTestingModule({
+      providers: [
+        { provide: NGL_COLORPICKER_CONFIG, useValue: <NglColorpickerConfig>{ swatchColors, variant } },
+      ],
+    }));
+
+    it('should have configurable swatch colors', async(() => {
+      const fixture = createTestComponent();
+      openPopover(fixture).then((popover) => {
+        const swatches = getSwatches(popover);
+        expect(swatches.map(s => s.querySelector('.slds-assistive-text').textContent)).toEqual(swatchColors);
+      });
+    }));
+
+    it('should have configurable variant', async(() => {
+      const fixture = createTestComponent();
+      openPopover(fixture).then((popover) => {
+        const tabs = getTabs(popover);
+        expect(tabs.length).toBe(0);
+      });
+    }));
   });
 
 });

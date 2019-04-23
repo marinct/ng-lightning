@@ -15,3 +15,10 @@
 | `[swatchTabLabel]` | Text for swatch tab of popover. | string | 'Default' |
 | `[customTabLabel]` | Text for custom tab of popover. | string | 'Custom' |
 | `[invalidColorLabel]` | Error message when hex color input is invalid. | string \| TemplateRef | 'Please ensure value is correct' |
+
+
+# NGL_COLORPICKER_CONFIG<NglColorpickerConfig>
+
+Injection token that can be used to specify default options.
+
+Available properties: `swatchColors`, `variant`

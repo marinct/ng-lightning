@@ -1,8 +1,9 @@
-import { Component, ElementRef, Renderer2, ChangeDetectionStrategy, ChangeDetectorRef, forwardRef, Input, TemplateRef } from '@angular/core';
+import { Component, ElementRef, Renderer2, ChangeDetectionStrategy, ChangeDetectorRef, forwardRef, Input, TemplateRef, Optional, Inject } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { IHSV, getHsvFromHex, getHexFromHsv, isValidHex } from './util';
 import { uniqueId } from '../util/util';
 import { InputBoolean } from '../util/convert';
+import { NGL_COLORPICKER_CONFIG, NglColorpickerConfig } from './config';
 
 const NGL_COLORPICKER_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
@@ -66,12 +67,7 @@ export class NglColorpicker implements ControlValueAccessor {
   /**
    * Hex color values which are used to set the options of the swatch tab of the colorpicker popover.
    */
-  @Input() swatchColors = [
-    '#e3abec', '#c2dbf7', '#9fd6ff', '#9de7da', '#9df0c0', '#fff099', '#fed49a',
-    '#d073e0', '#86baf3', '#5ebbff', '#44d8be', '#3be282', '#ffe654', '#ffb758',
-    '#bd35bd', '#5779c1', '#5679c0', '#00aea9', '#3cba4c', '#f5bc25', '#f99221',
-    '#580d8c', '#001970', '#0a2399', '#0b7477', '#0b6b50', '#b67e11', '#b85d0d',
-  ];
+  @Input() swatchColors: string[];
 
   /**
    * Whether to make the hex color input readonly.
@@ -86,7 +82,7 @@ export class NglColorpicker implements ControlValueAccessor {
   /**
    * Configures to show both or which one of the color selection interfaces.
    */
-  @Input() variant: 'base' | 'swatches' | 'custom' = 'base';
+  @Input() variant: 'base' | 'swatches' | 'custom';
 
   color: string;
 
@@ -99,8 +95,15 @@ export class NglColorpicker implements ControlValueAccessor {
   hexCurrent = '#FFF';
   hsvCurrent = getHsvFromHex(this.hexCurrent);
 
-  constructor(private el: ElementRef, private renderer: Renderer2, private cd: ChangeDetectorRef) {
+  constructor(@Optional() @Inject(NGL_COLORPICKER_CONFIG) defaultConfig: NglColorpickerConfig,
+              private el: ElementRef,
+              private renderer: Renderer2,
+              private cd: ChangeDetectorRef) {
     this.renderer.addClass(this.el.nativeElement, 'slds-color-picker');
+
+    const config = { ...new NglColorpickerConfig(), ...defaultConfig };
+    this.swatchColors = config.swatchColors;
+    this.variant = config.variant;
   }
 
   onChange = (_: any) => {};

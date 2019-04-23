@@ -9,6 +9,7 @@ import { DemoColorpickerComponent } from './colorpicker.component';
 
 // Examples
 import { DemoColorpickerBasic } from './examples/basic';
+import { DemoColorpickerConfig } from './examples/config';
 import { DemoColorpickerCustomization } from './examples/customization';
 import { DemoColorpickerValidation } from './examples/validation';
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   declarations: [
     DemoColorpickerComponent,
     DemoColorpickerBasic,
+    DemoColorpickerConfig,
     DemoColorpickerCustomization,
     DemoColorpickerValidation,
   ],
