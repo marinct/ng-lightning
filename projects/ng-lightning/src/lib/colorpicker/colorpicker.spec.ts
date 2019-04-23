@@ -54,6 +54,22 @@ describe('`NglColorpicker`', () => {
     });
   }));
 
+  it('should support placeholder', async(() => {
+    const fixture = createTestComponent(`<ngl-colorpicker [ngModel]="color" [placeholder]="placeholder"></ngl-colorpicker>`);
+    const { nativeElement, componentInstance } = fixture;
+
+    const input = getSummaryInput(nativeElement);
+    expect(input.placeholder).toEqual('');
+
+    componentInstance.placeholder = 'my placeholder';
+    fixture.detectChanges();
+    expect(input.placeholder).toEqual('my placeholder');
+
+    componentInstance.placeholder = null;
+    fixture.detectChanges();
+    expect(input.placeholder).toEqual('');
+  }));
+
   it('should update based on model changes', async(() => {
     const fixture = createTestComponent();
     const { componentInstance, nativeElement } = fixture;
@@ -256,6 +272,7 @@ describe('`NglColorpicker`', () => {
 })
 export class TestComponent {
   color = '#ffddee';
+  placeholder: string;
 
   onChange: jasmine.Spy = jasmine.createSpy();
 }

@@ -24,6 +24,11 @@ export class NglColorpicker implements ControlValueAccessor {
   @Input() label = 'Choose Color';
 
   /**
+   * Placeholder of input box.
+   */
+  @Input() placeholder = '';
+
+  /**
    * Text for cancel button on popover.
    */
   @Input() cancelButtonLabel = 'Cancel';

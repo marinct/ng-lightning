@@ -5,6 +5,7 @@
 | `[variant]` | Configures which tabs are present for the colorpicker. `base` means both `swatches` and `custom` tabs are present. | 'base' \| 'swatches' \| 'custom' | 'base' |
 | `[required]` | Highlights the input as a required field (does not perform any validation). | boolean | false |
 | `[label]` | An input label as for a form. | string | 'Choose Color' |
+| `[placeholder]` | Placeholder of input box. | string | '' |
 | `[fieldLevelHelpTooltip]` | A tooltip that is displayed next to the label. | string \| TemplateRef | |
 | `[readonlyInput]` | Whether to make the hex color input readonly. | boolean | false |
 | `[defaultSelectedTab]` | Determines which tab is initially visible when popover opens. | 'swatches' \| 'custom' | 'swatches' |

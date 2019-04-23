@@ -11,7 +11,8 @@
   .slds-form-element.slds-color-picker__summary-input
     .slds-form-element__control([class.slds-has-error]="!isValidInput")
       input.slds-input([id]="uid + '-summary-input'", type="text", [value]="color", (input)="onInput($event.target.value)",
-                       [disabled]="disabled", [readonly]="readonlyInput", maxlength="7")
+                       [disabled]="disabled", [readonly]="readonlyInput", maxlength="7",
+                       [placeholder]="placeholder || ''")
   p.slds-form-error(*ngIf="!isValidInput", [nglInternalOutlet]="invalidColorLabel")
 
 //- Popover
