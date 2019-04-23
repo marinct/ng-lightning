@@ -69,10 +69,16 @@ describe('`NglColorpicker`', () => {
   }));
 
   it('should update appropriately if model is empty', async(() => {
-    const fixture = createTestComponent();
+    const fixture = createTestComponent(null, false);
     const { componentInstance, nativeElement } = fixture;
 
+    componentInstance.color = undefined;
+    fixture.detectChanges();
+
     fixture.whenStable().then(() => {
+      expect(getSummaryInput(nativeElement).value).toBe('');
+      expect(getSummaryButtonColor(nativeElement)).toEqual('');
+
       componentInstance.color = null;
       fixture.detectChanges();
       fixture.whenStable().then(() => {

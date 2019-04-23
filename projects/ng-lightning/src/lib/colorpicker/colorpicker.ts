@@ -103,7 +103,7 @@ export class NglColorpicker implements ControlValueAccessor {
   onTouched = () => {};
 
   writeValue(value: string) {
-    this.color = value;
+    this.color = value || '';
     if (isValidHex(value)) {
       this.hexCurrent = value;
       this.hsvCurrent = getHsvFromHex(value);
