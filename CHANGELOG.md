@@ -1,3 +1,29 @@
+# [4.4.0](https://github.com/ng-lightning/ng-lightning/compare/v4.3.1...v4.4.0) (2019-05-04)
+
+
+### Bug Fixes
+
+* **checkboxes:** toggle should set `aria-describedby` on input element ([9ed081b](https://github.com/ng-lightning/ng-lightning/commit/9ed081b)), closes [#465](https://github.com/ng-lightning/ng-lightning/issues/465)
+* **colorpicker:** display empty intial values as empty string in input ([7f183f7](https://github.com/ng-lightning/ng-lightning/commit/7f183f7))
+* **radio-group:** correctly render dynamic options ([2357b5a](https://github.com/ng-lightning/ng-lightning/commit/2357b5a))
+
+
+### Features
+
+* **colorpicker:** support configuration ([aad87d8](https://github.com/ng-lightning/ng-lightning/commit/aad87d8))
+* **colorpicker:** support input placeholder ([0a7b766](https://github.com/ng-lightning/ng-lightning/commit/0a7b766))
+* **datecpickers:** support `min` and `max` dates ([a50719c](https://github.com/ng-lightning/ng-lightning/commit/a50719c))
+* **datepickers:** add datepicker input ([1137b99](https://github.com/ng-lightning/ng-lightning/commit/1137b99))
+* **datepickers:** add inputs and configuration options for years range ([7251f2d](https://github.com/ng-lightning/ng-lightning/commit/7251f2d))
+* **datepickers:** support custom disabled dates via input callback ([bf06068](https://github.com/ng-lightning/ng-lightning/commit/bf06068))
+
+
+### Performance Improvements
+
+* **datepickers:** reduce renedring operations ([b38dc47](https://github.com/ng-lightning/ng-lightning/commit/b38dc47))
+
+
+
 ## [4.3.1](https://github.com/ng-lightning/ng-lightning/compare/v4.3.0...v4.3.1) (2019-04-22)
 
 
