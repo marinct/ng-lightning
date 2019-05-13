@@ -1,3 +1,19 @@
+# [4.5.0](https://github.com/ng-lightning/ng-lightning/compare/v4.4.0...v4.5.0) (2019-05-13)
+
+
+### Bug Fixes
+
+* **comboboxes:** prevent close if clicking a non-option inside the dropdown menu ([7e1717c](https://github.com/ng-lightning/ng-lightning/commit/7e1717c)), closes [#472](https://github.com/ng-lightning/ng-lightning/issues/472)
+* **datepickers:** open the datepicker when a mouse user clicks on the input ([9a659d8](https://github.com/ng-lightning/ng-lightning/commit/9a659d8))
+
+
+### Features
+
+* **comoboboxes:** render menu as overlay ([f4aa1b2](https://github.com/ng-lightning/ng-lightning/commit/f4aa1b2))
+* **datepickers:** localized month/day names and first day of week & configurable `firstDayOfWeek ` ([a1487fc](https://github.com/ng-lightning/ng-lightning/commit/a1487fc))
+
+
+
 # [4.4.0](https://github.com/ng-lightning/ng-lightning/compare/v4.3.1...v4.4.0) (2019-05-04)
 
 
