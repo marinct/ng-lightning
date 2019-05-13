@@ -305,8 +305,11 @@ describe('`NglCombobox`', () => {
     expect(componentInstance.onSelection).not.toHaveBeenCalled();
     expect(componentInstance.onOpen).not.toHaveBeenCalledWith();
 
-    expect(disabledOption.querySelector('.slds-media__body > .slds-truncate')).toHaveCssClass('slds-disabled-text');
-    expect((<HTMLElement>disabledOption.querySelector('.slds-media')).style.cursor).toEqual('default');
+    const mediaEl = disabledOption.querySelector('.slds-media') as HTMLElement;
+    expect(mediaEl.getAttribute('aria-disabled')).toEqual('true');
+    // TODO: remove these styles after dropping support for LDS < 2.9
+    expect(mediaEl.querySelector('.slds-truncate')).toHaveCssClass('slds-disabled-text');
+    expect(mediaEl.style.cursor).toEqual('default');
   });
 
   it('should activate and select option using keyboard', () => {
