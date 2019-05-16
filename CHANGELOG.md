@@ -1,3 +1,15 @@
+## [4.5.1](https://github.com/ng-lightning/ng-lightning/compare/v4.5.0...v4.5.1) (2019-05-16)
+
+
+### Bug Fixes
+
+* **comboboxes:** add accessibility attribute for disabled options ([eed7bcd](https://github.com/ng-lightning/ng-lightning/commit/eed7bcd))
+* **datepickers:** prevent multiple input datepickers open at the same time ([38f363b](https://github.com/ng-lightning/ng-lightning/commit/38f363b))
+* **datepickers:** update input validity if `min`/`max` changes ([c4df4ff](https://github.com/ng-lightning/ng-lightning/commit/c4df4ff))
+* **popovers:** remove comments from template output ([dee6ba2](https://github.com/ng-lightning/ng-lightning/commit/dee6ba2))
+
+
+
 # [4.5.0](https://github.com/ng-lightning/ng-lightning/compare/v4.4.0...v4.5.0) (2019-05-13)
 
 
