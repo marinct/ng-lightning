@@ -1,3 +1,14 @@
+## [4.5.2](https://github.com/ng-lightning/ng-lightning/compare/v4.5.1...v4.5.2) (2019-05-20)
+
+
+### Bug Fixes
+
+* **comboboxes:** hide menu if element is scrolled outside of view ([cbdbb72](https://github.com/ng-lightning/ng-lightning/commit/cbdbb72))
+* **datepickers:** hide calendar if input is scrolled outside of view ([1c5e10f](https://github.com/ng-lightning/ng-lightning/commit/1c5e10f))
+* **modals:** mark body as a scrollable container ([b780ec5](https://github.com/ng-lightning/ng-lightning/commit/b780ec5)), closes [#478](https://github.com/ng-lightning/ng-lightning/issues/478)
+
+
+
 ## [4.5.1](https://github.com/ng-lightning/ng-lightning/compare/v4.5.0...v4.5.1) (2019-05-16)
 
 
