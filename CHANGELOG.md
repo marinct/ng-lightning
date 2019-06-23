@@ -1,3 +1,13 @@
+# [4.6.0](https://github.com/ng-lightning/ng-lightning/compare/v4.5.2...v4.6.0) (2019-06-23)
+
+
+### Features
+
+* **datepickers:** add inputs for static text in templates ([d7d9bf8](https://github.com/ng-lightning/ng-lightning/commit/d7d9bf8))
+* **file-upload:** add `<ngl-file-upload>` component ([6832101](https://github.com/ng-lightning/ng-lightning/commit/6832101))
+
+
+
 ## [4.5.2](https://github.com/ng-lightning/ng-lightning/compare/v4.5.1...v4.5.2) (2019-05-20)
 
 
