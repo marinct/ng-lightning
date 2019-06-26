@@ -222,6 +222,28 @@ describe('`<ngl-file-upload>`', () => {
     expect(form.control.invalid).toBeFalsy();
   }));
 
+  it('should validate correctly file extensions on `accept`', fakeAsync(() => {
+    const fixture = createTestComponent(`<form><ngl-file-upload name="fu" [ngModel]="file" [accept]="accept" maxFiles="0"></ngl-file-upload></form>`);
+    const form = fixture.debugElement.query(By.directive(NgForm)).injector.get(NgForm);
+    const PNGFILE = getFile();
+    const MP3FILE = getFile('file.mp3', 'audio/mp3');
+    const DOCFILE = getFile('file.doc', 'application/msword');
+    let error;
+
+    fixture.componentInstance.accept = '.png,.mp3,.doc';
+    fixture.componentInstance.file = [PNGFILE, MP3FILE, DOCFILE];
+    fixture.detectChanges();
+    tick();
+    expect(form.control.invalid).toBeFalsy();
+
+    fixture.componentInstance.accept = '.png,.mp3';
+    fixture.detectChanges();
+    tick();
+    expect(form.control.invalid).toBeTruthy();
+    error = form.control.getError('nglFileUpload', ['fu']).invalidType;
+    expect(error).toEqual(DOCFILE);
+  }));
+
   it('should handle disabled state', () => {
     const fixture = createTestComponent(`<ngl-file-upload [ngModel]="file" disabled></ngl-file-upload>`);
     const inputEl = getInputElement(fixture.nativeElement);
