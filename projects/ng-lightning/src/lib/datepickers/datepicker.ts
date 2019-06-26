@@ -68,17 +68,17 @@ export class NglDatepicker implements OnInit, OnChanges, AfterViewInit {
   /**
    * Label of shortcut to select current date.
    */
-  @Input() readonly todayLabel = 'Today';
+  @Input() readonly todayLabel: string;
 
   /**
    * Label for button to go to the previous month.
    */
-  @Input() readonly previousMonthLabel = 'Previous Month';
+  @Input() readonly previousMonthLabel: string;
 
   /**
    * Label for button to go to the next month.
    */
-  @Input() readonly nextMonthLabel = 'Next Month';
+  @Input() readonly nextMonthLabel: string;
 
 
   weeks: NglInternalDate[];
@@ -104,6 +104,9 @@ export class NglDatepicker implements OnInit, OnChanges, AfterViewInit {
     this.showToday = config.showToday;
     this.relativeYearFrom = config.relativeYearFrom;
     this.relativeYearTo = config.relativeYearTo;
+    this.todayLabel = config.todayLabel;
+    this.previousMonthLabel = config.previousMonthLabel;
+    this.nextMonthLabel = config.nextMonthLabel;
   }
 
   ngOnInit() {

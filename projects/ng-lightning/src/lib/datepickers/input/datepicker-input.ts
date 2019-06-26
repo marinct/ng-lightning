@@ -129,6 +129,9 @@ export class NglDatepickerInput implements ControlValueAccessor, Validator, OnIn
   @Input() dateDisabled: (date: Date) => boolean | null = null;
   @Input() relativeYearFrom: number;
   @Input() relativeYearTo: number;
+  @Input() todayLabel: string;
+  @Input() previousMonthLabel: string;
+  @Input() nextMonthLabel: string;
 
   date: Date;
 
@@ -178,6 +181,9 @@ export class NglDatepickerInput implements ControlValueAccessor, Validator, OnIn
     this.relativeYearFrom = this.config.relativeYearFrom;
     this.relativeYearTo = this.config.relativeYearTo;
     this.openOnInputClick = this.config.openOnInputClick;
+    this.todayLabel = this.config.todayLabel;
+    this.previousMonthLabel = this.config.previousMonthLabel;
+    this.nextMonthLabel = this.config.nextMonthLabel;
   }
 
   onChange: Function | null = null;

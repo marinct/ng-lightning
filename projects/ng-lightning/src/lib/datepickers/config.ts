@@ -28,6 +28,12 @@ export class NglDatepickerConfig<D = any> {
 
   openOnInputClick = true;
 
+  todayLabel = 'Today';
+
+  previousMonthLabel = 'Previous Month';
+
+  nextMonthLabel = 'Next Month';
+
   constructor(locale: string) {
     this.monthNames = getLocaleMonthNames(locale, FormStyle.Standalone, TranslationWidth.Wide);
     this.dayNamesShort = getLocaleDayNames(locale, FormStyle.Standalone, TranslationWidth.Abbreviated);

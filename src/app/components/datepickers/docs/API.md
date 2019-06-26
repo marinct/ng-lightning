@@ -43,4 +43,4 @@ You can also use all the `<ngl-datepicker>` inputs, that will be proxied to to p
 
 Injection token that can be used to specify default options.
 
-Available properties: `format`, `delimiter`, `dropdownAlign`, `showToday`, `monthNames`, `dayNamesShort`, `dayNamesLong`, `firstDayOfWeek`, `relativeYearFrom`, `relativeYearTo`, `openOnInputClick`
+Available properties: `format`, `delimiter`, `dropdownAlign`, `showToday`, `monthNames`, `dayNamesShort`, `dayNamesLong`, `firstDayOfWeek`, `relativeYearFrom`, `relativeYearTo`, `openOnInputClick`, `todayLabel`, `previousMonthLabel`, `nextMonthLabel`

@@ -14,6 +14,8 @@ import { NGL_DATEPICKER_CONFIG, NglDatepickerConfig } from 'ng-lightning';
         showToday: false,
         relativeYearFrom: -5,
         relativeYearTo: 5,
+        previousMonthLabel: 'Previous',
+        nextMonthLabel: 'Next',
       }
     },
   ],
