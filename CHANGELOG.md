@@ -1,3 +1,19 @@
+# [4.7.0](https://github.com/ng-lightning/ng-lightning/compare/v4.6.0...v4.7.0) (2019-06-28)
+
+
+### Bug Fixes
+
+* **file-upolad:** correcty validate file extensions on `accept` input ([170737e](https://github.com/ng-lightning/ng-lightning/commit/170737e))
+
+
+### Features
+
+* **datepickers:** add "Today", "Previous Month" and "Next Month" labels on configuration ([2bcedc1](https://github.com/ng-lightning/ng-lightning/commit/2bcedc1))
+* **tooltips:** support custom classes ([19c07a2](https://github.com/ng-lightning/ng-lightning/commit/19c07a2))
+* export components to public API ([0dd6361](https://github.com/ng-lightning/ng-lightning/commit/0dd6361))
+
+
+
 # [4.6.0](https://github.com/ng-lightning/ng-lightning/compare/v4.5.2...v4.6.0) (2019-06-23)
 
 
