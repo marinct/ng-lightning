@@ -1,3 +1,7 @@
+## [4.7.1](https://github.com/ng-lightning/ng-lightning/compare/v4.7.0...v4.7.1) (2019-06-28)
+
+This relase will just fix a problem we had with the previous one.
+
 # [4.7.0](https://github.com/ng-lightning/ng-lightning/compare/v4.6.0...v4.7.0) (2019-06-28)
 
 
