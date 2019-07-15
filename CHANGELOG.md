@@ -1,3 +1,14 @@
+# [4.8.0](https://github.com/ng-lightning/ng-lightning/compare/v4.7.1...v4.8.0) (2019-07-15)
+
+
+### Features
+
+* **input:** support template as `error` ([264ff66](https://github.com/ng-lightning/ng-lightning/commit/264ff66))
+* **tooltips:** support delay option in global configuration ([a56a1a4](https://github.com/ng-lightning/ng-lightning/commit/a56a1a4))
+* support importing individual modules ([4c84883](https://github.com/ng-lightning/ng-lightning/commit/4c84883))
+
+
+
 ## [4.7.1](https://github.com/ng-lightning/ng-lightning/compare/v4.7.0...v4.7.1) (2019-06-28)
 
 This relase will just fix a problem we had with the previous one.
