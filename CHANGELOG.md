@@ -1,3 +1,15 @@
+## [4.8.1](https://github.com/ng-lightning/ng-lightning/compare/v4.8.0...v4.8.1) (2019-07-17)
+
+
+### Bug Fixes
+
+* correctly export individual modules to avoid aot issues ([4986423](https://github.com/ng-lightning/ng-lightning/commit/4986423))
+* **checkboxes:** support template as `error` ([3e63b41](https://github.com/ng-lightning/ng-lightning/commit/3e63b41))
+* **input:** correctly handle error as "false" string ([7f03235](https://github.com/ng-lightning/ng-lightning/commit/7f03235))
+* **select:** support template as `error` ([967cdbf](https://github.com/ng-lightning/ng-lightning/commit/967cdbf))
+
+
+
 # [4.8.0](https://github.com/ng-lightning/ng-lightning/compare/v4.7.1...v4.8.0) (2019-07-15)
 
 
