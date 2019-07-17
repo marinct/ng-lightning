@@ -3,4 +3,4 @@ ngl-form-help(*ngIf="fieldLevelHelpTooltip", [content]="fieldLevelHelpTooltip")
 .slds-form-element__control
   .slds-select_container
     ng-content
-.slds-form-element__help(*ngIf="error", [id]="errorId") {{error}}
+.slds-form-element__help(*ngIf="hasError", [id]="errorId", [nglInternalOutlet]="error")

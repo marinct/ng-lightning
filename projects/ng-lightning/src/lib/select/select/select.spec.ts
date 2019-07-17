@@ -55,6 +55,24 @@ describe('`NglSelect`', () => {
     expect(errorEl.id).toEqual(inputEl.getAttribute('aria-describedby'));
   });
 
+  it('should render error message as template', () => {
+    const fixture = createTestComponent(`<ng-template #err>This is an error!</ng-template><ngl-select label [error]="err"><select ngl></select></ngl-select>`);
+    const element = fixture.nativeElement.firstElementChild;
+
+    const errorEl = getErrorElement(fixture.nativeElement);
+    expect(element).toHaveCssClass('slds-has-error');
+    expect(errorEl).toHaveText('This is an error!');
+  });
+
+  it('should handle error as `false` string', () => {
+    const fixture = createTestComponent(`<ngl-select label error="false"><select ngl></select></ngl-select>`);
+    const element = fixture.nativeElement.firstElementChild;
+
+    const errorEl = getErrorElement(fixture.nativeElement);
+    expect(element).not.toHaveCssClass('slds-has-error');
+    expect(errorEl).toBeFalsy();
+  });
+
   it('should throw error if structure is wrong', () => {
     expect(() => createTestComponent(`<ngl-select label><select></select></ngl-select>`)).toThrowError();
   });

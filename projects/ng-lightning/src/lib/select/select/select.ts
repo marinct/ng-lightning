@@ -21,7 +21,7 @@ export class NglSelect implements OnChanges, AfterContentInit, OnDestroy {
 
   @Input() fieldLevelHelpTooltip: string | TemplateRef<any>;
 
-  @Input() error: string;
+  @Input() error: string | TemplateRef<any>;
 
   @HostBinding('class.slds-has-error')
   get hasError(): boolean {

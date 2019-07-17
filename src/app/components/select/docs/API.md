@@ -5,6 +5,6 @@
 | -------- | ----------- | ---- | ------- |
 | `[label]` | Input label. | string \| TemplateRef | |
 | `[fieldLevelHelpTooltip]` | A Tooltip that is displayed next to the label. | string \| TemplateRef | |
-| `[error]` | Error message. | string | |
+| `[error]` | Error message. | string \| TemplateRef | |
 
 Highlights label as a required (does not perform any validation) based onto `<select>`'s `required` property.
