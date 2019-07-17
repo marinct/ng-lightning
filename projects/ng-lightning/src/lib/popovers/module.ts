@@ -6,7 +6,7 @@ import { A11yModule } from '@angular/cdk/a11y';
 import { NglPopover } from './popover';
 import { NglPopoverTrigger } from './trigger';
 import { NglInternalOutletModule } from '../util/outlet.module';
-import { NglIconsModule } from '../icons';
+import { NglIconsModule } from '../icons/module';
 
 const NGL_POPOVER_DIRECTIVES = [
   NglPopover,

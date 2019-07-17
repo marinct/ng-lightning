@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { LayoutComponent } from './layout.component';
-import { NglModule } from 'ng-lightning';
 
 @NgModule({
   declarations: [
@@ -12,7 +11,6 @@ import { NglModule } from 'ng-lightning';
   imports: [
     BrowserModule,
     RouterModule,
-    NglModule,
   ],
   providers: [],
   bootstrap: [LayoutComponent]

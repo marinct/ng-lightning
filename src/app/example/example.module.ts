@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { NglModule } from 'ng-lightning';
+import { NglTabsModule } from 'ng-lightning';
 
 import { ExampleDocsComponent } from './exampe-docs.component';
 
@@ -9,7 +8,7 @@ import { ExampleDocsComponent } from './exampe-docs.component';
 @NgModule({
   imports: [
     CommonModule,
-    NglModule,
+    NglTabsModule,
   ],
   declarations: [
     ExampleDocsComponent,

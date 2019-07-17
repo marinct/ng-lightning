@@ -7,7 +7,6 @@ import { LayoutComponent } from './layout/layout.component';
 
 
 import { AppComponent } from './app.component';
-import { NglModule } from 'ng-lightning';
 
 const routes: Routes = [
   { path: '', loadChildren: './intro/intro.module#NglDemoIntroModule', pathMatch: 'full' },
@@ -31,7 +30,6 @@ const routes: Routes = [
       useHash: true,
       scrollPositionRestoration: 'enabled',
     }),
-    NglModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
