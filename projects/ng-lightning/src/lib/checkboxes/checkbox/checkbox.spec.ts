@@ -66,6 +66,18 @@ describe('`NglCheckbox`', () => {
     expect(errorEl.id).toEqual(inputEl.getAttribute('aria-describedby'));
   });
 
+  it('should render error message as template', () => {
+    const fixture = createTestComponent(`
+      <ng-template #err>This is an error!</ng-template>
+      <ngl-checkbox label [error]="err"><input ngl type="checkbox" /></ngl-checkbox>
+    `);
+    const element = fixture.nativeElement.firstElementChild;
+
+    const errorEl = getErrorElement(fixture.nativeElement);
+    expect(element).toHaveCssClass('slds-has-error');
+    expect(errorEl).toHaveText('This is an error!');
+  });
+
 });
 
 @Component({

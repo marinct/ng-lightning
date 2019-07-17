@@ -19,7 +19,7 @@ export class NglCheckbox implements OnChanges, AfterContentInit, OnDestroy {
   @isRequired
   @Input() label: string | TemplateRef<any>;
 
-  @Input() error: string;
+  @Input() error: string | TemplateRef<any>;
 
   @Input() @InputBoolean() stacked: boolean;
 

@@ -20,7 +20,7 @@ export class NglCheckboxGroup implements OnChanges, AfterContentInit {
   @isRequired
   @Input() label: string | TemplateRef<any>;
 
-  @Input() error: string;
+  @Input() error: string | TemplateRef<any>;
 
   @HostBinding('class.slds-has-error')
   get hasError(): boolean {

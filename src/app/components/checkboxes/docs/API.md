@@ -4,7 +4,7 @@
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | `[label]` | Input label. | string \| TemplateRef | |
-| `[error]` | Error message. | string | |
+| `[error]` | Error message. | string \| TemplateRef | |
 
 Highlights label as a required (does not perform any validation) based onto `<input>`'s `required` property.  
 
@@ -32,6 +32,6 @@ Same API as `<ngl-checkbox>` but SLDS doesn't support `[error]`.
 | Property | Description | Type | Default |
 | -------- | ----------- | ---- | ------- |
 | `[label]` | Input label. | string \| TemplateRef | |
-| `[error]` | Error message. | string | |
+| `[error]` | Error message. | string \| TemplateRef | |
 | `[required]` | Highlights as a required field (does not perform any validation). | boolean | false |
 | `[type]` | UX pattern to display. | 'list' \| 'button' | 'list' |

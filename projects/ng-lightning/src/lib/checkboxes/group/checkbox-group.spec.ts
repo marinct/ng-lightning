@@ -75,6 +75,21 @@ describe('`NglCheckboxGroup`', () => {
     });
   });
 
+  it('should render error message as template', () => {
+    const fixture = createTestComponent(`
+      <ng-template #err>This is an error!</ng-template>
+      <fieldset ngl-checkbox-group label [error]="err">
+        <ngl-checkbox-option label><input ngl type="checkbox"></ngl-checkbox-option>
+        <ngl-checkbox-option label><input ngl type="checkbox"></ngl-checkbox-option>
+      </fieldset>
+    `);
+    const element = fixture.nativeElement.firstElementChild;
+
+    const errorEl = getErrorElement(element);
+    expect(element).toHaveCssClass('slds-has-error');
+    expect(errorEl).toHaveText('This is an error!');
+  });
+
   it('should show required label indication', () => {
     const fixture = createTestComponent(`<fieldset ngl-checkbox-group label [required]="required"></fieldset>`);
     expect(getRequiredElement(fixture.nativeElement)).toBeFalsy();

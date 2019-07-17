@@ -4,7 +4,7 @@ legend.slds-form-element__legend.slds-form-element__label
 .slds-form-element__control
   .slds-checkbox_button-group(*ngIf="type === 'button'; else contentTpl")
     ng-container(*ngTemplateOutlet="contentTpl")
-.slds-form-element__help(*ngIf="error", [id]="errorId") {{error}}
+.slds-form-element__help(*ngIf="hasError", [id]="errorId", [nglInternalOutlet]="error")
 
 ng-template(#contentTpl)
   ng-content
