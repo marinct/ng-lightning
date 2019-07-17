@@ -76,6 +76,15 @@ describe('`NglInput`', () => {
     expect(errorEl).toHaveText('This is an error!');
   });
 
+  it('should handle error as `false` string', () => {
+    const fixture = createTestComponent(`<ngl-input label error="false"><input ngl type="text"></ngl-input>`);
+    const element = fixture.nativeElement.firstElementChild;
+
+    const errorEl = getErrorElement(element);
+    expect(element).not.toHaveCssClass('slds-has-error');
+    expect(errorEl).toBeFalsy();
+  });
+
   it('should support tooltip', () => {
     const fixture = createTestComponent(`
       <ngl-input [label]="label" [fieldLevelHelpTooltip]="'Field Help'">

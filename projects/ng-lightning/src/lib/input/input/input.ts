@@ -27,7 +27,7 @@ export class NglInput implements OnChanges, AfterContentInit, OnDestroy {
 
   @HostBinding('class.slds-has-error')
   get hasError(): boolean {
-    return toBoolean(!!this.error);
+    return toBoolean(this.error);
   }
 
   required: boolean;

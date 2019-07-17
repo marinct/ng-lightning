@@ -27,7 +27,7 @@ function propDecoratorFactory<T, D>(name: string, fallback: (v: T) => D): (targe
   return propDecorator;
 }
 
-export function toBoolean(value: boolean | string): boolean {
+export function toBoolean(value: any): boolean {
   return coerceBooleanProperty(value);
 }
 
