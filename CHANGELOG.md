@@ -1,3 +1,12 @@
+## [4.8.2](https://github.com/ng-lightning/ng-lightning/compare/v4.8.1...v4.8.2) (2019-08-20)
+
+
+### Bug Fixes
+
+* **checkboxes:** support dynamic options ([6c11877](https://github.com/ng-lightning/ng-lightning/commit/6c11877))
+
+
+
 ## [4.8.1](https://github.com/ng-lightning/ng-lightning/compare/v4.8.0...v4.8.1) (2019-07-17)
 
 
