@@ -40,6 +40,13 @@ describe('`NglCheckboxGroup`', () => {
 
     // No messing with `button` type
     expect(fixture.nativeElement.querySelector('.slds-checkbox_button-group')).toBeFalsy();
+
+    const options = element.querySelectorAll('ngl-checkbox-option');
+    options.forEach(e => {
+      expect(e).toHaveCssClass('slds-checkbox');
+      expect(e).not.toHaveCssClass('slds-button');
+      expect(e).not.toHaveCssClass('slds-checkbox_button');
+    });
   });
 
   it('should be able to change label', () => {
@@ -132,6 +139,37 @@ describe('`NglCheckboxGroup`', () => {
       expect(e).toHaveCssClass('slds-checkbox_button__label');
       expect(e).not.toHaveCssClass('slds-checkbox__label');
     });
+
+    const options = fixture.nativeElement.querySelectorAll('ngl-checkbox-option');
+    options.forEach(e => {
+      expect(e).toHaveCssClass('slds-button');
+      expect(e).toHaveCssClass('slds-checkbox_button');
+      expect(e).not.toHaveCssClass('slds-checkbox');
+    });
+  });
+
+  it('should render button group with dynamic options', () => {
+    const fixture = createTestComponent(`
+      <fieldset ngl-checkbox-group label type="button">
+        <ngl-checkbox-option *ngFor="let opt of options" [label]="opt"><input ngl type="checkbox"></ngl-checkbox-option>
+      </fieldset>
+    `);
+    expect(fixture.nativeElement.querySelector('.slds-form-element__control').firstElementChild).toHaveCssClass('slds-checkbox_button-group');
+
+    const labelEls = getOptionLabelElements(fixture.nativeElement);
+    expect(labelEls.map(e => e.textContent.trim())).toEqual(fixture.componentInstance.options);
+
+    labelEls.forEach(e => {
+      expect(e).toHaveCssClass('slds-checkbox_button__label');
+      expect(e).not.toHaveCssClass('slds-checkbox__label');
+    });
+
+    const options = fixture.nativeElement.querySelectorAll('ngl-checkbox-option');
+    options.forEach(e => {
+      expect(e).toHaveCssClass('slds-button');
+      expect(e).toHaveCssClass('slds-checkbox_button');
+      expect(e).not.toHaveCssClass('slds-checkbox');
+    });
   });
 
 });
@@ -151,4 +189,5 @@ export class TestComponent {
   label = 'Group Label';
   error: string;
   required: boolean;
+  options = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 }

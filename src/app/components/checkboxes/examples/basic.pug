@@ -56,14 +56,6 @@
         input(ngl, type="checkbox", [disabled]="disabled")
 
   .slds-col_padded
-    fieldset(ngl-checkbox-group, label="Checkbox Group Label", [error]="hasError ? error : null", [required]="required", [type]="'button'")
-      ngl-checkbox-option(label="Mon")
-        input(ngl, type="checkbox", [disabled]="disabled")
-      ngl-checkbox-option(label="Tue")
-        input(ngl, type="checkbox", [disabled]="disabled")
-      ngl-checkbox-option(label="Wed")
-        input(ngl, type="checkbox", [disabled]="disabled")
-      ngl-checkbox-option(label="Thu")
-        input(ngl, type="checkbox", [disabled]="disabled")
-      ngl-checkbox-option(label="Fri")
+    fieldset(ngl-checkbox-group, label="Checkbox Group Label", [error]="hasError ? error : null", [required]="required", type="button")
+      ngl-checkbox-option(*ngFor="let option of options", [label]="option")
         input(ngl, type="checkbox", [disabled]="disabled")
