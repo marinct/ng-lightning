@@ -18,6 +18,10 @@ function getRequiredElement(element: Element): HTMLDivElement {
   return <HTMLDivElement>element.querySelector('abbr');
 }
 
+function getOptionElements(element: HTMLElement): HTMLElement[] {
+  return selectElements(element, 'ngl-checkbox-option');
+}
+
 function getOptionLabelElements(element: HTMLElement): HTMLElement[] {
   return selectElements(element, 'label');
 }
@@ -41,8 +45,7 @@ describe('`NglCheckboxGroup`', () => {
     // No messing with `button` type
     expect(fixture.nativeElement.querySelector('.slds-checkbox_button-group')).toBeFalsy();
 
-    const options = element.querySelectorAll('ngl-checkbox-option');
-    options.forEach(e => {
+    getOptionElements(element).forEach(e => {
       expect(e).toHaveCssClass('slds-checkbox');
       expect(e).not.toHaveCssClass('slds-button');
       expect(e).not.toHaveCssClass('slds-checkbox_button');
@@ -140,8 +143,7 @@ describe('`NglCheckboxGroup`', () => {
       expect(e).not.toHaveCssClass('slds-checkbox__label');
     });
 
-    const options = fixture.nativeElement.querySelectorAll('ngl-checkbox-option');
-    options.forEach(e => {
+    getOptionElements(fixture.nativeElement).forEach(e => {
       expect(e).toHaveCssClass('slds-button');
       expect(e).toHaveCssClass('slds-checkbox_button');
       expect(e).not.toHaveCssClass('slds-checkbox');
@@ -164,8 +166,7 @@ describe('`NglCheckboxGroup`', () => {
       expect(e).not.toHaveCssClass('slds-checkbox__label');
     });
 
-    const options = fixture.nativeElement.querySelectorAll('ngl-checkbox-option');
-    options.forEach(e => {
+    getOptionElements(fixture.nativeElement).forEach(e => {
       expect(e).toHaveCssClass('slds-button');
       expect(e).toHaveCssClass('slds-checkbox_button');
       expect(e).not.toHaveCssClass('slds-checkbox');
