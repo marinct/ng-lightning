@@ -1,9 +1,9 @@
-import { Directive, ElementRef, Renderer2, HostListener, Inject, forwardRef, HostBinding } from '@angular/core';
+import { Directive, ElementRef, Renderer2, HostListener, HostBinding } from '@angular/core';
 import { uniqueId, trapEvent } from '../util/util';
-import { NglCombobox } from './combobox';
 import { DOWN_ARROW, ENTER, ESCAPE } from '@angular/cdk/keycodes';
 import { Observable, fromEvent } from 'rxjs';
 import { buffer, debounceTime, map } from 'rxjs/operators';
+import { NglComboboxService } from './combobox.service';
 
 const MAX_INTERVAL_BETWEEN_KEYSTROKES = 300; // ms
 
@@ -16,31 +16,32 @@ export class NglComboboxInput {
 
   @HostBinding('readOnly')
   get isReadonly() {
-    return this.combobox.variant === 'base' || this.combobox.hasLookupSingleSelection;
+    return this.service.combobox.variant === 'base' || this.service.combobox.hasLookupSingleSelection;
   }
 
   @HostBinding('attr.aria-autocomplete')
   get ariaAutocomplete() {
-    return this.combobox.isLookup ? 'list' : null;
+    return this.service.combobox.isLookup ? 'list' : null;
   }
 
   @HostBinding('class.slds-combobox__input-value')
   get hasReadonlyValue() {
-    return this.combobox.hasLookupSingleSelection;
+    return this.service.combobox.hasLookupSingleSelection;
   }
 
   get id() {
     return this.el.nativeElement.id;
   }
 
-  constructor(@Inject(forwardRef(() => NglCombobox)) private combobox: NglCombobox,
-              private el: ElementRef, private renderer: Renderer2) {
+  constructor(private service: NglComboboxService,
+              private el: ElementRef,
+              private renderer: Renderer2) {
     const { nativeElement } = this.el;
     this.renderer.addClass(nativeElement, 'slds-input');
     this.renderer.addClass(nativeElement, 'slds-combobox__input');
     this.renderer.setAttribute(nativeElement, 'autoComplete', 'off');
     this.renderer.setAttribute(nativeElement, 'role', 'textbox');
-    this.renderer.setAttribute(nativeElement, 'aria-controls', this.combobox.uid);
+    this.renderer.setAttribute(nativeElement, 'aria-controls', this.service.combobox.uid);
     if (!nativeElement.id) {
       this.renderer.setAttribute(nativeElement, 'id', uniqueId('combobox-input'));
     }
@@ -70,15 +71,15 @@ export class NglComboboxInput {
 
   @HostListener('click')
   onMouseInteraction() {
-    if (this.combobox.hasLookupSingleSelection || (this.combobox.open && this.combobox.isLookup)) {
+    if (this.service.combobox.hasLookupSingleSelection || (this.service.combobox.open && this.service.combobox.isLookup)) {
       return;
     }
-    this.combobox.openChange.emit(!this.combobox.open);
+    this.service.combobox.openChange.emit(!this.service.combobox.open);
   }
 
   @HostListener('blur')
   onBlur() {
-    this.combobox.openChange.emit(false);
+    this.service.combobox.openChange.emit(false);
   }
 
   @HostListener('keydown', ['$event'])
@@ -90,37 +91,37 @@ export class NglComboboxInput {
       return;
     }
 
-    if (this.combobox.open) {
+    if (this.service.combobox.open) {
       switch (keyCode) {
         // User selects currently active option by pressing the `Enter` key
         case ENTER:
           trapEvent(evt);
-          this.combobox.onOptionSelection();
+          this.service.combobox.onOptionSelection();
           return;
 
         // Propagate to keymanager
         default:
-          this.combobox.keyManager.onKeydown(evt);
+          this.service.combobox.keyManager.onKeydown(evt);
           return;
       }
     } else {
 
       // Do nothing if readonly Lookup
-      if (this.combobox.hasLookupSingleSelection) {
+      if (this.service.combobox.hasLookupSingleSelection) {
         return;
       }
 
       // Pressing the `Down` or `Enter` key will expand the collapsed menu
       if (keyCode === DOWN_ARROW || keyCode === ENTER) {
         trapEvent(evt);
-        this.combobox.openChange.emit(true);
+        this.service.combobox.openChange.emit(true);
         return;
       }
 
       // Any key on Lookup should expand the collapsed menu
-      if (this.combobox.isLookup) {
+      if (this.service.combobox.isLookup) {
         // Delay emission so actual value of the input has been updated
-        setTimeout(() => this.combobox.openChange.emit(true), 0);
+        setTimeout(() => this.service.combobox.openChange.emit(true), 0);
       }
     }
   }

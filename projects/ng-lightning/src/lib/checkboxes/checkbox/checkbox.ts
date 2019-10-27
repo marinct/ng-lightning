@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   },
 })
 export class NglCheckbox implements OnChanges, AfterContentInit, OnDestroy {
-  @ContentChild(NglCheckboxInput) input: NglCheckboxInput;
+  @ContentChild(NglCheckboxInput, { static: true }) input: NglCheckboxInput;
 
   @isRequired
   @Input() label: string | TemplateRef<any>;

@@ -403,7 +403,7 @@ describe('Popovers', () => {
   <div></div>`,
 })
 export class TestComponent {
-  @ViewChild(NglPopoverTrigger) popover: NglPopoverTrigger;
+  @ViewChild(NglPopoverTrigger, { static: false }) popover: NglPopoverTrigger;
   placement: string;
   open = true;
   exists: boolean;

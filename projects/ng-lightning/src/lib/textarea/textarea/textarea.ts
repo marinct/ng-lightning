@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   },
 })
 export class NglTextarea implements OnChanges, AfterContentInit, OnDestroy {
-  @ContentChild(NglTextareaInput) input: NglTextareaInput;
+  @ContentChild(NglTextareaInput, { static: true }) input: NglTextareaInput;
 
   @isRequired
   @Input() label: string | TemplateRef<any>;

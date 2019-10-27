@@ -41,7 +41,7 @@ export class NglCarousel implements OnChanges {
 
   @ViewChildren(NglCarouselIndicator) indicators: QueryList<NglCarouselIndicator>;
 
-  @ViewChild('indicatorsEl') indicatorsEl: ElementRef<HTMLElement>;
+  @ViewChild('indicatorsEl', { static: true }) indicatorsEl: ElementRef<HTMLElement>;
 
   @Input() readonly labels = {
     startAutoPlay: 'Start auto-play',

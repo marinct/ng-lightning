@@ -10,7 +10,7 @@ import { NglCheckboxInput } from '../input/input';
   },
 })
 export class NglCheckboxButton implements AfterContentInit {
-  @ContentChild(NglCheckboxInput) input: NglCheckboxInput;
+  @ContentChild(NglCheckboxInput, { static: true }) input: NglCheckboxInput;
 
   @Input() label: string | TemplateRef<any>;
 

@@ -443,7 +443,7 @@ describe('Tooltips', () => {
   `,
 })
 export class TestComponent {
-  @ViewChild(NglTooltipTrigger) tooltip: NglTooltipTrigger;
+  @ViewChild(NglTooltipTrigger, { static: false }) tooltip: NglTooltipTrigger;
   placement: string;
   open = true;
   exists: boolean;

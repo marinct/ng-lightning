@@ -9,12 +9,12 @@ import { LayoutComponent } from './layout/layout.component';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', loadChildren: './intro/intro.module#NglDemoIntroModule', pathMatch: 'full' },
+  { path: '', loadChildren: () => import('./intro/intro.module').then(m => m.NglDemoIntroModule), pathMatch: 'full' },
   {
     path: '', component: LayoutComponent, children: [
-      { path: 'components', loadChildren: './components/components.module#NglDemoComponentsModule' },
-      { path: 'support', loadChildren: './support/support.module#NglDemoSupportModule' },
-      { path: 'get-started', loadChildren: './get-started/get-started.module#NglDemoGetStartedModule' },
+      { path: 'components', loadChildren: () => import('./components/components.module').then(m => m.NglDemoComponentsModule) },
+      { path: 'support', loadChildren: () => import('./support/support.module').then(m => m.NglDemoSupportModule) },
+      { path: 'get-started', loadChildren: () => import('./get-started/get-started.module').then(m => m.NglDemoGetStartedModule) },
     ]
   },
 ];

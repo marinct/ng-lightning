@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   },
 })
 export class NglInput implements OnChanges, AfterContentInit, OnDestroy {
-  @ContentChild(NglInputElement) input: NglInputElement;
+  @ContentChild(NglInputElement, { static: true }) input: NglInputElement;
 
   @isRequired
   @Input() label: string | TemplateRef<any>;

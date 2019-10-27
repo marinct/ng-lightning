@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
   },
 })
 export class NglCheckboxToggle implements AfterContentInit, OnDestroy {
-  @ContentChild(NglCheckboxInput) input: NglCheckboxInput;
+  @ContentChild(NglCheckboxInput, { static: true }) input: NglCheckboxInput;
 
   @Input() label: string | TemplateRef<any>;
 

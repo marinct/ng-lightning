@@ -1,11 +1,11 @@
 import {
   Component, Input, ChangeDetectionStrategy, OnDestroy,
-  ElementRef, Renderer2, HostListener, ChangeDetectorRef, Inject, forwardRef, NgZone
+  ElementRef, Renderer2, HostListener, ChangeDetectorRef, NgZone
 } from '@angular/core';
 import { Highlightable } from '@angular/cdk/a11y';
 import { uniqueId, trapEvent, menuItemScroll } from '../util/util';
 import { InputBoolean } from '../util/convert';
-import { NglCombobox } from './combobox';
+import { NglComboboxService } from './combobox.service';
 
 @Component({
   selector: 'ngl-combobox-option, [nglComboboxOption]',
@@ -34,7 +34,7 @@ export class NglComboboxOption implements Highlightable, OnDestroy {
     this.cd.detectChanges();
 
     if (active) {
-      this.combobox.inputEl.setAriaActiveDescendant(this.uid);
+      this.service.combobox.inputEl.setAriaActiveDescendant(this.uid);
       this.scrollIntoView();
     } else {
       clearTimeout(this.scrollTimer);
@@ -54,7 +54,7 @@ export class NglComboboxOption implements Highlightable, OnDestroy {
   private destroyed = false;
 
   constructor(private element: ElementRef,
-              @Inject(forwardRef(() => NglCombobox)) private combobox: NglCombobox,
+              private service: NglComboboxService,
               private cd: ChangeDetectorRef,
               private ngZone: NgZone,
               renderer: Renderer2) {
@@ -66,7 +66,7 @@ export class NglComboboxOption implements Highlightable, OnDestroy {
   onSelectViaInteraction(evt: MouseEvent) {
     trapEvent(evt);
     if (!this.disabled) {
-      this.combobox.onOptionSelection(this);
+      this.service.combobox.onOptionSelection(this);
     }
   }
 
@@ -74,7 +74,7 @@ export class NglComboboxOption implements Highlightable, OnDestroy {
   hover() {
     if (!this.disabled) {
       this.disableNextScrollIntoView = true;
-      this.combobox.keyManager.setActiveItem(this);
+      this.service.combobox.keyManager.setActiveItem(this);
     }
   }
 

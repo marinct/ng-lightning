@@ -11,7 +11,7 @@ import { HostService } from '../../common/host/host.service';
 export class NglCheckboxOption {
   @Input() label: string | TemplateRef<any>;
 
-  @ContentChild(NglCheckboxInput) input: NglCheckboxInput;
+  @ContentChild(NglCheckboxInput, { static: true }) input: NglCheckboxInput;
 
   constructor(private cd: ChangeDetectorRef, private element: ElementRef, private hostService: HostService) {}
 

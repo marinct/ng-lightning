@@ -9,6 +9,7 @@ import { uniqueId, isOptionSelected, addOptionToSelection } from '../util/util';
 import { InputBoolean, InputNumber } from '../util/convert';
 import { NglComboboxOption } from './combobox-option';
 import { NglComboboxInput } from './combobox-input';
+import { NglComboboxService } from './combobox.service';
 
 export interface NglComboboxOptionItem {
   value: number | string;
@@ -22,7 +23,8 @@ export interface NglComboboxOptionItem {
   templateUrl: './combobox.html',
   host: {
     'class.slds-form-element': 'true',
-  }
+  },
+  providers: [ NglComboboxService ],
 })
 export class NglCombobox implements OnChanges, OnDestroy {
 
@@ -30,7 +32,7 @@ export class NglCombobox implements OnChanges, OnDestroy {
 
   @Input() readonly label: string | TemplateRef<any>;
 
-  uid = uniqueId('combobox');
+  readonly uid = uniqueId('combobox');
 
   @Input() @InputBoolean() readonly open = false;
 
@@ -44,7 +46,7 @@ export class NglCombobox implements OnChanges, OnDestroy {
 
   @Input() @InputNumber() readonly visibleLength: 5 | 7 | 10 = 5;
 
-  @ContentChild(NglComboboxInput) inputEl: NglComboboxInput;
+  @ContentChild(NglComboboxInput, { static: true }) inputEl: NglComboboxInput;
 
   @Input() @InputBoolean() readonly loading: boolean;
 
@@ -70,11 +72,11 @@ export class NglCombobox implements OnChanges, OnDestroy {
     return this._data;
   }
 
-  @ViewChild('overlayOrigin') overlayOrigin: CdkOverlayOrigin;
+  @ViewChild('overlayOrigin', { static: true }) overlayOrigin: CdkOverlayOrigin;
 
-  @ViewChild('cdkOverlay') cdkOverlay: CdkConnectedOverlay;
+  @ViewChild('cdkOverlay', { static: false }) cdkOverlay: CdkConnectedOverlay;
 
-  @ViewChild('dropdown') dropdownElementRef: ElementRef;
+  @ViewChild('dropdown', { static: false }) dropdownElementRef: ElementRef;
 
   overlayWidth = 0;
 
@@ -115,7 +117,10 @@ export class NglCombobox implements OnChanges, OnDestroy {
     return this.isLookup && !this.multiple && this.selectedOptions.length > 0;
   }
 
-  constructor(private ngZone: NgZone, private cd: ChangeDetectorRef) {}
+  constructor(private ngZone: NgZone, private cd: ChangeDetectorRef, private service: NglComboboxService) {
+    this.service.combobox = this;
+    // this.service.openChange = this.openChange;
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.selection) {

@@ -31,8 +31,8 @@ export class NglRating implements OnInit, AfterContentInit {
     this.currentRate = rate;
   }
 
-  @ViewChild('t') defaultTemplate: TemplateRef<any>;
-  @ContentChild(NglRatingIconTemplate) iconTemplate: NglRatingIconTemplate;
+  @ViewChild('t', { static: true }) defaultTemplate: TemplateRef<any>;
+  @ContentChild(NglRatingIconTemplate, { static: false }) iconTemplate: NglRatingIconTemplate;
 
   @Input() set max(max: number | string) {
     this._max = +max;

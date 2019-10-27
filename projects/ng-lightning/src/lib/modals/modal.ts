@@ -34,11 +34,11 @@ export class NglModal implements OnChanges, AfterContentInit, OnDestroy {
 
   @Output() openChange = new EventEmitter();
 
-  @ContentChild(NglModalHeaderTemplate) headerTpl: NglModalHeaderTemplate;
+  @ContentChild(NglModalHeaderTemplate, { static: false }) headerTpl: NglModalHeaderTemplate;
 
-  @ContentChild(NglModalTaglineTemplate) taglineTpl: NglModalTaglineTemplate;
+  @ContentChild(NglModalTaglineTemplate, { static: false }) taglineTpl: NglModalTaglineTemplate;
 
-  @ContentChild(NglModalFooterTemplate) footer: NglModalFooterTemplate;
+  @ContentChild(NglModalFooterTemplate, { static: false }) footer: NglModalFooterTemplate;
 
   @Input() @InputBoolean() dismissOnClickOutside = true;
 

@@ -12,7 +12,7 @@ import { NglRadioInput } from './input/input';
 export class NglRadioOption implements OnInit, AfterContentInit, OnDestroy {
   @Input() label: string | TemplateRef<any>;
 
-  @ContentChild(NglRadioInput) input: NglRadioInput;
+  @ContentChild(NglRadioInput, { static: true }) input: NglRadioInput;
 
   constructor(private radioGroup: NglRadioGroup, private cd: ChangeDetectorRef) {}
 

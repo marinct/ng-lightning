@@ -9,34 +9,34 @@ module.exports = {
     browserName: 'firefox',
     version: 'latest'
   },
-  // 'SL_Safari_9': {
-  //   base: 'SauceLabs',
-  //   browserName: 'safari',
-  //   platform: 'OS X 10.11',
-  //   version: '9'
-  // },
-  'SL_Safari_10': {
+  'SL_SAFARI_11': {
     base: 'SauceLabs',
     browserName: 'safari',
-    platform: 'OS X 10.11',
-    version: '10'
+    platform: 'macOS 10.13',
+    version: '11'
+  },
+  'SL_SAFARI_12': {
+    base: 'SauceLabs',
+    browserName: 'safari',
+    platform: 'macOS 10.13',
+    version: '12'
   },
   'SL_IE_11': {
     base: 'SauceLabs',
     browserName: 'internet explorer',
-    platform: 'Windows 8.1',
+    platform: 'Windows 10',
     version: '11'
   },
-  'SL_EDGE_13': {
+  'SL_EDGE_16': {
     base: 'SauceLabs',
     browserName: 'MicrosoftEdge',
     platform: 'Windows 10',
-    version: '13.10586'
+    version: '16.16299'
   },
-  'SL_EDGE_14': {
+  'SL_EDGE_17': {
     base: 'SauceLabs',
     browserName: 'MicrosoftEdge',
     platform: 'Windows 10',
-    version: '14.14393'
+    version: '17.17134'
   },
 };
