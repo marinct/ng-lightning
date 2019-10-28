@@ -235,7 +235,7 @@ export class AppModule { }
       '@angular/common': '^7.0.0',
       '@angular/compiler': '^7.0.0',
       '@angular/router': '^7.0.0',
-      '@salesforce-ux/design-system': '~2.8.0',
+      '@salesforce-ux/design-system': '~2.9.0',
       'tslib': '^1.9.3',
       'typescript': '~3.1.1',
       'ng-lightning': '^4.0.0'

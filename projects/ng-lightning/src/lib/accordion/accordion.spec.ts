@@ -37,7 +37,7 @@ function expectOpen(element, expected: string[]) {
     const contentEl = getAccordionSectionContent(section);
 
     expect(button.getAttribute('aria-expanded')).toEqual(`${isExpanded}`);
-    expect(contentEl.getAttribute('aria-hidden')).toEqual(`${!isExpanded}`);
+    expect(contentEl.getAttribute('hidden')).toEqual(isExpanded ? null : '');
     expect(contentEl.textContent).toEqual(isExpanded ? `Content ${index}` : '');
   });
 }

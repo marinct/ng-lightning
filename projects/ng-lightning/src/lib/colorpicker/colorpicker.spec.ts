@@ -144,6 +144,7 @@ describe('`NglColorpicker`', () => {
       fixture.whenStable().then(() => {
         expect(getSummaryButtonColor(nativeElement)).toContain(getRGBStyle('#ffddee')); // keep previous state
         expect(componentInstance.onChange).toHaveBeenCalledWith(null);
+        expect(nativeElement.querySelector('.slds-color-picker__summary')).toHaveCssClass('slds-has-error');
         expect(nativeElement.querySelector('.slds-form-error')).toHaveText('Please ensure value is correct');
       });
     });

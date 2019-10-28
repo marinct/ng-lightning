@@ -4,12 +4,11 @@
       [class.slds-has-focus]="active",
       [class.slds-is-selected]="selected",
       [attr.aria-selected]="selected || null",
-      [attr.aria-disabled]="disabled || null",
-      [style.cursor]="disabled ? 'default' : null")
+      [attr.aria-disabled]="disabled || null")
   span.slds-media__figure.slds-listbox__option-icon
     span.slds-icon_container.slds-icon-utility-check.slds-current-color(*ngIf="selected")
       svg.slds-icon.slds-icon_x-small(nglIconName="utility:check")
   span.slds-media__body
-    span.slds-truncate([class.slds-disabled-text]="disabled")
+    span.slds-truncate
       span.slds-assistive-text(*ngIf="selected") Current Selection:
       | {{ label }}
