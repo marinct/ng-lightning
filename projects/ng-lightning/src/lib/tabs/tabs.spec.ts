@@ -83,6 +83,17 @@ describe('Tabs Component', () => {
     expect(getTabContent(fixture.nativeElement)).toBe('Tab 2');
   });
 
+  it('should render the appropriate attributes based on selection', () => {
+    const fixture = createTestComponent();
+    const headers = getTabHeaders(fixture.nativeElement);
+
+    for (let i = 0; i < 4; i++) {
+      const isSelected = i === 1;
+      expect(headers[i].getAttribute('aria-selected')).toEqual(`${isSelected}`);
+      expect(headers[i].getAttribute('tabindex')).toEqual(isSelected ? `0` : `-1`);
+    }
+  });
+
   it('should request tab activation on header click', () => {
     const fixture = createTestComponent();
 
