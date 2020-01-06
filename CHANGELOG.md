@@ -1,3 +1,24 @@
+# [5.0.0](https://github.com/ng-lightning/ng-lightning/compare/v4.8.2...v5.0.0) (2020-01-06)
+
+
+### Bug Fixes
+
+* **tabs:** correct `tabindex` value for non selected header ([f87539b](https://github.com/ng-lightning/ng-lightning/commit/f87539b3d4e38c420a25a64d820820c030fa62fd))
+
+
+### Features
+
+* **app:** support Angular v8 ([752eb14](https://github.com/ng-lightning/ng-lightning/commit/752eb144ed60d39b71f9faba41cc2c54f020a77e))
+* **app:** support LDS v2.9 ([2bd5082](https://github.com/ng-lightning/ng-lightning/commit/2bd5082758d428f6cfd02789f5af9383a86dc8d9))
+
+
+### BREAKING CHANGES
+
+* **app:** ng-lightning requires a minimal version of SLDS 2.9
+* **app:** ng-lightning requires a minimal version of Angular 8
+
+
+
 ## [4.8.2](https://github.com/ng-lightning/ng-lightning/compare/v4.8.1...v4.8.2) (2019-08-20)
 
 
