@@ -1,3 +1,23 @@
+# [6.0.0](https://github.com/ng-lightning/ng-lightning/compare/v5.0.0...v6.0.0) (2020-02-11)
+
+
+### Bug Fixes
+
+* **app:** remove `isRequired` decorator ([9053123](https://github.com/ng-lightning/ng-lightning/commit/9053123df68ecb11ce73ad64476922a2c2da3db8))
+
+
+### Features
+
+* **app:** support Angular v9 ([1ecd81f](https://github.com/ng-lightning/ng-lightning/commit/1ecd81f3617aa83d223965423a002d336d5832ad))
+
+
+### BREAKING CHANGES
+
+* **app:** drop runtime errors for missing required input properties
+* **app:** ng-lightning requires a minimal version of Angular 9
+
+
+
 # [5.0.0](https://github.com/ng-lightning/ng-lightning/compare/v4.8.2...v5.0.0) (2020-01-06)
 
 
