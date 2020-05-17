@@ -1,3 +1,18 @@
+# [6.1.0](https://github.com/ng-lightning/ng-lightning/compare/v6.0.0...v6.1.0) (2020-05-17)
+
+
+### Bug Fixes
+
+* **accordion:** correct button type tp prevent form submission ([9306d61](https://github.com/ng-lightning/ng-lightning/commit/9306d613c6b2c802f4d522a687438cd3294ac0e9)), closes [#505](https://github.com/ng-lightning/ng-lightning/issues/505)
+* **package.json:** strict v9 Angular peer dependencies ([95025f7](https://github.com/ng-lightning/ng-lightning/commit/95025f7cb9e6a116cbc91d4cb3cb08da753ba461)), closes [#508](https://github.com/ng-lightning/ng-lightning/issues/508)
+
+
+### Features
+
+* **combobox:** support custom labels & global configuration ([e11cc72](https://github.com/ng-lightning/ng-lightning/commit/e11cc72e1ab6c9ee71d14f2e471497bb6cea0b59)), closes [#511](https://github.com/ng-lightning/ng-lightning/issues/511)
+
+
+
 # [6.0.0](https://github.com/ng-lightning/ng-lightning/compare/v5.0.0...v6.0.0) (2020-02-11)
 
 
