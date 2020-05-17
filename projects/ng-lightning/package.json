@@ -22,10 +22,10 @@
     "date-fns": "^2.6.0"
   },
   "peerDependencies": {
-    "@angular/cdk": "^8.0.0",
-    "@angular/common": "^8.0.0",
-    "@angular/core": "^8.0.0",
-    "@angular/forms": "^8.0.0"
+    "@angular/cdk": "^9.0.0",
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "@angular/forms": "^9.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
