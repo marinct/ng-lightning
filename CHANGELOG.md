@@ -1,3 +1,12 @@
+## [6.1.1](https://github.com/ng-lightning/ng-lightning/compare/v6.1.0...v6.1.1) (2020-05-27)
+
+
+### Bug Fixes
+
+* **tabs:** change class calculation for content element ([756c607](https://github.com/ng-lightning/ng-lightning/commit/756c6076992f9a4c9d861b3c8fe1e1b1e5cf1781))
+
+
+
 # [6.1.0](https://github.com/ng-lightning/ng-lightning/compare/v6.0.0...v6.1.0) (2020-05-17)
 
 
