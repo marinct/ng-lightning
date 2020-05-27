@@ -67,10 +67,7 @@ export class NglTabs implements AfterContentInit {
   }
 
   tabClass(tab: NglTab) {
-    return {
-      [`slds-tabs_${this.variant}__content`]: true,
-      [`slds-${tab.active ? 'show' : 'hide'}`]: true,
-    };
+    return `slds-tabs_${this.variant}__content slds-${tab.active ? 'show' : 'hide'}`;
   }
 
   trackByTab(index, tab: NglTab) {

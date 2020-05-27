@@ -184,17 +184,25 @@ describe('Tabs Component', () => {
         <ng-template ngl-tab>Tab 2</ng-template>
       </ngl-tabset>
     `);
-    const contents = selectElements(fixture.nativeElement, '.slds-tabs_default__content');
+    const contents = <HTMLDivElement[]>selectElements(fixture.nativeElement, '.slds-tabs_default__content');
 
     expect(contents.length).toBe(3);
     for (let i = 0; i < 3; i++) {
-      expect(contents[i].textContent).toEqual(i === 1 ? `Tab ${i}` : '');
+      const isActive = i === 1;
+      expect(contents[i]).toHaveCssClass('slds-tabs_default__content');
+      expect(contents[i]).toHaveCssClass(isActive ? 'slds-show' : 'slds-hide');
+      expect(contents[i].textContent).toEqual(isActive ? `Tab ${i}` : '');
     }
 
     fixture.componentInstance.lazy = false;
     fixture.detectChanges();
     expect(contents.length).toBe(3);
     for (let i = 0; i < 3; i++) {
+      const isActive = i === 1;
+      expect(contents[i]).toHaveCssClass('slds-tabs_default__content');
+      expect(contents[i]).toHaveCssClass(isActive ? 'slds-show' : 'slds-hide');
+
+      // Content always exists
       expect(contents[i].textContent).toEqual(`Tab ${i}`);
     }
   });
