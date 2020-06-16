@@ -1,3 +1,40 @@
+# [7.0.0](https://github.com/ng-lightning/ng-lightning/compare/v6.1.1...v7.0.0) (2020-06-16)
+
+
+### Bug Fixes
+
+* **combobox:** single selections shouldn't be cleared upon re-selection ([b5655d3](https://github.com/ng-lightning/ng-lightning/commit/b5655d319fffb1b698a13f3057690eb9e9340c23)), closes [#507](https://github.com/ng-lightning/ng-lightning/issues/507) [#509](https://github.com/ng-lightning/ng-lightning/issues/509)
+
+
+### Features
+
+* **datepicker:** expose <input> to allow extra functionality ([2ca43e0](https://github.com/ng-lightning/ng-lightning/commit/2ca43e0bd1861edeab024a3b8713647e0ae444f7))
+* **datepicker:** option to display the date pattern as placeholder of input ([9b71b8f](https://github.com/ng-lightning/ng-lightning/commit/9b71b8faa09187b7c74e1ace916c94eea3af12fd))
+
+
+### BREAKING CHANGES
+
+* **datepicker:** `ngl-datepicker-input` should contain the `<input
+nglDatepickerInput>
+
+  Before:
+
+  ```html
+  <ngl-datepicker-input readonlyInput placeholder="..."></ngl-datepicker-input>
+  ```
+
+  After:
+
+  ```html
+  <ngl-datepicker-input><input nglDatepickerInput readonly placeholder="..." /></ngl-datepicker-input>
+  ```
+* **combobox:** Single selection comboboxes (picklists) will not be
+cleared upon re-selection the already selected value. If you want to
+keep the old behaviour (although it is not recommended) you should
+either provide an external clear button or an extra "empty" option.
+
+
+
 ## [6.1.1](https://github.com/ng-lightning/ng-lightning/compare/v6.1.0...v6.1.1) (2020-05-27)
 
 
