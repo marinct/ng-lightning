@@ -1,6 +1,7 @@
 {
   "examples": {
-    "basic": "Basic Usage"
+    "basic": "Basic Usage",
+    "disabled": "Disabled"
   },
   "lds": "combobox"
 }
