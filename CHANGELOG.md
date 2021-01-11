@@ -1,3 +1,12 @@
+## [7.0.1](https://github.com/ng-lightning/ng-lightning/compare/v7.0.0...v7.0.1) (2021-01-11)
+
+
+### Bug Fixes
+
+* **tooltip:** fix interactive mode ([382a159](https://github.com/ng-lightning/ng-lightning/commit/382a1590315159cb99fd7b6ba59d972bf1d0956a)), closes [#528](https://github.com/ng-lightning/ng-lightning/issues/528)
+
+
+
 # [7.0.0](https://github.com/ng-lightning/ng-lightning/compare/v6.1.1...v7.0.0) (2020-06-16)
 
 
