@@ -1,3 +1,12 @@
+## [7.0.2](https://github.com/ng-lightning/ng-lightning/compare/v7.0.1...v7.0.2) (2021-03-16)
+
+
+### Bug Fixes
+
+* **paginations:** show correct `start` and `end` values when `current` is undefined ([655ba96](https://github.com/ng-lightning/ng-lightning/commit/655ba96a15312de1f5de1cd3f3344edd22f1951c))
+
+
+
 ## [7.0.1](https://github.com/ng-lightning/ng-lightning/compare/v7.0.0...v7.0.1) (2021-01-11)
 
 
