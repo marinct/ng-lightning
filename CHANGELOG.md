@@ -1,3 +1,16 @@
+# [8.0.0](https://github.com/ng-lightning/ng-lightning/compare/v7.0.2...v8.0.0) (2021-06-27)
+
+
+### Features
+
+* **app:** update project to angular 12 ([510188f](https://github.com/ng-lightning/ng-lightning/commit/510188f38482352e2f5288c424bf8fc219fa74ff))
+
+### BREAKING CHANGES
+
+* **app:** ng-lightning requires a minimal version of Angular 12
+
+
+
 ## Next version
 
 ### Features
