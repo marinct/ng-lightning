@@ -31,10 +31,10 @@ header.component__header.slds-border_bottom.slds-grid.slds-wrap.slds-m-bottom_me
 
         ng-template(ngPreserveWhitespaces)&attributes({ ['#markup' + example.id]: '' })
           pre.language-markup(ngNonBindable)
-            code !{example.html}
+            code !{example.html.replace(/@/g, '&#64;')}
         ng-template(ngPreserveWhitespaces)&attributes({ ['#ts' + example.id]: '' })
           pre.language-typescript
-            code !{example.ts}
+            code !{example.ts.replace(/@/g, '&#64;')}
 
         .slds-is-relative.slds-m-top_large(style="min-height: 25px;")
           app-demo-example-docs(dir=self.dir, file=example.id,
